@@ -438,10 +438,31 @@ const Portfolio = () => {
               </a>
               <a
                 href="mailto:sritajpatel@outlook.com"
+                aria-label="Send email to Sritaj"
                 className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-6 py-3 rounded-lg transition-all"
               >
                 <Mail size={20} />
                 Email
+              </a>
+              <a
+                href="https://github.com/sritajkumarpatel"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open GitHub profile in new tab"
+                className="flex items-center gap-2 bg-black hover:bg-slate-800 px-6 py-3 rounded-lg transition-all"
+              >
+                <Github size={20} />
+                GitHub
+              </a>
+              <a
+                href="https://medium.com/@sritajp"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Medium profile in new tab"
+                className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-6 py-3 rounded-lg transition-all"
+              >
+                <BookOpen size={20} />
+                Medium
               </a>
               {/* Phone number removed as requested */}
             </div>
@@ -733,7 +754,7 @@ const Portfolio = () => {
       {/* About Section */}
       {activeSection === "about" && (
         <section className="py-12 px-6">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <h3 className="text-3xl font-bold mb-8">About Me</h3>
             <div className="glass-card bg-slate-800/50 backdrop-blur rounded-xl p-8 border border-purple-500/20 mb-6">
               <p className="text-gray-300 mb-6">
