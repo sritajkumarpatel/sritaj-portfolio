@@ -100,7 +100,7 @@ export default function About({ experience, mediumArticles }) {
         <p className="text-gray-300 mb-4">
           I believe quality is a culture, not just a phase. I am a strong
           advocate for{" "}
-          <strong className="text-purple-300">Shift Left testing</strong> —
+          <strong className="text-purple-300">Shift Left testing</strong>;
           catching issues when they are cheapest to fix. My approach to
           leadership is to lead from the trenches: I enjoy deep technical work
           while stepping up to guide teams as a Scrum Master when required. I
@@ -113,7 +113,7 @@ export default function About({ experience, mediumArticles }) {
         </h4>
         <p className="text-gray-300 mb-2">
           I am actively transitioning from traditional automation toward
-          AI-driven engineering. I build systems for testing AI and LLMs — not
+          AI-driven engineering. I build systems for testing AI and LLMs; not
           just using AI tools, but creating systems that evaluate and ensure
           their reliability and safety.
         </p>

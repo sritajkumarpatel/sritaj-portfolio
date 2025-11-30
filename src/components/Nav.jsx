@@ -29,7 +29,11 @@ export default function Nav({ activeSection, setActiveSection }) {
                   : "text-gray-300 hover:text-purple-300"
               }`}
             >
-              {section === "experience" ? "IT Experience" : section}
+              {section === "experience"
+                ? "IT Experience"
+                : section === "tech"
+                  ? "Techstack"
+                  : section}
             </button>
           ))}
         </div>
