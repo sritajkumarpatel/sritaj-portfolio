@@ -32,6 +32,23 @@ const Portfolio = () => {
     return () => clearInterval(interval);
   }, []);
 
+  // Prevent the browser from restoring scroll position on page load (and avoid initial jumps)
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+    try {
+      // If the URL contains a hash, respect it (do not override scrolling to the anchor)
+      if (window.location.hash) return;
+      // Prevent automatic restoration
+      if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+      }
+      // Immediately ensure the user sees the top of the page on first render
+      window.scrollTo(0, 0);
+    } catch (err) {
+      // ignore errors
+    }
+  }, []);
+
   const techStacks = {
     "AI & LLM": [
       "LangChain",
