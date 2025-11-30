@@ -3,7 +3,7 @@ import Section from "./Section";
 
 export default function Certifications({ certifications }) {
   return (
-    <Section>
+    <Section className="bg-slate-900/50">
       <h3 className="text-3xl font-bold mb-8">Licenses & Certifications</h3>
       <div className="space-y-6">
         {certifications.map((cert, index) => (

@@ -4,7 +4,7 @@ import { BookOpen, ExternalLink } from "lucide-react";
 
 export default function MediumArticles({ articles }) {
   return (
-    <Section>
+    <Section className="bg-slate-900/50">
       <div className="flex items-center gap-3 mb-6">
         <BookOpen className="text-purple-400" size={32} />
         <h3 className="text-3xl font-bold">Medium Articles</h3>

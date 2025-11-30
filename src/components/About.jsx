@@ -3,7 +3,7 @@ import Section from "./Section";
 
 export default function About({ experience, mediumArticles }) {
   return (
-    <Section>
+    <Section className="bg-slate-900/50">
       <h3 className="text-3xl font-bold mb-8">About Me</h3>
       <div className="glass-card bg-slate-800/50 backdrop-blur rounded-xl p-8 border border-purple-500/20 mb-6">
         <p className="text-gray-300 mb-6">
