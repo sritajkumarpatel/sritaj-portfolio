@@ -1,0 +1,82 @@
+{
+  "AI Engineering & Orchestration": [
+    "LangChain",
+    "RAG",
+    "DeepEval",
+    { "name": "Model Context Protocol (MCP)", "slug": "model-context-protocol" },
+    { "name": "Hugging Face", "slug": "huggingface" },
+    { "name": "Ollama", "slug": "ollama" },
+    "Local LLMs",
+    "Azure AI"
+  ],
+  "AI Models & Assistants": [
+    "OpenAI",
+    "Claude",
+    "ChatGPT",
+    { "name": "GitHub Copilot", "slug": "github-copilot" },
+    "GenSpark"
+  ],
+  "Programming Languages": [
+    "Python",
+    "Java",
+    "JavaScript",
+    "TypeScript"
+  ],
+  "Backend & Frameworks": [
+    "Spring Boot",
+    "Node.js",
+    "Hibernate",
+    "JPA"
+  ],
+  "Frontend Development": [
+    "ReactJS"
+  ],
+  "UI Test Automation": [
+    "Selenium",
+    "Playwright",
+    "Cypress",
+    "TestCafe"
+  ],
+  "API & Unit Testing": [
+    "REST Assured",
+    "Postman",
+    "TestNG",
+    "JUnit",
+    "Cucumber"
+  ],
+  "DevOps & CI/CD": [
+    "Jenkins",
+    "GitLab CI",
+    "GitHub Actions",
+    "Azure DevOps"
+  ],
+  "Cloud & Infrastructure": [
+    "Microsoft Azure",
+    "AWS",
+    "Docker",
+    "Kubernetes"
+  ],
+  "Databases & Caching": [
+    "MySQL",
+    "PostgreSQL",
+    "MongoDB",
+    "H2",
+    "Redis"
+  ],
+  "Observability & Reporting": [
+    "Elasticsearch",
+    "Kibana",
+    "Extent Reports"
+  ],
+  "Tools & Methodologies": [
+    "Git",
+    "Bitbucket",
+    "JIRA",
+    "Confluence",
+    "Azure Boards",
+    "Scrum",
+    "Kanban",
+    "VS Code",
+    "IntelliJ IDEA"
+  ]
+}

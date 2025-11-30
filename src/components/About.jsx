@@ -24,7 +24,9 @@ export default function About({ experience, mediumArticles }) {
             <ul className="text-gray-300 space-y-1 text-sm">
               <li>• Selenium, Playwright, TestCafe automation</li>
               <li>• Custom framework design & architecture</li>
-              <li>• CI/CD integration (Jenkins, GitLab, Azure DevOps)</li>
+              <li>
+                • CI/CD integration (Jenkins, Github Actions, Azure DevOps)
+              </li>
               <li>• API testing with REST Assured</li>
               <li>• Performance & security testing</li>
             </ul>

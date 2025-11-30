@@ -6,6 +6,7 @@ import Certifications from "./components/Certifications";
 import certifications from "./data/certifications.json";
 import Experience from "./components/Experience";
 import TechStack from "./components/TechStack";
+import techStacks from "./data/techStacks.json";
 import GithubRepos from "./components/GithubRepos";
 import githubRepos from "./data/githubRepos.json";
 import MediumArticles from "./components/MediumArticles";
@@ -29,38 +30,7 @@ const App = () => {
     return () => clearInterval(t);
   }, []);
   // Note: certifications list is now loaded from `src/data/certifications.json`
-  const techStacks = {
-    "Cloud & Platforms": [
-      "Microsoft Azure",
-      "AWS",
-      "GitHub Copilot",
-      "Microsoft Copilot",
-    ],
-    Databases: ["MySQL", "MongoDB", "PostgreSQL", "H2", "Redis"],
-    "Testing Tools": [
-      "Postman",
-      "JMeter",
-      "SoapUI",
-      "Selenium Grid",
-      "BrowserStack",
-    ],
-    "Monitoring & Reporting": [
-      "Elasticsearch",
-      "Kibana",
-      "Extent Reports",
-      "Allure",
-      "Maven Cucumber Reports",
-    ],
-    "Agile & Collaboration": [
-      "Scrum",
-      "Kanban",
-      "JIRA",
-      "Confluence",
-      "Azure Boards",
-      "Git",
-      "Bitbucket",
-    ],
-  };
+  // techStacks is now loaded from `src/data/techStacks.json` (imported at top)
 
   {
     /* Hero Section */
