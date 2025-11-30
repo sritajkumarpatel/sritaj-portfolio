@@ -23,9 +23,9 @@ export default function Hero({ titles, titleIndex, setTitleIndex }) {
               href="https://www.linkedin.com/in/sritaj-patel"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg transition-all"
+              className="flex items-center gap-2 px-6 py-3 rounded-lg transition-transform duration-200 text-white bg-[#0A66C2] hover:bg-[#084B8A] hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A66C2]/40"
             >
-              <Linkedin size={20} />
+              <Linkedin size={20} className="text-white" />
               LinkedIn
             </a>
             <a
@@ -41,9 +41,9 @@ export default function Hero({ titles, titleIndex, setTitleIndex }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open GitHub profile in new tab"
-              className="flex items-center gap-2 bg-black hover:bg-slate-800 px-6 py-3 rounded-lg transition-all"
+              className="flex items-center gap-2 px-6 py-3 rounded-lg transition-transform duration-200 text-white bg-[#24292F] hover:bg-[#111214] hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#24292F]/40"
             >
-              <Github size={20} />
+              <Github size={20} className="text-white" />
               GitHub
             </a>
             <a
@@ -51,9 +51,9 @@ export default function Hero({ titles, titleIndex, setTitleIndex }) {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open Medium profile in new tab"
-              className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-6 py-3 rounded-lg transition-all"
+              className="flex items-center gap-2 px-6 py-3 rounded-lg transition-transform duration-200 text-white bg-[#00ab6c] hover:bg-[#008c54] hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#00ab6c]/40"
             >
-              <BookOpen size={20} />
+              <BookOpen size={20} className="text-white" />
               Medium
             </a>
           </div>
