@@ -1,0 +1,77 @@
+[
+  {
+    "company": "DevOn",
+    "roles": [
+      { "title": "Technical Architect III", "period": "March 2025 - Present" },
+      { "title": "Technical Architect II", "period": "March 2024 - February 2025" },
+      { "title": "Associate Architect II", "period": "March 2023 - February 2024" },
+      { "title": "Senior Principal Development Specialist", "period": "February 2022 - February 2023" }
+    ],
+    "duration": "3 years 10 months",
+    "current": true,
+    "location": "Bengaluru, Karnataka, India",
+    "highlights": [
+      "Served as Scrum Master, facilitating Agile ceremonies and sprint execution",
+      "Created and maintained Test Automation frameworks with latest tools",
+      "Set up and monitored Jenkins pipelines for CI/CD",
+      "Drove continuous improvement and innovation within teams"
+    ],
+    "awards": [
+      {
+        "name": "Breakthrough Achiever of the Year - 2024",
+        "description": "Recognition for exceptional innovation and contribution"
+      }
+    ]
+  },
+  {
+    "company": "Aurigo Software Technologies",
+    "roles": [
+      { "title": "Senior Software Developer - Test - 1", "period": "July 2021 - February 2022" },
+      { "title": "Senior Software Engineer 1 - Quality", "period": "January 2021 - July 2021" },
+      { "title": "Software Engineer 2 - Quality", "period": "July 2020 - January 2021" },
+      { "title": "Quality Engineer", "period": "July 2019 - June 2020" }
+    ],
+    "duration": "2 years 8 months",
+    "current": false,
+    "location": "Bengaluru, Karnataka, India",
+    "highlights": [
+      "Implemented POM pages and developed automation scripts",
+      "Managed and led QE team for sprint release activities",
+      "Designed test strategies and developed automation frameworks",
+      "Conducted root cause analysis for legacy issues"
+    ],
+    "awards": [
+      { "name": "Aurigo Spot Award - Q1 2021", "description": "Recognition for exceptional contribution" },
+      { "name": "Aurigo Bravo Award - Q3 2019", "description": "Outstanding performance and dedication" }
+    ]
+  },
+  {
+    "company": "Unizen Technologies Pvt Ltd",
+    "roles": [
+      { "title": "Software Engineer", "period": "August 2016 - July 2019" }
+    ],
+    "duration": "3 years",
+    "current": false,
+    "location": "Bengaluru, Karnataka, India",
+    "highlights": [
+      "Worked on IoT and Embedded Platforms domain",
+      "Developed Automation frameworks using Selenium/Sikuli",
+      "Performed functional and non-functional testing",
+      "Collaborated with developers for iOS application debugging"
+    ]
+  },
+  {
+    "company": "Inowits Technologies",
+    "roles": [
+      { "title": "Quality Analyst", "period": "August 2015 - January 2016" }
+    ],
+    "duration": "6 months",
+    "current": false,
+    "location": "India",
+    "highlights": [
+      "Tested SAP ERP Application (Black Box Testing)",
+      "Designed and executed Test Cases",
+      "Contributed to PMO activities and project planning"
+    ]
+  }
+]
