@@ -1,10 +1,14 @@
 import React from "react";
+import { User } from "lucide-react";
 import Section from "./Section";
 
 export default function About({ experience, mediumArticles }) {
   return (
     <Section className="bg-slate-900/50">
-      <h3 className="text-3xl font-bold mb-8">About Me</h3>
+      <div className="flex items-center gap-3 mb-6">
+        <User className="text-purple-400" size={32} />
+        <h3 className="text-3xl font-bold">About Me</h3>
+      </div>
       <div className="glass-card bg-slate-800/50 backdrop-blur rounded-xl p-8 border border-purple-500/20 mb-6">
         <p className="text-gray-300 mb-6">
           I’ve spent the last decade breaking software to help build it better,

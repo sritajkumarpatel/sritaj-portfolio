@@ -240,10 +240,13 @@ nav h1{
     letter-spacing: 0.4px;
     font-weight: 800;
     font-size: 1.45rem;
+    white-space: nowrap;
 }
 nav button { color: rgba(210,210,230,0.85);} 
 .nav-right button { padding: 0.6rem 1rem; font-size: 1rem; border-radius: 0.5rem; color: rgba(210,210,230,0.9); }
 .nav-right button:hover { color: #f3e8ff; }
+.nav-right { flex-wrap: nowrap; margin-left: 1rem; }
+.nav-right button { white-space: nowrap; }
 .text-purple-400 { color: #c084fc; }
 
 /* Slightly larger footer padding and subtle top border */
@@ -301,3 +304,13 @@ footer a:hover { color: #c084fc; }
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
 }
+
+/* VisualConcepts preview box */
+.visual-preview { overflow: hidden; border-radius: 0.5rem; }
+.visual-preview iframe { width: 100%; height: 14rem; border: none; }
+.visual-preview-loading, .visual-preview-failed { min-height: 6rem; display: flex; align-items: center; justify-content: center; }
+.emoji-row { display: flex; align-items: center; gap: 0.5rem; justify-content: center; }
+.emoji { display:inline-block; font-size: 1.8rem; }
+.visual-preview-failed .emoji { filter: drop-shadow(0 2px 4px rgba(0,0,0,0.12)); }
+.emoji-row { display: flex; align-items: center; gap: 0.5rem; justify-content: center; }
+.emoji { display:inline-block; }

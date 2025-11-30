@@ -14,6 +14,7 @@ import MediumArticles from "./components/MediumArticles";
 import mediumArticles from "./data/mediumArticles.json";
 import Projects from "./components/Projects";
 import About from "./components/About";
+import VisualConcepts from "./components/VisualConcepts";
 import Footer from "./components/Footer";
 const App = () => {
   const [activeSection, setActiveSection] = useState("about");
@@ -102,6 +103,7 @@ const App = () => {
         )}
 
         {activeSection === "tech" && <TechStack techStacks={techStacks} />}
+        {activeSection === "visual" && <VisualConcepts />}
 
         {activeSection === "github" && <GithubRepos repos={githubRepos} />}
 

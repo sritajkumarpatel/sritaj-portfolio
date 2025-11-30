@@ -1,10 +1,14 @@
 import React from "react";
 import Section from "./Section";
+import { Award } from "lucide-react";
 
 export default function Certifications({ certifications }) {
   return (
     <Section className="bg-slate-900/50">
-      <h3 className="text-3xl font-bold mb-8">Licenses & Certifications</h3>
+      <div className="flex items-center gap-3 mb-6">
+        <Award className="text-purple-400" size={32} />
+        <h3 className="text-3xl font-bold">Licenses & Certifications</h3>
+      </div>
       <div className="grid gap-6 md:grid-cols-2">
         {certifications.map((cert, index) => (
           <div

@@ -9,6 +9,7 @@ export default function Nav({ activeSection, setActiveSection }) {
     "tech",
     "github",
     "articles",
+    "visual",
     "projects",
   ];
 
@@ -28,12 +29,15 @@ export default function Nav({ activeSection, setActiveSection }) {
                   ? "text-purple-400 border-b-2 border-purple-400"
                   : "text-gray-300 hover:text-purple-300"
               }`}
+              style={{ whiteSpace: "nowrap" }}
             >
               {section === "experience"
                 ? "IT Experience"
                 : section === "tech"
                   ? "Techstack"
-                  : section}
+                  : section === "visual"
+                    ? "Visual Concepts"
+                    : section}
             </button>
           ))}
         </div>

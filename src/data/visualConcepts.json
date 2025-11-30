@@ -1,0 +1,22 @@
+[
+  {
+    "title": "The Evolution of AI Workflows",
+    "description": "Quick comparison of traditional vs AI-driven workflows, Agentic AI in Software Development and Testing.",
+    "url": "https://claude.ai/public/artifacts/abe1c107-e698-4197-833b-94745383a9fe"
+  },
+  {
+    "title": "MCP Architecture",
+    "description": "Quick visuals demonstrating Model Context Protocol architecture and flow.",
+    "url": "https://claude.ai/public/artifacts/af3eeadc-0da2-41ac-ba81-32f0ee2a7bfa"
+  },
+  {
+    "title": "LLM Evaluation Metrics",
+    "description": "Evaluating LLM outputs using Deepeval, RAGAs and other AI systems.",
+    "url": "https://claude.ai/public/artifacts/477d64c5-bb1d-4ecd-bd24-4e58b5202a27"
+  },
+  {
+    "title": "RAG System Explained",
+    "description": "Problem with regular LLM calls and how RAG systems help improve reliability and accuracy.",
+    "url": "https://claude.ai/public/artifacts/d59db365-b370-4d10-913e-51109edc1d08"
+  }
+]

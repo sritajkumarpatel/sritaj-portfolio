@@ -1,10 +1,14 @@
 import React from "react";
+import { Briefcase } from "lucide-react";
 import Section from "./Section";
 
 export default function Experience({ experience }) {
   return (
     <Section className="bg-slate-900/50">
-      <h3 className="text-3xl font-bold mb-8">IT Experience</h3>
+      <div className="flex items-center gap-3 mb-6">
+        <Briefcase className="text-purple-400" size={32} />
+        <h3 className="text-3xl font-bold">IT Experience</h3>
+      </div>
       <div className="space-y-8">
         {experience.map((exp, index) => (
           <div
