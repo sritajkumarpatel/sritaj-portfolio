@@ -24,6 +24,17 @@ export default function Certifications({ certifications }) {
                   </p>
                 )}
               </div>
+              {cert.logo && (
+                <div className="mt-0 md:mt-0 md:ml-6 flex-shrink-0 flex items-center justify-center w-20 h-20">
+                  <img
+                    src={cert.logo}
+                    alt={`${cert.issuer} logo`}
+                    title={cert.name}
+                    loading="lazy"
+                    className={`object-contain w-20 h-20`}
+                  />
+                </div>
+              )}
             </div>
             <div className="flex flex-wrap gap-2 mt-4">
               {cert.skills.map((skill) => (

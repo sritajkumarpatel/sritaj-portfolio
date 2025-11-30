@@ -119,6 +119,9 @@ const Portfolio = () => {
       date: "Issued Sep 2025, Expires Sep 2027",
       credential: "8E66B2A94F431888",
       skills: ["Microsoft Copilot", "GitHub Copilot"],
+      logoFile: "microsoft",
+      logoBoxWidth: "rect-lg",
+      logoSize: "lg",
     },
     {
       name: "Microsoft Certified: Azure AI Fundamentals",
@@ -126,6 +129,9 @@ const Portfolio = () => {
       date: "Issued Mar 2025",
       credential: "64DCC57895AAAEDA",
       skills: ["AI", "Azure AI"],
+      logoFile: "azure-ai",
+      logoBoxWidth: "rect-md",
+      logoSize: "md",
     },
     {
       name: "Microsoft Certified: Azure Fundamentals",
@@ -133,6 +139,9 @@ const Portfolio = () => {
       date: "Issued Mar 2025",
       credential: "2DADC406D25FA2D2",
       skills: ["Microsoft Azure"],
+      logoFile: "azure",
+      logoBoxWidth: "rect-md",
+      logoSize: "md",
     },
     {
       name: "DevOps Foundation",
@@ -140,12 +149,18 @@ const Portfolio = () => {
       date: "Issued Oct 2024, Expires Oct 2027",
       credential: "GR53300157S5P",
       skills: ["DevOps"],
+      logoFile: "devops-institute",
+      logoBoxWidth: "rect-md",
+      logoSize: "md",
     },
     {
       name: "Professional Scrum Master™ I (PSM I)",
       issuer: "Scrum.org",
       date: "Issued Jan 2024",
       skills: ["Scrum", "Agile", "Scrum Master"],
+      logoFile: "scrum-org",
+      logoBoxWidth: "rect-sm",
+      logoSize: "md",
     },
     {
       name: "SDC18 - PG Diploma in Software Development (Full Stack) May'20",
@@ -159,6 +174,9 @@ const Portfolio = () => {
         "Java",
         "JavaScript",
       ],
+      logoFile: "iiitb",
+      logoBoxWidth: "rect-sm",
+      logoSize: "md",
     },
     {
       name: "Certified ScrumMaster® (CSM®)",
@@ -166,8 +184,28 @@ const Portfolio = () => {
       date: "Issued Mar 2023, Expired Mar 2025",
       credential: "1759400",
       skills: ["Scrum Master", "Agile", "Scrum"],
+      logoFile: "scrum-alliance",
+      logoBoxWidth: "rect-sm",
+      logoSize: "md",
     },
   ];
+
+  // Detect available local logo files (PNG/SVG) under src/assets/certifications and add URLs to the cert objects.
+  const logoModules = import.meta.glob("./assets/certifications/*.{png,svg}", {
+    query: "?url",
+    import: "default",
+    eager: true,
+  });
+  const getLogoUrl = (file) => {
+    if (!file) return undefined;
+    const matchKey = Object.keys(logoModules).find((k) => k.includes(file));
+    return matchKey ? logoModules[matchKey] : undefined;
+  };
+
+  const certificationsWithLogos = certifications.map((c) => ({
+    ...c,
+    logo: c.logoFile ? getLogoUrl(c.logoFile) : undefined,
+  }));
 
   const experience = [
     {
@@ -288,7 +326,7 @@ const Portfolio = () => {
 
       {/* Certifications Section */}
       {activeSection === "certifications" && (
-        <Certifications certifications={certifications} />
+        <Certifications certifications={certificationsWithLogos} />
       )}
 
       {activeSection === "experience" && <Experience experience={experience} />}
