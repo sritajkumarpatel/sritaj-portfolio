@@ -411,16 +411,16 @@ const Portfolio = () => {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6">
+      <section className="pt-32 pb-8 px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-4">
             <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent h-16 flex items-center justify-center transition-all duration-500">
               {titles[titleIndex]}
             </h2>
             <p className="text-xl text-gray-300 mb-6">
               Bridging Quality Engineering with AI Innovation
             </p>
-            <p className="text-gray-400 max-w-2xl mx-auto mb-8">
+            <p className="text-gray-400 max-w-2xl mx-auto mb-6">
               Passionate about leveraging AI and LLMs to revolutionize software
               testing and quality practices. Combining 10 years of QE expertise
               with cutting-edge AI technologies to build intelligent testing
@@ -451,9 +451,9 @@ const Portfolio = () => {
 
       {/* Certifications Section */}
       {activeSection === "certifications" && (
-        <section className="py-20 px-6">
+        <section className="py-12 px-6">
           <div className="max-w-6xl mx-auto">
-            <h3 className="text-3xl font-bold mb-12">
+            <h3 className="text-3xl font-bold mb-8">
               Licenses & Certifications
             </h3>
             <div className="space-y-6">
@@ -495,9 +495,9 @@ const Portfolio = () => {
 
       {/* IT Experience Section */}
       {activeSection === "experience" && (
-        <section className="py-20 px-6 bg-slate-900/50">
+        <section className="py-12 px-6 bg-slate-900/50">
           <div className="max-w-6xl mx-auto">
-            <h3 className="text-3xl font-bold mb-12">IT Experience</h3>
+            <h3 className="text-3xl font-bold mb-8">IT Experience</h3>
             <div className="space-y-8">
               {experience.map((exp, index) => (
                 <div
@@ -581,9 +581,9 @@ const Portfolio = () => {
 
       {/* Tech Stack Section */}
       {activeSection === "tech" && (
-        <section className="py-20 px-6 bg-slate-900/50">
+        <section className="py-12 px-6 bg-slate-900/50">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-12">
+            <div className="flex items-center gap-3 mb-6">
               <Code className="text-purple-400" size={32} />
               <h3 className="text-3xl font-bold">Tech Stack</h3>
             </div>
@@ -615,9 +615,9 @@ const Portfolio = () => {
 
       {/* GitHub Repos Section */}
       {activeSection === "github" && (
-        <section className="py-20 px-6 bg-slate-900/50">
+        <section className="py-12 px-6 bg-slate-900/50">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-12">
+            <div className="flex items-center gap-3 mb-6">
               <Github className="text-purple-400" size={32} />
               <h3 className="text-3xl font-bold">GitHub Repositories</h3>
             </div>
@@ -658,9 +658,9 @@ const Portfolio = () => {
 
       {/* Medium Articles Section */}
       {activeSection === "articles" && (
-        <section className="py-20 px-6">
+        <section className="py-12 px-6">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-12">
+            <div className="flex items-center gap-3 mb-6">
               <BookOpen className="text-purple-400" size={32} />
               <h3 className="text-3xl font-bold">Medium Articles</h3>
             </div>
@@ -694,9 +694,9 @@ const Portfolio = () => {
 
       {/* Claude Artifacts Section */}
       {activeSection === "projects" && (
-        <section className="py-20 px-6 bg-slate-900/50">
+        <section className="py-12 px-6 bg-slate-900/50">
           <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-12">
+            <div className="flex items-center gap-3 mb-6">
               <Zap className="text-purple-400" size={32} />
               <h3 className="text-3xl font-bold">AI-Powered Projects</h3>
             </div>
@@ -732,10 +732,10 @@ const Portfolio = () => {
 
       {/* About Section */}
       {activeSection === "about" && (
-        <section className="py-20 px-6">
+        <section className="py-12 px-6">
           <div className="max-w-4xl mx-auto">
             <h3 className="text-3xl font-bold mb-8">About Me</h3>
-            <div className="glass-card bg-slate-800/50 backdrop-blur rounded-xl p-8 border border-purple-500/20 mb-8">
+            <div className="glass-card bg-slate-800/50 backdrop-blur rounded-xl p-8 border border-purple-500/20 mb-6">
               <p className="text-gray-300 mb-6">
                 With 10 years of experience in software quality engineering, I'm
                 on a mission to transform traditional testing practices by
