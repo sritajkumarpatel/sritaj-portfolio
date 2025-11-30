@@ -18,9 +18,13 @@ import Footer from "./components/Footer";
 const App = () => {
   const [activeSection, setActiveSection] = useState("about");
   const titles = [
-    "Technical Architect & AI/LLM Engineer",
-    "Quality Engineering & Automation",
-    "AI for Test Automation",
+    "Technical Architect at DevOn",
+    "Quality Engineering",
+    "Scrum Master",
+    "AI Engineer in making",
+    "Bug Fixer & Developer",
+    "CI/CD & Automation Enthusiast",
+    "Occasional Cloud Guy",
   ];
   const [titleIndex, setTitleIndex] = useState(0);
   useEffect(() => {
@@ -76,7 +80,7 @@ const App = () => {
   const claudeArtifacts = [];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
+    <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
       {/* Navigation */}
       <Nav activeSection={activeSection} setActiveSection={setActiveSection} />
 
@@ -87,28 +91,32 @@ const App = () => {
         setTitleIndex={setTitleIndex}
       />
 
-      {/* Certifications Section */}
-      {activeSection === "certifications" && (
-        <Certifications certifications={certificationsWithLogos} />
-      )}
+      <main className="flex-1">
+        {/* Certifications Section */}
+        {activeSection === "certifications" && (
+          <Certifications certifications={certificationsWithLogos} />
+        )}
 
-      {activeSection === "experience" && <Experience experience={experience} />}
+        {activeSection === "experience" && (
+          <Experience experience={experience} />
+        )}
 
-      {activeSection === "tech" && <TechStack techStacks={techStacks} />}
+        {activeSection === "tech" && <TechStack techStacks={techStacks} />}
 
-      {activeSection === "github" && <GithubRepos repos={githubRepos} />}
+        {activeSection === "github" && <GithubRepos repos={githubRepos} />}
 
-      {activeSection === "articles" && (
-        <MediumArticles articles={mediumArticles} />
-      )}
+        {activeSection === "articles" && (
+          <MediumArticles articles={mediumArticles} />
+        )}
 
-      {activeSection === "projects" && <Projects />}
+        {activeSection === "projects" && <Projects />}
 
-      {activeSection === "about" && (
-        <About experience={experience} mediumArticles={mediumArticles} />
-      )}
+        {activeSection === "about" && (
+          <About experience={experience} mediumArticles={mediumArticles} />
+        )}
 
-      {/* Footer */}
+        {/* Footer */}
+      </main>
       <Footer />
     </div>
   );
