@@ -7,11 +7,18 @@ export default function About({ experience, mediumArticles }) {
       <h3 className="text-3xl font-bold mb-8">About Me</h3>
       <div className="glass-card bg-slate-800/50 backdrop-blur rounded-xl p-8 border border-purple-500/20 mb-6">
         <p className="text-gray-300 mb-6">
-          With 10 years of experience in software quality engineering, I'm on a
-          mission to transform traditional testing practices by integrating AI
-          and LLM technologies. My journey spans from manual testing to building
-          sophisticated automation frameworks, and now pioneering AI-driven
-          quality solutions.
+          I’ve spent the last decade breaking software to help build it better,
+          evolving from manual testing to architecting complex automation
+          frameworks. My approach blends the discipline of 'Shift Left'
+          engineering with the potential of AI, using tools like Playwright and
+          LangChain to make testing smarter, not just faster. I believe quality
+          is a team sport, and I’m passionate about bridging the gap between
+          developers and QA to bake reliability into every stage of development.
+          I’m on a mission to prove that AI doesn’t replace human judgment; it
+          supercharges it to deliver software that users love. While I thrive as
+          a hands-on contributor, I naturally step up to lead when the team
+          needs direction, using my Scrum Master hat to unblock barriers and
+          foster a culture of ownership.
         </p>
         <h4 className="text-xl font-semibold text-purple-400 mt-6 mb-3">
           Core Competencies

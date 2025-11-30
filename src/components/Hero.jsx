@@ -13,10 +13,11 @@ export default function Hero({ titles, titleIndex, setTitleIndex }) {
             Bridging Quality Engineering with AI Innovation
           </p>
           <p className="text-gray-400 max-w-2xl mx-auto mb-6">
-            Passionate about leveraging AI and LLMs to revolutionize software
-            testing and quality practices. Combining 10 years of QE expertise
-            with cutting-edge AI technologies to build intelligent testing
-            solutions and drive continuous innovation in Agile environments.
+            With a decade in QE and a Scrum Master's mindset, I love the craft
+            of coding as much as the art of leading teams. I am an AI Engineer
+            in the making, constantly learning and building to revolutionize
+            testing practices. I thrive on solving complex problems, whether
+            through human collaboration or cutting-edge technology.
           </p>
           <div className="flex justify-center gap-4">
             <a
