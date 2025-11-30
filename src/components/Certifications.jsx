@@ -5,11 +5,11 @@ export default function Certifications({ certifications }) {
   return (
     <Section className="bg-slate-900/50">
       <h3 className="text-3xl font-bold mb-8">Licenses & Certifications</h3>
-      <div className="space-y-6">
+      <div className="grid gap-6 md:grid-cols-2">
         {certifications.map((cert, index) => (
           <div
             key={index}
-            className="glass-card bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all"
+            className="glass-card bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all h-full"
           >
             <div className="flex justify-between items-start mb-3">
               <div>
