@@ -1,0 +1,56 @@
+[
+  {
+    "title": "learn_mcp_2025",
+    "description": "Repository for learning Model Context Protocol",
+    "tech": [
+      "Python"
+    ],
+    "link": "https://github.com/sritajkumarpatel/learn_mcp_2025",
+    "stars": 0
+  },
+  {
+    "title": "learn_openai_apis",
+    "description": "",
+    "tech": [
+      "Python"
+    ],
+    "link": "https://github.com/sritajkumarpatel/learn_openai_apis",
+    "stars": 0
+  },
+  {
+    "title": "learn_fastAPI_25",
+    "description": "Demo project demonstrating FastAPI usage.",
+    "tech": [
+      "JavaScript"
+    ],
+    "link": "https://github.com/sritajkumarpatel/learn_fastAPI_25",
+    "stars": 0
+  },
+  {
+    "title": "learn_llmtesting_2025",
+    "description": "Project demonstrating LLM testing using Deepeval with OpenAI and local LLMs as judge",
+    "tech": [
+      "Python"
+    ],
+    "link": "https://github.com/sritajkumarpatel/learn_llmtesting_2025",
+    "stars": 0
+  },
+  {
+    "title": "learn_langchain_retrievers_2025",
+    "description": "Project demonstrating LangChain Retriever capabilities.",
+    "tech": [
+      "Python"
+    ],
+    "link": "https://github.com/sritajkumarpatel/learn_langchain_retrievers_2025",
+    "stars": 0
+  },
+  {
+    "title": "learn_local_rag_demo_2025",
+    "description": "Project demonstrating RAG capabilities with local llm models",
+    "tech": [
+      "Python"
+    ],
+    "link": "https://github.com/sritajkumarpatel/learn_local_rag_demo_2025",
+    "stars": 0
+  }
+]

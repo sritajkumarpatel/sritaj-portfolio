@@ -6,6 +6,7 @@ import Certifications from "./components/Certifications";
 import Experience from "./components/Experience";
 import TechStack from "./components/TechStack";
 import GithubRepos from "./components/GithubRepos";
+import githubRepos from "./data/githubRepos.json";
 import MediumArticles from "./components/MediumArticles";
 import mediumArticles from "./data/mediumArticles.json";
 import Projects from "./components/Projects";
@@ -108,40 +109,8 @@ const Portfolio = () => {
   // Run `npm run update:medium` to refresh from your Medium feed (https://medium.com/feed/@sritajp).
   // The JSON file is located at `src/data/mediumArticles.json` and can also be edited manually.
 
-  const githubRepos = [
-    {
-      title: "LangChain Retrievers 2025",
-      description:
-        "Project demonstrating LangChain Retriever capabilities for advanced RAG implementations",
-      tech: ["Python", "LangChain", "AI", "RAG"],
-      link: "https://github.com/sritajkumarpatel/learn_langchain_retrievers_2025",
-      stars: 0,
-    },
-    {
-      title: "LLM Testing 2025",
-      description:
-        "Project demonstrating LLM testing using Deepeval with OpenAI and local LLMs as judge",
-      tech: ["Python", "Deepeval", "OpenAI", "LLM Testing"],
-      link: "https://github.com/sritajkumarpatel/learn_llmtesting_2025",
-      stars: 0,
-    },
-    {
-      title: "Local RAG Demo 2025",
-      description:
-        "Project demonstrating RAG capabilities with local LLM models",
-      tech: ["Python", "RAG", "Local LLM", "AI"],
-      link: "https://github.com/sritajkumarpatel/learn_local_rag_demo_2025",
-      stars: 0,
-    },
-    {
-      title: "Model Context Protocol (MCP) 2025",
-      description:
-        "Repository for learning Model Context Protocol - the new standard for LLM integrations",
-      tech: ["Python", "MCP", "AI", "LLM"],
-      link: "https://github.com/sritajkumarpatel/learn_mcp_2025",
-      stars: 0,
-    },
-  ];
+  // githubRepos loaded from JSON so an update script can refresh it automatically
+  // Run `npm run update:github` to refresh the repository list from GitHub
 
   const certifications = [
     {

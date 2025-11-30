@@ -9,7 +9,8 @@
     "preview": "vite preview",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
-    "update:medium": "node scripts/update-medium.js"
+    "update:medium": "node scripts/update-medium.js",
+    "update:github": "node scripts/update-github.js"
   },
   "dependencies": {
     "react": "^18.3.1",
