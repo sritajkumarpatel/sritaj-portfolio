@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 // removed duplicate import
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Certifications from "./components/Certifications";
+import certifications from "./data/certifications.json";
 import Experience from "./components/Experience";
 import TechStack from "./components/TechStack";
 import GithubRepos from "./components/GithubRepos";
@@ -12,78 +13,23 @@ import mediumArticles from "./data/mediumArticles.json";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Footer from "./components/Footer";
-
-const Portfolio = () => {
+const App = () => {
   const [activeSection, setActiveSection] = useState("about");
-  const [titleIndex, setTitleIndex] = useState(0);
-
   const titles = [
-    "Quality Engineer",
-    "AI Enthusiast",
-    "AI Engineer",
-    "Test Automation Specialist",
-    "Scrum Master",
+    "Technical Architect & AI/LLM Engineer",
+    "Quality Engineering & Automation",
+    "AI for Test Automation",
   ];
-
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      setTitleIndex((prev) => (prev + 1) % titles.length);
-    }, 2500);
-    return () => clearInterval(interval);
+  const [titleIndex, setTitleIndex] = useState(0);
+  useEffect(() => {
+    const t = setInterval(
+      () => setTitleIndex((i) => (i + 1) % titles.length),
+      6000
+    );
+    return () => clearInterval(t);
   }, []);
-
-  // Prevent the browser from restoring scroll position on page load (and avoid initial jumps)
-  React.useEffect(() => {
-    if (typeof window === "undefined") return;
-    try {
-      // If the URL contains a hash, respect it (do not override scrolling to the anchor)
-      if (window.location.hash) return;
-      // Prevent automatic restoration
-      if ("scrollRestoration" in window.history) {
-        window.history.scrollRestoration = "manual";
-      }
-      // Immediately ensure the user sees the top of the page on first render
-      window.scrollTo(0, 0);
-    } catch (err) {
-      // ignore errors
-    }
-  }, []);
-
+  // Note: certifications list is now loaded from `src/data/certifications.json`
   const techStacks = {
-    "AI & LLM": [
-      "LangChain",
-      "Deepeval",
-      "RAG",
-      "Model Context Protocol (MCP)",
-      "OpenAI",
-      "Local LLMs",
-      "Azure AI",
-    ],
-    "Test Automation": [
-      "Selenium",
-      "Playwright",
-      "TestCafe",
-      "Cypress",
-      "REST Assured",
-      "TestNG",
-      "Cucumber",
-    ],
-    "Programming Languages": ["Python", "Java", "JavaScript", "TypeScript"],
-    "Frameworks & Libraries": [
-      "Spring Boot",
-      "ReactJS",
-      "Node.js",
-      "Hibernate",
-      "JPA",
-    ],
-    "CI/CD & DevOps": [
-      "Jenkins",
-      "GitLab CI",
-      "Azure DevOps",
-      "GitHub Actions",
-      "Docker",
-      "Kubernetes",
-    ],
     "Cloud & Platforms": [
       "Microsoft Azure",
       "AWS",
@@ -129,83 +75,8 @@ const Portfolio = () => {
   // githubRepos loaded from JSON so an update script can refresh it automatically
   // Run `npm run update:github` to refresh the repository list from GitHub
 
-  const certifications = [
-    {
-      name: "Microsoft Certified: GitHub Copilot",
-      issuer: "Microsoft",
-      date: "Issued Sep 2025, Expires Sep 2027",
-      credential: "8E66B2A94F431888",
-      skills: ["Microsoft Copilot", "GitHub Copilot"],
-      logoFile: "microsoft",
-      logoBoxWidth: "rect-lg",
-      logoSize: "lg",
-    },
-    {
-      name: "Microsoft Certified: Azure AI Fundamentals",
-      issuer: "Microsoft",
-      date: "Issued Mar 2025",
-      credential: "64DCC57895AAAEDA",
-      skills: ["AI", "Azure AI"],
-      logoFile: "azure-ai",
-      logoBoxWidth: "rect-md",
-      logoSize: "md",
-    },
-    {
-      name: "Microsoft Certified: Azure Fundamentals",
-      issuer: "Microsoft",
-      date: "Issued Mar 2025",
-      credential: "2DADC406D25FA2D2",
-      skills: ["Microsoft Azure"],
-      logoFile: "azure",
-      logoBoxWidth: "rect-md",
-      logoSize: "md",
-    },
-    {
-      name: "DevOps Foundation",
-      issuer: "DEVOPS INSTITUTE",
-      date: "Issued Oct 2024, Expires Oct 2027",
-      credential: "GR53300157S5P",
-      skills: ["DevOps"],
-      logoFile: "devops-institute",
-      logoBoxWidth: "rect-md",
-      logoSize: "md",
-    },
-    {
-      name: "Professional Scrum Master™ I (PSM I)",
-      issuer: "Scrum.org",
-      date: "Issued Jan 2024",
-      skills: ["Scrum", "Agile", "Scrum Master"],
-      logoFile: "scrum-org",
-      logoBoxWidth: "rect-sm",
-      logoSize: "md",
-    },
-    {
-      name: "SDC18 - PG Diploma in Software Development (Full Stack) May'20",
-      issuer: "International Institute of Information Technology Bangalore",
-      date: "Issued Sep 2021",
-      credential: "38226393",
-      skills: [
-        "Software Development",
-        "ReactJs",
-        "Spring Boot",
-        "Java",
-        "JavaScript",
-      ],
-      logoFile: "iiitb",
-      logoBoxWidth: "rect-sm",
-      logoSize: "md",
-    },
-    {
-      name: "Certified ScrumMaster® (CSM®)",
-      issuer: "Scrum Alliance",
-      date: "Issued Mar 2023, Expired Mar 2025",
-      credential: "1759400",
-      skills: ["Scrum Master", "Agile", "Scrum"],
-      logoFile: "scrum-alliance",
-      logoBoxWidth: "rect-sm",
-      logoSize: "md",
-    },
-  ];
+  // Certifications are loaded from `src/data/certifications.json` (imported at top)
+  // If you need to override locally, edit `src/data/certifications.json` instead
 
   // Detect available local logo files (PNG/SVG) under src/assets/certifications and add URLs to the cert objects.
   const logoModules = import.meta.glob("./assets/certifications/*.{png,svg}", {
@@ -221,7 +92,12 @@ const Portfolio = () => {
 
   const certificationsWithLogos = certifications.map((c) => ({
     ...c,
-    logo: c.logoFile ? getLogoUrl(c.logoFile) : undefined,
+    // prefer logoUrl if provided in JSON for external or absolute URLs
+    logo: c.logoUrl
+      ? c.logoUrl
+      : c.logoFile
+        ? getLogoUrl(c.logoFile)
+        : undefined,
   }));
 
   const experience = [
@@ -368,4 +244,4 @@ const Portfolio = () => {
   );
 };
 
-export default Portfolio;
+export default App;

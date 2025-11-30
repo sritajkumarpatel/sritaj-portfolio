@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Microsoft Certified: GitHub Copilot",
+    "issuer": "Microsoft",
+    "date": "Issued Sep 2025, Expires Sep 2027",
+    "credential": "8E66B2A94F431888",
+    "skills": ["Microsoft Copilot", "GitHub Copilot"],
+    "logoFile": "microsoft"
+  },
+  {
+    "name": "Microsoft Certified: Azure AI Fundamentals",
+    "issuer": "Microsoft",
+    "date": "Issued Mar 2025",
+    "credential": "64DCC57895AAAEDA",
+    "skills": ["AI", "Azure AI"],
+    "logoFile": "azure-ai"
+  },
+  {
+    "name": "Microsoft Certified: Azure Fundamentals",
+    "issuer": "Microsoft",
+    "date": "Issued Mar 2025",
+    "credential": "2DADC406D25FA2D2",
+    "skills": ["Microsoft Azure"],
+    "logoFile": "azure"
+  },
+  {
+    "name": "DevOps Foundation",
+    "issuer": "DEVOPS INSTITUTE",
+    "date": "Issued Oct 2024, Expires Oct 2027",
+    "credential": "GR53300157S5P",
+    "skills": ["DevOps"],
+    "logoFile": "devops-institute"
+  },
+  {
+    "name": "Professional Scrum Master™ I (PSM I)",
+    "issuer": "Scrum.org",
+    "date": "Issued Jan 2024",
+    "skills": ["Scrum", "Agile", "Scrum Master"],
+    "logoFile": "scrum-org"
+  },
+  {
+    "name": "SDC18 - PG Diploma in Software Development (Full Stack) May'20",
+    "issuer": "International Institute of Information Technology Bangalore",
+    "date": "Issued Sep 2021",
+    "credential": "38226393",
+    "skills": ["Software Development", "ReactJs", "Spring Boot", "Java", "JavaScript"],
+    "logoFile": "iiitb"
+  },
+  {
+    "name": "Certified ScrumMaster® (CSM®)",
+    "issuer": "Scrum Alliance",
+    "date": "Issued Mar 2023, Expired Mar 2025",
+    "credential": "1759400",
+    "skills": ["Scrum Master", "Agile", "Scrum"],
+    "logoFile": "scrum-alliance"
+  }
+]
