@@ -7,6 +7,7 @@ import Experience from "./components/Experience";
 import TechStack from "./components/TechStack";
 import GithubRepos from "./components/GithubRepos";
 import MediumArticles from "./components/MediumArticles";
+import mediumArticles from "./data/mediumArticles.json";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Footer from "./components/Footer";
@@ -103,89 +104,9 @@ const Portfolio = () => {
   {
     /* Hero component is used instead of inline markup above */
   }
-  const mediumArticles = [
-    {
-      title: "RAG Facts: How LangChain Retrievers Streamline LLM Workflows",
-      description:
-        "Deep dive into how LangChain retrievers optimize RAG implementations and improve LLM response quality",
-      link: "https://blog.gopenai.com/rag-facts-how-langchain-retrievers-streamline-llm-workflows-df7c94c5dc63",
-      date: "2025",
-    },
-    {
-      title: "RAG Facts: Understanding Why LLMs Need the Question Too",
-      description:
-        "Exploring the importance of query context in retrieval-augmented generation systems",
-      link: "https://blog.gopenai.com/rag-facts-retrieval-understanding-why-llms-need-the-question-too-b519de103aea",
-      date: "2025",
-    },
-    {
-      title:
-        "The Evolution of Java Interfaces: New Features for Modern Developers",
-      description:
-        "Comprehensive guide to Java interface evolution, covering default methods, functional programming, and sealed types",
-      link: "https://medium.com/@sritajp/the-evolution-of-java-interfaces-new-features-for-the-modern-developer-test-engineers-7de183af274b",
-      date: "Oct 2024",
-    },
-    {
-      title: "Optimizing Web Applications for Test Automation",
-      description:
-        "Best practices for developers to build applications that are easier to test and automate",
-      link: "https://medium.com/@sritajp/optimizing-web-applications-for-test-automation-best-practices-for-developers-e6d5163bc097",
-      date: "2024",
-    },
-    {
-      title:
-        "Breaking Away from Retro Boards: My Experiment with Open Discussions",
-      description:
-        "An innovative approach to sprint retrospectives that encourages authentic team conversations",
-      link: "https://medium.com/@sritajp/breaking-away-from-retro-boards-my-experiment-with-open-discussions-09951e517063",
-      date: "2024",
-    },
-    {
-      title:
-        "Finding Your True Purpose: Applying Ikigai to Life and Work in Tech",
-      description:
-        "Exploring the Japanese concept of Ikigai and its application to finding fulfillment in tech careers",
-      link: "https://medium.com/@sritajp/finding-your-true-purpose-applying-ikigai-to-life-and-work-in-tech-82a253d1ea26",
-      date: "2024",
-    },
-    {
-      title:
-        "Balancing Connection and Objectivity: The Scrum Master's Challenge",
-      description:
-        "Navigating the delicate balance between team relationships and maintaining professional objectivity",
-      link: "https://medium.com/@sritajp/balancing-connection-and-objectivity-the-scrum-masters-challenge-bc6b1202578f",
-      date: "2024",
-    },
-    {
-      title: "Why Emotional Intelligence Matters for Scrum Masters",
-      description:
-        "Understanding the critical role of EQ in effective Scrum Master leadership and team dynamics",
-      link: "https://medium.com/@sritajp/why-does-emotional-intelligence-matter-for-scrum-masters-4e8b1bf17907",
-      date: "2024",
-    },
-    {
-      title: "Persisting Values with React's useRef Hook",
-      description:
-        "Managing DOM interactions and persisting values across renders using React's useRef hook",
-      link: "https://medium.com/@sritajp/persisting-values-and-managing-dom-interactions-with-reacts-useref-hook-b053df9ac2ca",
-      date: "2024",
-    },
-    {
-      title: "Mastering Side Effects with React's useEffect Hook",
-      description:
-        "Comprehensive guide to managing side effects in functional components using useEffect",
-      link: "https://medium.com/@sritajp/mastering-side-effects-in-functional-components-with-reacts-useeffect-hook-1f5bcdc74577",
-      date: "2024",
-    },
-    {
-      title: "State Management Made Easy with React's useState Hook",
-      description:
-        "A practical guide to managing component state effectively with React's useState hook",
-      link: "https://medium.com/@sritajp/state-management-made-easy-with-reacts-usestate-hook-9f95a137527c",
-      date: "2024",
-    },
-  ];
+  // mediumArticles are loaded from a JSON file so they can be updated programmatically.
+  // Run `npm run update:medium` to refresh from your Medium feed (https://medium.com/feed/@sritajp).
+  // The JSON file is located at `src/data/mediumArticles.json` and can also be edited manually.
 
   const githubRepos = [
     {

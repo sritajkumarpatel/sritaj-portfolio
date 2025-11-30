@@ -1,0 +1,62 @@
+[
+  {
+    "title": "RAG Facts: How LangChain Retrievers Streamline LLM Workflows",
+    "link": "https://blog.gopenai.com/rag-facts-how-langchain-retrievers-streamline-llm-workflows-df7c94c5dc63",
+    "date": "Mon, 20 Oct 2025 06:45:49 GMT",
+    "description": ""
+  },
+  {
+    "title": "RAG Facts: Retrieval ≠ Understanding: Why LLMs Need the Question Too",
+    "link": "https://blog.gopenai.com/rag-facts-retrieval-understanding-why-llms-need-the-question-too-b519de103aea",
+    "date": "Fri, 17 Oct 2025 14:56:29 GMT",
+    "description": ""
+  },
+  {
+    "title": "Breaking Away from Retro Boards: My Experiment with Open Discussions",
+    "link": "https://medium.com/@sritajp/breaking-away-from-retro-boards-my-experiment-with-open-discussions-09951e517063",
+    "date": "Fri, 28 Feb 2025 12:49:08 GMT",
+    "description": ""
+  },
+  {
+    "title": "Finding Your True Purpose: Applying Ikigai to Life and Work in Tech",
+    "link": "https://medium.com/@sritajp/finding-your-true-purpose-applying-ikigai-to-life-and-work-in-tech-82a253d1ea26",
+    "date": "Wed, 27 Nov 2024 14:44:45 GMT",
+    "description": ""
+  },
+  {
+    "title": "Balancing Connection and Objectivity: The Scrum Master’s Challenge",
+    "link": "https://medium.com/@sritajp/balancing-connection-and-objectivity-the-scrum-masters-challenge-bc6b1202578f",
+    "date": "Mon, 21 Oct 2024 03:43:40 GMT",
+    "description": ""
+  },
+  {
+    "title": "Optimizing Web Applications for Test Automation: Best Practices for Developers",
+    "link": "https://medium.com/@sritajp/optimizing-web-applications-for-test-automation-best-practices-for-developers-e6d5163bc097",
+    "date": "Sat, 19 Oct 2024 05:28:49 GMT",
+    "description": ""
+  },
+  {
+    "title": "The Evolution of Java Interfaces: New Features for the Modern Developer & Test Engineers",
+    "link": "https://medium.com/@sritajp/the-evolution-of-java-interfaces-new-features-for-the-modern-developer-test-engineers-7de183af274b",
+    "date": "Thu, 10 Oct 2024 11:10:09 GMT",
+    "description": ""
+  },
+  {
+    "title": "Why Does Emotional Intelligence Matter for Scrum Masters?",
+    "link": "https://medium.com/@sritajp/why-does-emotional-intelligence-matter-for-scrum-masters-4e8b1bf17907",
+    "date": "Fri, 20 Sep 2024 17:44:42 GMT",
+    "description": ""
+  },
+  {
+    "title": "Persisting Values and Managing DOM Interactions with React’s useRef Hook",
+    "link": "https://medium.com/@sritajp/persisting-values-and-managing-dom-interactions-with-reacts-useref-hook-b053df9ac2ca",
+    "date": "Thu, 30 May 2024 19:35:52 GMT",
+    "description": ""
+  },
+  {
+    "title": "Mastering Side Effects in Functional Components with React’s useEffect Hook",
+    "link": "https://medium.com/@sritajp/mastering-side-effects-in-functional-components-with-reacts-useeffect-hook-1f5bcdc74577",
+    "date": "Thu, 23 May 2024 08:44:52 GMT",
+    "description": ""
+  }
+]
