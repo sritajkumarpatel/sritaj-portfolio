@@ -1,0 +1,303 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    color-scheme: dark;
+    color: rgba(255, 255, 255, 0.87);
+    background-color: #0f172a;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Full background gradient & subtle radial highlight */
+body {
+    background-image: radial-gradient(700px 400px at 8% 92%, rgba(147, 51, 234, 0.16), transparent 10%), linear-gradient(180deg, #060617 0%, #0f172a 40%, #13092a 80%);
+}
+
+#root {
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Tailwind-like utilities */
+.bg-slate-900 {
+    background-color: rgb(15 23 42);
+}
+
+.bg-slate-800 {
+    background-color: rgb(30 41 59);
+}
+
+.bg-slate-700 {
+    background-color: rgb(51 65 85);
+}
+
+.bg-purple-900 {
+    background-color: rgb(88 28 135);
+}
+
+.bg-purple-600 {
+    background-color: rgb(147 51 234);
+}
+
+.bg-purple-400 {
+    background-color: rgb(192 132 252);
+}
+
+.bg-pink-600 {
+    background-color: rgb(219 39 119);
+}
+
+.bg-yellow-600 {
+    background-color: rgb(202 138 4);
+}
+
+.bg-green-600 {
+    background-color: rgb(22 163 74);
+}
+
+.text-purple-400 {
+    color: rgb(192 132 252);
+}
+
+.text-purple-300 {
+    color: rgb(216 180 254);
+}
+
+.text-purple-200 {
+    color: rgb(233 213 255);
+}
+
+.text-pink-400 {
+    color: rgb(244 114 182);
+}
+
+.text-pink-300 {
+    color: rgb(249 168 212);
+}
+
+.text-yellow-400 {
+    color: rgb(250 204 21);
+}
+
+.text-yellow-300 {
+    color: rgb(253 224 71);
+}
+
+.text-green-300 {
+    color: rgb(134 239 172);
+}
+
+.text-gray-300 {
+    color: rgb(209 213 219);
+}
+
+.text-gray-400 {
+    color: rgb(156 163 175);
+}
+
+.text-gray-500 {
+    color: rgb(107 114 128);
+}
+
+.border-purple-500 {
+    border-color: rgb(168 85 247);
+}
+
+.border-purple-400 {
+    border-color: rgb(192 132 252);
+}
+
+.border-yellow-500 {
+    border-color: rgb(234 179 8);
+}
+
+.rounded-lg {
+    border-radius: 0.5rem;
+}
+
+.rounded-xl {
+    border-radius: 0.75rem;
+}
+
+.rounded-2xl {
+    border-radius: 1rem;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.backdrop-blur {
+    backdrop-filter: blur(12px);
+}
+
+/* Border utilities */
+.border-b-2 { border-bottom-width: 2px; }
+
+/* Hover text utility (used via class names with hover in JSX) */
+/* We cannot easily replicate the 'hover:' prefix as in Tailwind; however, default visible styles will show on pointer interactions via hover states below. */
+.hover-text-purple-300:hover { color: #f9a8d4; }
+
+/* Hero title styling */
+.hero-title { font-size: 3.5rem; line-height: 1.05; }
+
+
+/* Re-usable glass card styling to mimic screenshot */
+.glass-card {
+    background: linear-gradient(180deg, rgba(20, 20, 30, 0.6), rgba(18, 20, 28, 0.55));
+    border: 1px solid rgba(168, 85, 247, 0.12);
+    box-shadow: 0 18px 40px rgba(88, 28, 135, 0.14), inset 0 1px 0 rgba(255,255,255,0.02);
+    transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+}
+.glass-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(168, 85, 247, 0.36);
+    box-shadow: 0 48px 80px rgba(88, 28, 135, 0.24), 0 3px 0 rgba(192, 132, 252, 0.06);
+}
+
+/* A subtle left accent line like the screenshot */
+.experience-card {
+    position: relative;
+    overflow: visible; /* so ::before accent isn't cut off */
+    padding-left: 3.5rem; /* offset for left accent */
+}
+.experience-card::before {
+    content: "";
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    bottom: 16px;
+    width: 3px;
+    background: linear-gradient(180deg, rgba(192,132,252,0.95), rgba(219,39,119,0.75));
+    border-radius: 3px;
+    opacity: 0.95;
+}
+
+/* Date badge on right side for roles - more visible */
+.experience-card .text-gray-400.text-sm { /* the dates on the right in experience cards */
+    color: rgba(156,163,175,0.95);
+    min-width: 11rem;
+    text-align: right;
+}
+
+/* Award card highlight */
+.glass-card .bg-yellow-600\/10, .bg-yellow-600\/10 {
+    background: linear-gradient(180deg, rgba(202,138,4,0.06), rgba(202,138,4,0.04));
+    border: 1px solid rgba(234,179,8,0.12);
+}
+
+/* Small rounded pills for tags */
+.glass-card span[class*="rounded-full"] {
+    background: linear-gradient(90deg, rgba(147,51,234,0.08), rgba(219,39,119,0.06));
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+/* reduce heading weight a bit for smaller screens */
+@media (max-width: 768px) {
+    .hero-title { font-size: 2.25rem; }
+    .max-w-6xl { padding-left: 1rem; padding-right: 1rem; }
+    .experience-card::before { left: 12px; top: 12px; bottom: 12px; }
+    .experience-card { padding-left: 2.5rem; }
+}
+
+/* Improve section heading styles */
+h3, .text-3xl {
+    color: #e9d5ff;
+}
+
+/* subtle card section gradient */
+.bg-slate-800\/50 {
+    background: linear-gradient(180deg, rgba(20,20,30,0.45), rgba(15, 12, 25, 0.45));
+}
+
+/* Make nav and active accent more like screenshot */
+nav {
+    background: linear-gradient(180deg, rgba(10, 10, 15, 0.6), rgba(10, 6, 15, 0.3));
+    box-shadow: 0 8px 30px rgba(10, 6, 20, 0.65);
+}
+nav h1{
+    letter-spacing: 0.4px;
+    font-weight: 800;
+    font-size: 1.45rem;
+}
+nav button { color: rgba(210,210,230,0.85);} 
+.nav-right button { padding: 0.6rem 1rem; font-size: 1rem; border-radius: 0.5rem; color: rgba(210,210,230,0.9); }
+.nav-right button:hover { color: #f3e8ff; }
+.text-purple-400 { color: #c084fc; }
+
+/* Slightly larger footer padding and subtle top border */
+footer {
+    border-top: 1px solid rgba(168, 85, 247, 0.08);
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+/* Make role title inside experience standout */
+.experience-card .text-lg.font-semibold.text-purple-200 { color: #e9d5ff; }
+
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Note: layout, spacing, breakpoints and utilities are provided by Tailwind now. */
+
+/* Footer text & icons */
+footer p { font-size: 1rem; color: rgba(209,213,219,0.9); }
+footer a:hover { color: #c084fc; }
+
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(15 23 42);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(88 28 135);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(147 51 234);
+}
+
+/* Text clamp utilities */
+.line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
