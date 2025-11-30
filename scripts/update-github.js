@@ -28,17 +28,64 @@ async function run() {
   const repos = await res.json();
 
   // Filter and map into the format we use in the site
-  const mapped = repos
+  const filtered = repos
     .filter((r) => r.name && !EXCLUDE.includes(r.name))
     .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at))
-    .map((r) => ({
-      title: r.name,
-      description: r.description || "",
-      tech: r.language ? [r.language] : [],
-      link: r.html_url,
-      stars: r.stargazers_count || 0,
-    }))
     .slice(0, 20);
+
+  // Augment repos with topics and languages and construct a combined `tech` array.
+  const mapped = await Promise.all(
+    filtered.map(async (r) => {
+      const repoName = r.name;
+      const repoApi = `https://api.github.com/repos/${OWNER}/${repoName}`;
+      const tHeaders = {
+        ...headers,
+        Accept: "application/vnd.github.mercy-preview+json",
+      };
+
+      let topics = [];
+      try {
+        const tRes = await fetch(`${repoApi}/topics`, { headers: tHeaders });
+        if (tRes.ok) {
+          const tBody = await tRes.json();
+          topics = tBody.names || [];
+        }
+      } catch (e) {
+        // ignore per-repo topics fetch error
+      }
+
+      // Fetch languages for the repo and sort by bytes descending
+      let languages = [];
+      try {
+        const lRes = await fetch(`${repoApi}/languages`, { headers });
+        if (lRes.ok) {
+          const lBody = await lRes.json();
+          languages = Object.entries(lBody)
+            .sort((a, b) => b[1] - a[1])
+            .map(([name]) => name);
+        }
+      } catch (e) {
+        // ignore per-repo languages fetch error
+      }
+
+      // Build tech array: topics first, then primary language and top languages
+      const tech = Array.from(
+        new Set([
+          ...(topics || []),
+          ...(r.language ? [r.language] : []),
+          ...languages,
+        ])
+      ).slice(0, 6);
+
+      return {
+        title: r.name,
+        description: r.description || "",
+        tech,
+        link: r.html_url,
+        stars: r.stargazers_count || 0,
+      };
+    })
+  );
 
   // Read existing file
   let existing = [];
