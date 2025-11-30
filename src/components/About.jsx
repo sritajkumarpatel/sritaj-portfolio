@@ -26,115 +26,127 @@ export default function About({ experience, mediumArticles }) {
         <div className="grid md:grid-cols-2 gap-4 mb-6">
           <div>
             <h5 className="text-purple-300 font-semibold mb-2">
-              Test Automation & QE
+              AI Engineering & Orchestration
             </h5>
             <ul className="text-gray-300 space-y-1 text-sm">
-              <li>• Selenium, Playwright, TestCafe automation</li>
-              <li>• Custom framework design & architecture</li>
-              <li>
-                • CI/CD integration (Jenkins, Github Actions, Azure DevOps)
+              <li className="mb-1">
+                • Orchestration: LangChain, RAG systems, Model Context Protocol
+                (MCP)
               </li>
-              <li>• API testing with REST Assured</li>
-              <li>• Performance & security testing</li>
+              <li className="mb-1">
+                • LLM Evaluation: DeepEval, Prompt Engineering, Local LLMs
+                (Ollama)
+              </li>
+              <li className="mb-1">
+                • Tools: GitHub Copilot, Azure AI, GenSpark
+              </li>
             </ul>
           </div>
           <div>
             <h5 className="text-purple-300 font-semibold mb-2">
-              Development & Technologies
+              Test Automation & Architecture
             </h5>
             <ul className="text-gray-300 space-y-1 text-sm">
-              <li>• Full-stack development (Spring Boot, React)</li>
-              <li>• Python for AI/ML testing frameworks</li>
-              <li>• Cloud platforms (Azure, AWS)</li>
-              <li>• Database testing (SQL, MongoDB)</li>
-              <li>• Version control & collaboration (Git)</li>
+              <li className="mb-1">
+                • UI & Mobile: Playwright, Selenium, TestCafe
+              </li>
+              <li className="mb-1">• API: REST Assured, Postman</li>
+              <li className="mb-1">
+                • Strategy: Custom framework design, hybrid & data-driven
+                architectures
+              </li>
             </ul>
           </div>
           <div>
             <h5 className="text-purple-300 font-semibold mb-2">
-              Agile & Leadership
+              Full-Stack & Cloud Infrastructure
             </h5>
             <ul className="text-gray-300 space-y-1 text-sm">
-              <li>• Certified Scrum Master (PSM I, CSM)</li>
-              <li>• Sprint planning & retrospective facilitation</li>
-              <li>• Team mentoring & coaching</li>
-              <li>• Cross-functional collaboration</li>
-              <li>• Quality advocacy & process improvement</li>
+              <li className="mb-1">
+                • Development: Java, Python, JavaScript/TypeScript, Spring Boot,
+                React
+              </li>
+              <li className="mb-1">
+                • Infrastructure: AWS, Azure, Docker, Kubernetes
+              </li>
+              <li className="mb-1">
+                • CI/CD: Jenkins, GitHub Actions, Azure DevOps
+              </li>
             </ul>
           </div>
           <div>
             <h5 className="text-purple-300 font-semibold mb-2">
-              AI & Innovation
+              Agile Leadership & Process
             </h5>
             <ul className="text-gray-300 space-y-1 text-sm">
-              <li>• LLM testing with Deepeval</li>
-              <li>• RAG implementations with LangChain</li>
-              <li>• Model Context Protocol (MCP)</li>
-              <li>• GitHub Copilot & AI-assisted development</li>
-              <li>• Azure AI services integration</li>
+              <li className="mb-1">
+                • Roles: Certified Scrum Master (PSM I, CSM), Technical Lead
+              </li>
+              <li className="mb-1">
+                • Action: Sprint planning, unblocking teams, retrospective
+                facilitation
+              </li>
+              <li className="mb-1">
+                • Culture: Cross-functional collaboration, mentoring, quality
+                advocacy
+              </li>
             </ul>
           </div>
         </div>
+
         <h4 className="text-xl font-semibold text-purple-400 mt-6 mb-3">
-          Quality Philosophy
+          Leadership & Quality Philosophy
         </h4>
         <p className="text-gray-300 mb-4">
-          I'm a strong advocate for{" "}
-          <strong className="text-purple-300">Shift Left testing</strong> –
-          catching issues early in the development lifecycle when they're easier
-          and cheaper to fix. Quality isn't just about finding bugs; it's about
-          building a culture where everyone owns quality. I believe in fostering
-          collaboration between QA, development, and product teams to embed
-          quality into every stage of the software delivery process.
+          I believe quality is a culture, not just a phase. I am a strong
+          advocate for{" "}
+          <strong className="text-purple-300">Shift Left testing</strong> —
+          catching issues when they are cheapest to fix. My approach to
+          leadership is to lead from the trenches: I enjoy deep technical work
+          while stepping up to guide teams as a Scrum Master when required. I
+          focus on unblocking barriers, fostering psychological safety, and
+          empowering engineers and QAs to own quality together.
         </p>
-        <p className="text-gray-300 mb-4">
-          My approach combines rigorous testing practices with pragmatic
-          automation strategies. I focus on creating maintainable test suites
-          that provide fast feedback while ensuring comprehensive coverage. By
-          promoting continuous improvement and transparency, I help teams
-          deliver reliable software that exceeds user expectations.
-        </p>
+
         <h4 className="text-xl font-semibold text-purple-400 mt-6 mb-3">
-          AI & LLM Journey
+          AI-Native Engineering
         </h4>
-        <p className="text-gray-300 mb-4">
-          The intersection of AI and software testing fascinates me. I'm
-          actively exploring how LLMs and AI can revolutionize quality
-          engineering – from intelligent test generation to automated bug
-          analysis and predictive quality metrics. My recent work focuses on:
+        <p className="text-gray-300 mb-2">
+          I am actively transitioning from traditional automation toward
+          AI-driven engineering. I build systems for testing AI and LLMs — not
+          just using AI tools, but creating systems that evaluate and ensure
+          their reliability and safety.
         </p>
-        <ul className="text-gray-300 space-y-2 mb-4">
+        <ul className="text-gray-300 space-y-1 text-sm mb-6">
           <li>
             • <strong className="text-purple-300">RAG Systems:</strong> Building
-            Retrieval-Augmented Generation applications with local LLMs to
-            create context-aware testing assistants
+            retrieval-augmented assistants with local LLMs for domain-specific
+            testing and validations
           </li>
           <li>
             •{" "}
-            <strong className="text-purple-300">LLM Testing Frameworks:</strong>{" "}
-            Developing robust testing methodologies using Deepeval to ensure AI
-            systems perform reliably and ethically
+            <strong className="text-purple-300">
+              LLM Reliability & Safety:
+            </strong>{" "}
+            Implementing Deepeval and evaluation pipelines to measure model
+            quality, robustness, and fairness
           </li>
           <li>
             •{" "}
-            <strong className="text-purple-300">Model Context Protocol:</strong>{" "}
-            Exploring MCP to create seamless integrations between LLMs and
-            testing tools
+            <strong className="text-purple-300">
+              MCP & Tooling Integrations:
+            </strong>{" "}
+            Prototyping Model Context Protocol (MCP) integrations that embed
+            LLMs into IDEs and testing workflows
           </li>
           <li>
-            •{" "}
-            <strong className="text-purple-300">AI-Assisted Automation:</strong>{" "}
-            Leveraging GitHub Copilot and Azure AI to accelerate test script
-            development and maintenance
+            • <strong className="text-purple-300">Developer Velocity:</strong>{" "}
+            Leveraging Copilot and AI assistant patterns to accelerate delivery
+            while maintaining architectural rigor
           </li>
         </ul>
-        <p className="text-gray-300">
-          I believe we're at the beginning of an AI-driven transformation in
-          software testing. Through my Medium articles and GitHub projects, I'm
-          documenting this journey and sharing practical insights on how teams
-          can adopt AI to enhance their quality practices while maintaining
-          human oversight and judgment.
-        </p>
+        {/* Duplicate Quality Philosophy removed - content is in 'Leadership & Quality Philosophy' above */}
+        {/* AI & LLM Journey content removed (merged with AI-Native Engineering above) */}
       </div>
       <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 backdrop-blur rounded-xl p-8 border border-purple-500/30">
         <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">

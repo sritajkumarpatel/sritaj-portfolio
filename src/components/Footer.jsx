@@ -5,7 +5,10 @@ export default function Footer() {
   return (
     <footer className="py-12 px-6 border-t border-purple-500/20 bg-slate-900">
       <div className="max-w-6xl mx-auto text-center text-gray-300 text-base">
-        <p>© 2024 Sritaj Patel. Built with React & Claude AI.</p>
+        <p>
+          © 2025 Sritaj Patel. Built with React, Claude AI and Github Copilot
+          VibeCoding.
+        </p>
         <div className="flex justify-center gap-4 mt-4">
           <a
             href="https://github.com/sritajkumarpatel"
