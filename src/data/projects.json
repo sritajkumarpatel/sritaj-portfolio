@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "title": "Sritaj Portfolio - Plug-and-Play Template",
+    "description": "A fully plug-and-play portfolio template built with React, Vite, and Tailwind CSS. Customize your entire portfolio by editing JSON files—zero coding required. Deploy to GitHub Pages in minutes with AI/Copilot automation support.",
+    "featured": true,
+    "keyFeatures": [
+      "🎨 Fully Customizable",
+      "📝 JSON-Based Content",
+      "🤖 Copilot Integration",
+      "🚀 GitHub Pages Ready",
+      "⚡ Zero Hardcoded Content"
+    ],
+    "technologies": ["React 18", "Vite", "Tailwind CSS", "Lucide React", "GitHub Pages"],
+    "github": "https://github.com/sritajkumarpatel/sritaj-portfolio",
+    "link": "https://sritajkumarpatel.github.io/sritaj-portfolio/",
+    "sections": ["keyFeatures", "technologies", "quickStart"],
+    "quickStart": {
+      "title": "Quick Start with Copilot:",
+      "steps": [
+        {"text": "Open", "code": "docs/QUICK_START.md"},
+        {"text": "Copy prompt from", "code": "docs/COPILOT_PROMPT.md"},
+        {"text": "Paste in Copilot Chat and add your info"},
+        {"text": "Run", "code": "npm run deploy"},
+        {"text": "Portfolio live in 5 minutes! ✨"}
+      ]
+    }
+  }
+]
