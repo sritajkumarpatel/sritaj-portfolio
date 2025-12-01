@@ -325,6 +325,113 @@ If you want to customize colors or styling:
 
 ---
 
+## 🤖 Using Copilot/AI Agents for Fast Customization
+
+### Quick Path (5 Minutes)
+
+1. Open `docs/QUICK_START.md`
+2. Read the template with dummy data
+3. Fill in your information using the template
+4. Copy the prompt from `docs/COPILOT_PROMPT.md`
+5. Paste in Copilot Chat (Ctrl+Shift+I in VS Code)
+6. Paste your filled information
+7. Copilot will automatically update all JSON files
+8. Run `npm run deploy`
+
+**Your portfolio is live in 5 minutes!**
+
+### How It Works
+
+- Copilot reads the structured prompt from `docs/COPILOT_PROMPT.md`
+- You provide your information in the template format
+- Copilot maps your data to correct JSON files
+- All files are automatically updated and validated
+- No manual editing required!
+
+### Files You Need
+
+- **`docs/QUICK_START.md`** - Instructions with dummy data template
+- **`docs/COPILOT_PROMPT.md`** - System prompt to paste in Copilot Chat
+
+---
+
+## 📤 Publishing on GitHub Pages
+
+### Prerequisites
+
+1. Your repository must be on GitHub
+2. You have a GitHub account
+3. You've configured the `deployment.githubRepoName` in `src/config.json`
+
+### Step-by-Step Guide
+
+#### Step 1: Update Repository Name in Config
+Edit `src/config.json`:
+```json
+{
+  "deployment": {
+    "githubRepoName": "your-repo-name"
+  }
+}
+```
+
+#### Step 2: Update Vite Base Path
+Edit `vite.config.js`:
+```javascript
+export default defineConfig({
+  base: '/your-repo-name/',  // Match your GitHub repo name
+  plugins: [react()],
+})
+```
+
+#### Step 3: Build the Project
+```bash
+npm run build
+```
+
+#### Step 4: Deploy to GitHub Pages
+```bash
+npm run deploy
+```
+
+This command will:
+- Build your project
+- Create a `gh-pages` branch
+- Push the `dist` folder to GitHub Pages
+- Your site will be live at: `https://your-username.github.io/your-repo-name`
+
+#### Step 5: Enable GitHub Pages (First Time Only)
+
+1. Go to your GitHub repository
+2. Click **Settings** → **Pages**
+3. Under "Source", select **Deploy from a branch**
+4. Select the **gh-pages** branch
+5. Click **Save**
+
+Your portfolio is now live! 🎉
+
+### Verify Your Deployment
+
+- Visit: `https://your-username.github.io/your-repo-name`
+- Wait a few seconds for GitHub to deploy
+- If blank, check browser cache (Ctrl+Shift+R to hard refresh)
+- Check repository Settings → Pages for deployment status
+
+### Update & Redeploy
+
+Whenever you make changes:
+```bash
+# Edit your JSON files
+
+# Build and deploy
+npm run build
+npm run deploy
+```
+
+Your changes will be live within minutes!
+
+---
+
 ## 🤝 Contributing & Support
 
 If you find issues or want to improve this template, feel free to:
