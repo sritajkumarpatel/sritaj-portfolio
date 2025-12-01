@@ -4,6 +4,20 @@ Your portfolio is now **fully customizable** with just one file! Follow these st
 
 ---
 
+## 🛠 Technologies
+
+![React](https://img.shields.io/badge/React-18.3.1-61DAFB?style=flat&logo=react&logoColor=white) **UI Framework**
+
+![Vite](https://img.shields.io/badge/Vite-5.4.21-646CFF?style=flat&logo=vite&logoColor=white) **Build Tool**
+
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4.1-06B6D4?style=flat&logo=tailwindcss&logoColor=white) **Styling**
+
+![Lucide React](https://img.shields.io/badge/Lucide_React-0.263.1-FF00FF?style=flat) **Icons**
+
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-Hosting-181717?style=flat&logo=github&logoColor=white) **Hosting**
+
+---
+
 ## ⚡ Step 1: Fork & Setup
 
 ### 1.1 Clone the Repository
