@@ -154,20 +154,42 @@ Your certifications, degrees, and credentials.
 Your technical skills and proficiencies.
 
 ### 3.6 Projects (`src/data/projects.json`)
-Your portfolio projects. **Empty by default** — add projects here to showcase them.
+
+Your portfolio projects with full customization. Supports featured projects, modular sections, and data-driven content.
 
 **Structure:**
 ```json
 [
   {
-    "title": "Project Name",
-    "description": "Short description",
-    "technologies": ["React", "Node", "Tailwind"],
+    "title": "My Awesome Project",
+    "description": "What this project does",
+    "featured": true,
+    "sections": ["keyFeatures", "technologies", "quickStart"],
+    "keyFeatures": [
+      "🎯 Feature 1",
+      "⚡ Feature 2",
+      "🚀 Feature 3"
+    ],
+    "technologies": ["React", "Node.js", "Tailwind CSS"],
+    "quickStart": {
+      "title": "Quick Start:",
+      "steps": [
+        {"text": "Clone the repo", "code": "git clone https://..."},
+        {"text": "Install dependencies", "code": "npm install"},
+        {"text": "Run", "code": "npm run dev"}
+      ]
+    },
     "link": "https://project-link.com",
     "github": "https://github.com/user/repo"
   }
 ]
 ```
+
+**Key Features:**
+- `featured`: true/false - Highlights projects with premium styling
+- `sections`: Array controlling which sections display (options: "keyFeatures", "technologies", "quickStart")
+- `quickStart`: Data-driven steps for project setup (optional)
+- Each project can have different sections - fully customizable
 
 ### 3.7 GitHub Repos (`src/data/githubRepos.json`)
 Your GitHub projects. Can be manually edited or auto-fetched with:

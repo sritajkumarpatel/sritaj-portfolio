@@ -31,7 +31,7 @@ Important Files & Why
 - `src/data/experience.json` — Work history with roles, highlights, key achievements. Used by `Experience.jsx`.
 - `src/data/certifications.json` — Certifications with issuers, dates, credentials. Used by `Certifications.jsx`.
 - `src/data/techStacks.json` — Technical skills and proficiencies. Used by `TechStack.jsx`.
-- `src/data/projects.json` — Portfolio projects (empty by default, ready to populate). Used by `Projects.jsx`.
+- `src/data/projects.json` — Portfolio projects with support for featured/regular projects, modular sections (keyFeatures, technologies, quickStart), and data-driven content. Each project controls which sections display via `sections` array. Used by `Projects.jsx` → `ProjectCard.jsx` → `CardSection.jsx`.
 - `src/data/githubRepos.json` — GitHub projects list (auto-fetched by `update-github.js` or manual). Used by `GithubRepos.jsx`.
 - `src/data/mediumArticles.json` — Medium articles feed (auto-fetched by `update-medium.js` or manual). Used by `MediumArticles.jsx`.
 
@@ -45,7 +45,10 @@ Important Files & Why
 - `src/components/Experience.jsx` — Experience section rendering from `experience.json`.
 - `src/components/Certifications.jsx` — Certifications rendering from `certifications.json`.
 - `src/components/TechStack.jsx` — Tech skills rendering from `techStacks.json`.
-- `src/components/Projects.jsx` — Projects rendering from `projects.json` (shows "Coming Soon" if empty).
+- `src/components/Projects.jsx` — Projects section orchestrator. Renders featured/regular projects from `projects.json` using `ProjectCard` component.
+- `src/components/ProjectCard.jsx` — Reusable project card component. Renders individual projects with dynamic sections based on `sections` array from JSON.
+- `src/components/CardSection.jsx` — Modular card section renderer for `keyFeatures`, `technologies`, and `quickStart`. All content data-driven from JSON.
+- `src/components/ComingSoon.jsx` — Reusable "Coming Soon" placeholder section used by Projects and other empty sections.
 - `src/components/GithubRepos.jsx` — GitHub repos rendering from `githubRepos.json`.
 - `src/components/MediumArticles.jsx` — Medium articles rendering from `mediumArticles.json`.
 - `src/components/Footer.jsx` — Footer using `config.personal.name` and links.
@@ -193,9 +196,19 @@ When asking Copilot to update portfolio data, provide info in this format:
 {
   "title": "Project Name",
   "description": "Short description",
+  "featured": true,
+  "sections": ["keyFeatures", "technologies", "quickStart"],
+  "keyFeatures": ["Feature 1", "Feature 2"],
   "technologies": ["Tech 1", "Tech 2"],
-  "link": "https://project-url.com",
-  "github": "https://github.com/user/repo"
+  "quickStart": {
+    "title": "Quick Start:",
+    "steps": [
+      { "text": "Step 1 text", "code": "optional-code-snippet" },
+      { "text": "Step 2 text" }
+    ]
+  },
+  "github": "https://github.com/user/repo",
+  "link": "https://project-url.com"
 }
 ```
 
