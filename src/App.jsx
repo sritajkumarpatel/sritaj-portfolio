@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 // removed duplicate import
+import config from "./config.json";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Certifications from "./components/Certifications";
@@ -14,19 +15,15 @@ import MediumArticles from "./components/MediumArticles";
 import mediumArticles from "./data/mediumArticles.json";
 import Projects from "./components/Projects";
 import About from "./components/About";
+import Awards from "./components/Awards";
 import VisualConcepts from "./components/VisualConcepts";
 import Footer from "./components/Footer";
+import aboutMe from "./data/aboutMe.json";
+import awards from "./data/awards.json";
+import projects from "./data/projects.json";
 const App = () => {
   const [activeSection, setActiveSection] = useState("about");
-  const titles = [
-    "Technical Architect at DevOn",
-    "Quality Engineering",
-    "Scrum Master",
-    "AI Engineer in making",
-    "Bug Fixer & Developer",
-    "CI/CD & Automation Enthusiast",
-    "Occasional Cloud Guy",
-  ];
+  const titles = config.titles;
   const [titleIndex, setTitleIndex] = useState(0);
   useEffect(() => {
     const t = setInterval(
@@ -83,13 +80,18 @@ const App = () => {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
       {/* Navigation */}
-      <Nav activeSection={activeSection} setActiveSection={setActiveSection} />
+      <Nav
+        activeSection={activeSection}
+        setActiveSection={setActiveSection}
+        config={config}
+      />
 
       {/* Hero Section */}
       <Hero
         titles={titles}
         titleIndex={titleIndex}
         setTitleIndex={setTitleIndex}
+        config={config}
       />
 
       <main className="flex-1">
@@ -111,15 +113,24 @@ const App = () => {
           <MediumArticles articles={mediumArticles} />
         )}
 
-        {activeSection === "projects" && <Projects />}
+        {activeSection === "projects" && <Projects projects={projects} />}
 
         {activeSection === "about" && (
-          <About experience={experience} mediumArticles={mediumArticles} />
+          <>
+            <About
+              experience={experience}
+              mediumArticles={mediumArticles}
+              aboutMe={aboutMe}
+            />
+            <Awards awards={awards} />
+          </>
         )}
+
+        {activeSection === "awards" && <Awards awards={awards} />}
 
         {/* Footer */}
       </main>
-      <Footer />
+      <Footer config={config} />
     </div>
   );
 };

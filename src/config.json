@@ -1,0 +1,29 @@
+{
+  "personal": {
+    "name": "Sritaj Patel",
+    "email": "sritajpatel@outlook.com",
+    "github": "sritajkumarpatel",
+    "linkedin": "sritaj-patel",
+    "medium": "sritajp"
+  },
+  "bio": {
+    "headline": "Bridging Quality Engineering with AI Innovation",
+    "subtitle": "With a decade in QE and a Scrum Master's mindset, I love the craft of coding as much as the art of leading teams. I am an AI Engineer in the making, constantly learning and building to revolutionize testing practices. I thrive on solving complex problems, whether through human collaboration or cutting-edge technology."
+  },
+  "titles": [
+    "Technical Architect at DevOn",
+    "Quality Engineering",
+    "Scrum Master",
+    "AI Engineer in making",
+    "Bug Fixer & Developer",
+    "CI/CD & Automation Enthusiast",
+    "Occasional Cloud Guy"
+  ],
+  "deployment": {
+    "githubRepoName": "sritaj-portfolio"
+  },
+  "theme": {
+    "primary": "purple",
+    "accent": "pink"
+  }
+}

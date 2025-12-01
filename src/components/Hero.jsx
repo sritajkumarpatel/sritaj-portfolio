@@ -1,7 +1,7 @@
 import React from "react";
 import { Linkedin, Mail, Github, BookOpen } from "lucide-react";
 
-export default function Hero({ titles, titleIndex, setTitleIndex }) {
+export default function Hero({ titles, titleIndex, setTitleIndex, config }) {
   return (
     <section className="pt-32 pb-8 px-6">
       <div className="max-w-6xl mx-auto">
@@ -9,19 +9,13 @@ export default function Hero({ titles, titleIndex, setTitleIndex }) {
           <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-purple-400 bg-clip-text text-transparent h-16 flex items-center justify-center transition-all duration-500">
             {titles[titleIndex]}
           </h2>
-          <p className="text-xl text-gray-300 mb-6">
-            Bridging Quality Engineering with AI Innovation
-          </p>
+          <p className="text-xl text-gray-300 mb-6">{config.bio.headline}</p>
           <p className="text-gray-400 max-w-2xl mx-auto mb-6">
-            With a decade in QE and a Scrum Master's mindset, I love the craft
-            of coding as much as the art of leading teams. I am an AI Engineer
-            in the making, constantly learning and building to revolutionize
-            testing practices. I thrive on solving complex problems, whether
-            through human collaboration or cutting-edge technology.
+            {config.bio.subtitle}
           </p>
           <div className="flex justify-center gap-4">
             <a
-              href="https://www.linkedin.com/in/sritaj-patel"
+              href={`https://www.linkedin.com/in/${config.personal.linkedin}`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-6 py-3 rounded-lg transition-transform duration-200 text-white bg-[#0A66C2] hover:bg-[#084B8A] hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0A66C2]/40"
@@ -30,15 +24,15 @@ export default function Hero({ titles, titleIndex, setTitleIndex }) {
               LinkedIn
             </a>
             <a
-              href="mailto:sritajpatel@outlook.com"
-              aria-label="Send email to Sritaj"
+              href={`mailto:${config.personal.email}`}
+              aria-label={`Send email to ${config.personal.name}`}
               className="flex items-center gap-2 bg-slate-700 hover:bg-slate-600 px-6 py-3 rounded-lg transition-all"
             >
               <Mail size={20} />
               Email
             </a>
             <a
-              href="https://github.com/sritajkumarpatel"
+              href={`https://github.com/${config.personal.github}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open GitHub profile in new tab"
@@ -48,7 +42,7 @@ export default function Hero({ titles, titleIndex, setTitleIndex }) {
               GitHub
             </a>
             <a
-              href="https://medium.com/@sritajp"
+              href={`https://medium.com/@${config.personal.medium}`}
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Open Medium profile in new tab"

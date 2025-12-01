@@ -1,0 +1,22 @@
+[
+  {
+    "title": "Breakthrough Achiever of the Year",
+    "year": 2024,
+    "company": "DevOn Software Services",
+    "description": "Recognition for exceptional innovation and contribution"
+  },
+  {
+    "title": "Aurigo Spot Award",
+    "year": 2021,
+    "quarter": "Q1",
+    "company": "Aurigo Software Technologies",
+    "description": "Recognition for exceptional contribution"
+  },
+  {
+    "title": "Aurigo Bravo Award",
+    "year": 2019,
+    "quarter": "Q3",
+    "company": "Aurigo Software Technologies",
+    "description": "Outstanding performance and dedication"
+  }
+]
