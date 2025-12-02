@@ -7,7 +7,7 @@ Update the Medium articles data file using the latest articles from the Medium A
 Instructions:
 
 - Run `npm install` to ensure required dependencies are installed (rss-parser).
-- Run `npm run update:medium` or `node scripts/update-medium.js` to fetch the Medium RSS feed (https://medium.com/feed/@sritajp).
+- Run `npm run update:medium` or `node scripts/update-medium.js` to fetch the Medium RSS feed (https://medium.com/@sritajp).
 - The script will print exactly one of the following messages after completion:
   - `Added X new article(s).` (X is the number of new articles added)
   - `Nothing new found.`
