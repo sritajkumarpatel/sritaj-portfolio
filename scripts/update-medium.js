@@ -12,7 +12,12 @@ const JSON_PATH = path.join(
 
 async function run() {
   console.log("Fetching Medium feed...");
-  const parser = new RSSParser();
+  const parser = new RSSParser({
+    headers: {
+      "User-Agent":
+        "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36",
+    },
+  });
   let feed;
   const maxRetries = 3;
   const retryDelayMs = 10000; // 10 seconds between retries
