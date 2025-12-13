@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import RSSParser from "rss-parser";
 
-const FEED_URL = "https://medium.com/feed/@sritajp";
+const FEED_URL = "https://medium.com/@sritajp";
 const JSON_PATH = path.join(
   process.cwd(),
   "src",
