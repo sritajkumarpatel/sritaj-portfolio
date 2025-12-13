@@ -14,11 +14,23 @@ async function run() {
   console.log("Fetching Medium feed...");
   const parser = new RSSParser();
   let feed;
-  try {
-    feed = await parser.parseURL(FEED_URL);
-  } catch (err) {
-    console.error("Failed to fetch Medium RSS feed:", err.message);
-    process.exit(1);
+  const maxRetries = 3;
+  const retryDelayMs = 10000; // 10 seconds between retries
+
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      feed = await parser.parseURL(FEED_URL);
+      break; // Success, exit retry loop
+    } catch (err) {
+      if (attempt === maxRetries) {
+        console.error("Failed to fetch Medium RSS feed:", err.message);
+        process.exit(1);
+      }
+      console.warn(
+        `Attempt ${attempt}/${maxRetries} failed. Retrying in ${retryDelayMs / 1000} seconds...`
+      );
+      await new Promise((resolve) => setTimeout(resolve, retryDelayMs));
+    }
   }
 
   const items = (feed.items || []).map((i) => ({
