@@ -1,20 +1,20 @@
 [
   {
-    "title": "learn_openai_apis",
-    "description": "Examples demonstrating OpenAI API usage with Python (Chat, Images, Embeddings, Speech-to-Text, Text-to-Speech).",
-    "tech": [
-      "Python"
-    ],
-    "link": "https://github.com/sritajkumarpatel/learn_openai_apis",
-    "stars": 0
-  },
-  {
     "title": "learn_mcp_2025",
     "description": "Repository for learning Model Context Protocol",
     "tech": [
       "Python"
     ],
     "link": "https://github.com/sritajkumarpatel/learn_mcp_2025",
+    "stars": 0
+  },
+  {
+    "title": "learn_openai_apis",
+    "description": "Examples demonstrating OpenAI API usage with Python (Chat, Images, Embeddings, Speech-to-Text, Text-to-Speech).",
+    "tech": [
+      "Python"
+    ],
+    "link": "https://github.com/sritajkumarpatel/learn_openai_apis",
     "stars": 0
   },
   {
