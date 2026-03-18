@@ -9,6 +9,17 @@ export default function Experience({ experience }) {
         <Briefcase className="text-purple-400" size={32} />
         <h3 className="text-3xl font-bold">IT Experience</h3>
       </div>
+
+      <div className="mb-8 glass-card bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-purple-500/20">
+        <p className="text-purple-300 font-semibold text-lg">
+          Career Evolution: 2015 → 2026 (11 Years and Counting)
+        </p>
+        <div className="border-t border-purple-500/30 my-4"></div>
+        <p className="text-gray-300 text-sm">
+          4 Companies • Quality Engineer → Senior Architect • AI Innovation Pioneer
+        </p>
+      </div>
+
       <div className="space-y-8">
         {experience.map((exp, index) => (
           <div
@@ -46,18 +57,77 @@ export default function Experience({ experience }) {
               ))}
             </div>
 
-            <div className="mt-4">
-              <h5 className="text-sm font-semibold text-gray-400 mb-2">
-                Key Highlights:
-              </h5>
-              <ul className="space-y-1">
-                {exp.highlights.map((highlight, hIndex) => (
-                  <li key={hIndex} className="text-gray-300 text-sm">
-                    • {highlight}
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {exp.currentRolesAndResponsibilities &&
+              exp.currentRolesAndResponsibilities.length > 0 && (
+                <div className="mt-4">
+                  <h5 className="text-sm font-semibold text-blue-300 mb-3">
+                    💼 Current Roles & Responsibilities:
+                  </h5>
+                  <ul className="space-y-1">
+                    {exp.currentRolesAndResponsibilities.map((item, iIndex) => (
+                      <div key={iIndex}>
+                        {typeof item === "string" ? (
+                          <li className="text-gray-300 text-sm">
+                            {item.startsWith("  •") ? item : `• ${item}`}
+                          </li>
+                        ) : (
+                          <div>
+                            <li className="text-gray-300 text-sm">
+                              • {item.text}
+                            </li>
+                            {item.subItems && item.subItems.length > 0 && (
+                              <ul className="ml-4 space-y-1 mt-1">
+                                {item.subItems.map((subItem, subIndex) => (
+                                  <li
+                                    key={subIndex}
+                                    className="text-gray-300 text-sm"
+                                  >
+                                    • {subItem}
+                                  </li>
+                                ))}
+                              </ul>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    ))}
+                  </ul>
+                </div>
+              )}
+
+            {exp.servedAs && exp.servedAs.length > 0 && (
+              <div className="mt-4">
+                <h5 className="text-sm font-semibold text-green-300 mb-3">
+                  🎯 Served As:
+                </h5>
+                <ul className="space-y-1">
+                  {exp.servedAs.map((role, sIndex) => (
+                    <li key={sIndex} className="text-gray-300 text-sm">
+                      • {role}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {(!exp.currentRolesAndResponsibilities ||
+              exp.currentRolesAndResponsibilities.length === 0) &&
+              (!exp.servedAs || exp.servedAs.length === 0) &&
+              exp.highlights &&
+              exp.highlights.length > 0 && (
+                <div className="mt-4">
+                  <h5 className="text-sm font-semibold text-gray-400 mb-2">
+                    Key Highlights:
+                  </h5>
+                  <ul className="space-y-1">
+                    {exp.highlights.map((highlight, hIndex) => (
+                      <li key={hIndex} className="text-gray-300 text-sm">
+                        • {highlight}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
 
             {exp.awards && exp.awards.length > 0 && (
               <div className="mt-6 pt-6 border-t border-purple-500/20">

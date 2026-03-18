@@ -8,16 +8,16 @@
   },
   "bio": {
     "headline": "Bridging Quality Engineering with AI Innovation",
-    "subtitle": "With a decade in QE and a Scrum Master's mindset, I love the craft of coding as much as the art of leading teams. I am an AI Engineer in the making, constantly learning and building to revolutionize testing practices. I thrive on solving complex problems, whether through human collaboration or cutting-edge technology."
+    "subtitle": "With a decade in QE, I automate boring and manual workflows using Vibe-coding, AI tools, and product knowledge—turning pain points into real-life automation. I design end-to-end workflows for test data synthesis and E2E flows, while leading teams with a Scrum Master's mindset and an AI Engineer's ambition."
   },
   "titles": [
-    "Technical Architect at DevOn",
+    "Senior Architect at DevOn",
+    "Automation Engineer",
     "Quality Engineering",
     "Scrum Master",
     "AI Engineer in making",
     "Bug Fixer & Developer",
-    "CI/CD & Automation Enthusiast",
-    "Occasional Cloud Guy"
+    "Workflow Architect"
   ],
   "deployment": {
     "githubRepoName": "sritaj-portfolio"

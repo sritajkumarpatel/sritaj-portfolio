@@ -2,14 +2,37 @@
   {
     "company": "DevOn",
     "roles": [
-      { "title": "Technical Architect III", "period": "March 2025 - Present" },
+      { "title": "Senior Architect I", "period": "March 2026 - Present" },
+      { "title": "Technical Architect III", "period": "March 2025 - February 2026" },
       { "title": "Technical Architect II", "period": "March 2024 - February 2025" },
       { "title": "Associate Architect II", "period": "March 2023 - February 2024" },
       { "title": "Senior Principal Development Specialist", "period": "February 2022 - February 2023" }
     ],
-    "duration": "3 years 10 months",
+    "duration": "4 years 1 month",
     "current": true,
     "location": "Bengaluru, Karnataka, India",
+    "currentRolesAndResponsibilities": [
+      "Designing automation workflows to streamline repetitive and manual processes",
+      "Reducing repetitive tasks by building tools and automation flows—reducing manual effort and test execution time by 80–90%",
+      {
+        "text": "Developing and maintaining an end‑to‑end automation platform that:",
+        "subItems": [
+          "Automates workflows",
+          "Generates synthetic data",
+          "Produces Postman request bodies",
+          "Enables one‑click test execution",
+          "Provides a unified space to validate and launch workflows"
+        ]
+      },
+      "Performing testing activities, including test case design, execution, and preparing test plans for acceptance day",
+      "Leveraging AI tools and Vibe coding to automate flows and enhance workflow efficiency"
+    ],
+    "servedAs": [
+      "Scrum Master, facilitating Agile ceremonies and sprint execution",
+      "Test Automation specialist, creating and maintaining frameworks with latest tools",
+      "CI/CD pipeline architect, setting up and monitoring Jenkins pipelines",
+      "Innovation champion, driving continuous improvement and innovation within teams"
+    ],
     "highlights": [
       "Served as Scrum Master, facilitating Agile ceremonies and sprint execution",
       "Created and maintained Test Automation frameworks with latest tools",
@@ -34,6 +57,12 @@
     "duration": "2 years 8 months",
     "current": false,
     "location": "Bengaluru, Karnataka, India",
+    "servedAs": [
+      "Quality Assurance Lead, managing and mentoring QE team for sprint release activities",
+      "Test Automation Specialist, designing and developing comprehensive automation frameworks",
+      "POM Pages Architect, implementing Page Object Model with automation scripts",
+      "Root Cause Analysis Expert, investigating and resolving legacy system issues"
+    ],
     "highlights": [
       "Implemented POM pages and developed automation scripts",
       "Managed and led QE team for sprint release activities",
@@ -53,6 +82,12 @@
     "duration": "3 years",
     "current": false,
     "location": "Bengaluru, Karnataka, India",
+    "servedAs": [
+      "IoT Platform Quality Engineer, testing embedded systems and IoT applications",
+      "Test Automation Developer, building frameworks with Selenium and Sikuli",
+      "Functional & Non-Functional Testing Specialist, ensuring quality across domains",
+      "iOS Application Specialist, collaborating on iOS debugging and quality assurance"
+    ],
     "highlights": [
       "Worked on IoT and Embedded Platforms domain",
       "Developed Automation frameworks using Selenium/Sikuli",
@@ -68,6 +103,11 @@
     "duration": "6 months",
     "current": false,
     "location": "India",
+    "servedAs": [
+      "SAP ERP Testing Specialist, conducting comprehensive black box testing",
+      "Test Case Designer, creating and executing detailed test scenarios",
+      "PMO Contributor, supporting project planning and coordination activities"
+    ],
     "highlights": [
       "Tested SAP ERP Application (Black Box Testing)",
       "Designed and executed Test Cases",

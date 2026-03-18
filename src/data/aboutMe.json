@@ -1,5 +1,5 @@
 {
-  "shortBio": "With a decade in QE and a Scrum Master's mindset, I love the craft of coding as much as the art of leading teams. I am an AI Engineer in the making, constantly learning and building to revolutionize testing practices.",
+  "shortBio": "With a decade in QE, I automate boring and manual workflows using Vibe-coding, AI tools, and product knowledge—turning pain points into real-life automation. I design end-to-end workflows for test data synthesis and E2E flows, while leading teams with a Scrum Master's mindset and an AI Engineer's ambition.",
   "fullBio": "I've spent the last decade breaking software to help build it better, evolving from manual testing to architecting complex automation frameworks. My approach blends the discipline of 'Shift Left' engineering with the potential of AI, using tools like Playwright and LangChain to make testing smarter, not just faster. I believe quality is a team sport, and I'm passionate about bridging the gap between developers and QA to bake reliability into every stage of development. I'm on a mission to prove that AI doesn't replace human judgment; it supercharges it to deliver software that users love. While I thrive as a hands-on contributor, I naturally step up to lead when the team needs direction, using my Scrum Master hat to unblock barriers and foster a culture of ownership.",
   "sections": [
     {
@@ -44,6 +44,29 @@
       "title": "Leadership & Quality Philosophy",
       "type": "text",
       "content": "I believe quality is a culture, not just a phase. I am a strong advocate for Shift Left testing; catching issues when they are cheapest to fix. My approach to leadership is to lead from the trenches: I enjoy deep technical work while stepping up to guide teams as a Scrum Master when required. I focus on unblocking barriers, fostering psychological safety, and empowering engineers and QAs to own quality together."
+    },
+    {
+      "title": "Automation & Agent Engineering",
+      "type": "text-list",
+      "content": "I design and build automation platforms that transform manual and repetitive workflows into intelligent, scalable systems. My focus is on end-to-end automation architecture, AI-powered workflow orchestration, and laying the foundation for agentic systems.",
+      "items": [
+        {
+          "label": "Workflow Automation Platforms",
+          "description": "Architecting end-to-end automation platforms with test data synthesis, E2E test flows, one-click execution, and unified workflow validation spaces"
+        },
+        {
+          "label": "AI-Powered Automation",
+          "description": "Leveraging Vibe-coding, LLMs, and AI tools to intelligently design, optimize, and automate complex workflows and reduce manual effort by 80+%"
+        },
+        {
+          "label": "Workflow Orchestration & Integration",
+          "description": "Building robust automation ecosystems that integrate with CI/CD, testing tools, and enterprise systems for seamless workflow execution"
+        },
+        {
+          "label": "Agent Development (In Progress)",
+          "description": "Exploring agentic automation systems using Agent Framework and LLM orchestration to create self-directed, intelligent workflow agents"
+        }
+      ]
     },
     {
       "title": "AI-Native Engineering",
