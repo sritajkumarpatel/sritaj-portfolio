@@ -16,7 +16,8 @@ export default function Experience({ experience }) {
         </p>
         <div className="border-t border-purple-500/30 my-4"></div>
         <p className="text-gray-300 text-sm">
-          4 Companies • Quality Engineer → Senior Architect • AI Innovation Pioneer
+          4 Companies • Quality Engineer → Senior Architect • AI Innovation
+          Pioneer
         </p>
       </div>
 
