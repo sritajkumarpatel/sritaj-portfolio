@@ -1,36 +1,77 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { Trophy } from "lucide-react";
 import Section from "./Section";
 
-export default function Awards({ awards }) {
-  if (!awards || awards.length === 0) {
-    return null;
-  }
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
 
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4 },
+  },
+};
+
+export default function Awards({ awards }) {
   return (
-    <Section className="bg-slate-900/50 pt-1">
-      <div className="flex items-center gap-3 mb-4">
-        <span className="text-3xl">🏆</span>
-        <h3 className="text-3xl font-bold">
-          Quick Summary: Awards & Recognition
+    <Section>
+      <div className="flex items-center gap-3 mb-6">
+        <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
+          <Trophy style={{ color: "#fcd34d" }} size={32} />
+        </motion.div>
+        <h3 className="text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
+          Awards & Recognition
         </h3>
       </div>
-      <div className="bg-gradient-to-br from-purple-900/30 to-pink-900/30 backdrop-blur rounded-xl p-6 border border-purple-500/30">
-        <div className="flex flex-col items-center gap-2">
-          {awards.map((award, index) => (
-            <div
-              key={index}
-              className="bg-slate-800/40 rounded-lg p-3 border border-purple-500/20 max-w-lg w-full text-center"
-            >
-              <h5 className="text-lg font-semibold text-purple-300">
-                {award.title}
-                {award.year && ` - ${award.year}`}
-                {award.quarter && ` ${award.quarter}`}
-              </h5>
-              <p className="text-gray-400 text-sm">{award.company}</p>
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="space-y-4"
+      >
+        {awards.map((award, index) => (
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            whileHover={{ y: -5, scale: 1.02 }}
+            className="glass-card rounded-xl p-6"
+          >
+            <div className="flex items-start gap-4">
+              <motion.div
+                whileHover={{ rotate: 360, scale: 1.2 }}
+                transition={{ duration: 0.5 }}
+                style={{ color: "#fcd34d" }}
+              >
+                <Trophy size={24} />
+              </motion.div>
+              <div>
+                <h4 className="font-semibold mb-1" style={{ color: "var(--color-primary)" }}>
+                  {award.title}
+                </h4>
+                <p className="text-sm mb-2" style={{ color: "var(--color-text-muted)" }}>
+                  {award.year} {award.quarter && `• ${award.quarter}`}
+                  {award.company && ` • ${award.company}`}
+                </p>
+                {award.description && (
+                  <p className="text-sm" style={{ color: "var(--color-text-secondary)" }}>
+                    {award.description}
+                  </p>
+                )}
+              </div>
             </div>
-          ))}
-        </div>
-      </div>
+          </motion.div>
+        ))}
+      </motion.div>
     </Section>
   );
 }

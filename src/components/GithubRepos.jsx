@@ -1,45 +1,91 @@
 import React from "react";
+import { motion } from "framer-motion";
+import { GitBranch, Star, GitFork } from "lucide-react";
 import Section from "./Section";
-import { Github, ExternalLink } from "lucide-react";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4 },
+  },
+};
 
 export default function GithubRepos({ repos }) {
   return (
-    <Section className="bg-slate-900/50">
+    <Section>
       <div className="flex items-center gap-3 mb-6">
-        <Github className="text-purple-400" size={32} />
-        <h3 className="text-3xl font-bold">GitHub Repositories</h3>
+        <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
+          <GitBranch style={{ color: "var(--color-primary)" }} size={32} />
+        </motion.div>
+        <h3 className="text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
+          GitHub Repos
+        </h3>
       </div>
-      <div className="grid md:grid-cols-2 gap-6">
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid md:grid-cols-2 gap-4"
+      >
         {repos.map((repo, index) => (
-          <div
+          <motion.a
             key={index}
-            className="glass-card bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all hover:scale-105"
+            href={repo.html_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            variants={itemVariants}
+            whileHover={{ y: -5, scale: 1.02 }}
+            className="glass-card rounded-xl p-6 block"
           >
-            <h4 className="text-xl font-semibold mb-3 text-purple-300">
-              {repo.title}
+            <h4 className="font-semibold mb-2" style={{ color: "var(--color-primary)" }}>
+              {repo.name}
             </h4>
-            <p className="text-gray-400 mb-4">{repo.description}</p>
-            <div className="flex flex-wrap gap-2 mb-4">
-              {repo.tech.map((tech) => (
-                <span
-                  key={tech}
-                  className="bg-purple-600/20 text-purple-300 px-2 py-1 rounded text-xs"
-                >
-                  {tech}
+            <p className="text-sm mb-4 line-clamp-2" style={{ color: "var(--color-text-secondary)" }}>
+              {repo.description || "No description available"}
+            </p>
+            <div className="flex items-center gap-4 text-xs" style={{ color: "var(--color-text-muted)" }}>
+              {repo.language && (
+                <span className="flex items-center gap-1">
+                  <span
+                    className="w-2 h-2 rounded-full"
+                    style={{
+                      backgroundColor:
+                        repo.language === "JavaScript"
+                          ? "#f1e05a"
+                          : repo.language === "TypeScript"
+                            ? "#3178c6"
+                            : repo.language === "Python"
+                              ? "#3572A5"
+                              : repo.language === "Java"
+                                ? "#b07219"
+                                : "#6e7681",
+                    }}
+                  />
+                  {repo.language}
                 </span>
-              ))}
+              )}
+              <span className="flex items-center gap-1">
+                <Star size={12} /> {repo.stargazers_count}
+              </span>
+              <span className="flex items-center gap-1">
+                <GitFork size={12} /> {repo.forks_count}
+              </span>
             </div>
-            <a
-              href={repo.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
-            >
-              View Repository <ExternalLink size={16} />
-            </a>
-          </div>
+          </motion.a>
         ))}
-      </div>
+      </motion.div>
     </Section>
   );
 }

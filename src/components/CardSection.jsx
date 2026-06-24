@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { BookOpen } from "lucide-react";
 
 export default function CardSection({ title, content, isFeatured }) {
@@ -6,17 +7,22 @@ export default function CardSection({ title, content, isFeatured }) {
     if (!content) return null;
     return (
       <div className="mb-6">
-        <p className="text-sm text-gray-400 mb-3 font-semibold">
+        <p className="text-sm mb-3 font-semibold" style={{ color: "var(--color-text-muted)" }}>
           Key Features:
         </p>
         <div className="flex flex-wrap gap-2">
           {content.map((feature) => (
-            <span
+            <motion.span
               key={feature}
-              className="bg-purple-600/20 text-purple-300 px-3 py-1 rounded-full text-sm"
+              whileHover={{ scale: 1.05 }}
+              className="px-3 py-1 rounded-full text-sm"
+              style={{
+                backgroundColor: "rgba(var(--color-primary-rgb), 0.15)",
+                color: "var(--color-primary)",
+              }}
             >
               {feature}
-            </span>
+            </motion.span>
           ))}
         </div>
       </div>
@@ -27,21 +33,31 @@ export default function CardSection({ title, content, isFeatured }) {
     if (!content) return null;
     return (
       <div className="mb-6">
-        <p className="text-sm text-gray-400 mb-3 font-semibold">
+        <p className="text-sm mb-3 font-semibold" style={{ color: "var(--color-text-muted)" }}>
           Technologies:
         </p>
         <div className="flex flex-wrap gap-2">
           {content.map((tech) => (
-            <span
+            <motion.span
               key={tech}
-              className={`px-3 py-1 rounded text-xs border ${
+              whileHover={{ scale: 1.05 }}
+              className="px-3 py-1 rounded text-xs"
+              style={
                 isFeatured
-                  ? "bg-slate-700/50 text-slate-300 border-slate-600"
-                  : "bg-purple-600/20 text-purple-300 border-purple-500/30"
-              }`}
+                  ? {
+                      backgroundColor: "rgba(var(--color-text-secondary), 0.1)",
+                      color: "var(--color-text-secondary)",
+                      border: "1px solid var(--color-border)",
+                    }
+                  : {
+                      backgroundColor: "rgba(var(--color-primary-rgb), 0.15)",
+                      color: "var(--color-primary)",
+                      border: "1px solid rgba(var(--color-primary-rgb), 0.2)",
+                    }
+              }
             >
               {tech}
-            </span>
+            </motion.span>
           ))}
         </div>
       </div>
@@ -51,22 +67,31 @@ export default function CardSection({ title, content, isFeatured }) {
   if (title === "quickStart") {
     if (!content) return null;
     return (
-      <div className="bg-slate-900/50 rounded-lg p-4 mb-6 border border-slate-700">
-        <p className="text-sm text-gray-400 mb-3 flex items-center gap-2">
-          <BookOpen size={16} className="text-purple-400" />
-          <strong>{content.title}</strong>
+      <div
+        className="rounded-lg p-4 mb-6"
+        style={{
+          backgroundColor: "rgba(var(--color-primary-rgb), 0.05)",
+          border: "1px solid rgba(var(--color-primary-rgb), 0.1)",
+        }}
+      >
+        <p className="text-sm mb-3 flex items-center gap-2" style={{ color: "var(--color-text-muted)" }}>
+          <BookOpen size={16} style={{ color: "var(--color-primary)" }} />
+          <strong style={{ color: "var(--color-primary)" }}>{content.title}</strong>
         </p>
-        <ol className="text-sm text-gray-400 space-y-2 ml-4 list-decimal">
+        <ol className="text-sm space-y-2 ml-4 list-decimal" style={{ color: "var(--color-text-secondary)" }}>
           {content.steps?.map((step, index) => (
             <li key={index}>
               {step.text}
               {step.code && (
-                <>
-                  {" "}
-                  <code className="bg-slate-800 px-2 py-1 rounded text-purple-300">
-                    {step.code}
-                  </code>
-                </>
+                <code
+                  className="px-2 py-1 rounded ml-1"
+                  style={{
+                    backgroundColor: "rgba(var(--color-primary-rgb), 0.1)",
+                    color: "var(--color-primary)",
+                  }}
+                >
+                  {step.code}
+                </code>
               )}
             </li>
           ))}
