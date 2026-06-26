@@ -23,7 +23,17 @@
     "githubRepoName": "sritaj-portfolio"
   },
   "theme": {
-    "primary": "purple",
-    "accent": "pink"
+    "primary": "slate",
+    "accent": "amber",
+    "mode": "dark",
+    "presets": {
+      "slate-amber": { "primary": "slate", "accent": "amber" },
+      "indigo-violet": { "primary": "indigo", "accent": "violet" },
+      "emerald-teal": { "primary": "emerald", "accent": "teal" },
+      "rose-fuchsia": { "primary": "rose", "accent": "fuchsia" },
+      "blue-cyan": { "primary": "blue", "accent": "cyan" },
+      "slate-cyan": { "primary": "slate", "accent": "cyan" },
+      "indigo-amber": { "primary": "indigo", "accent": "amber" }
+    }
   }
 }

@@ -1,58 +1,77 @@
 import React from "react";
-import Section from "./Section";
+import { motion } from "framer-motion";
 import { Award } from "lucide-react";
+import Section from "./Section";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.4 },
+  },
+};
 
 export default function Certifications({ certifications }) {
   return (
-    <Section className="bg-slate-900/50">
+    <Section>
       <div className="flex items-center gap-3 mb-6">
-        <Award className="text-purple-400" size={32} />
-        <h3 className="text-3xl font-bold">Licenses & Certifications</h3>
+        <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
+          <Award style={{ color: "var(--color-primary)" }} size={32} />
+        </motion.div>
+        <h3 className="text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
+          Certifications
+        </h3>
       </div>
-      <div className="grid gap-6 md:grid-cols-2">
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+      >
         {certifications.map((cert, index) => (
-          <div
+          <motion.div
             key={index}
-            className="glass-card bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all h-full"
+            variants={itemVariants}
+            whileHover={{ y: -5, scale: 1.02 }}
+            className="glass-card rounded-xl p-6"
           >
-            <div className="flex justify-between items-start mb-3">
-              <div>
-                <h4 className="text-xl font-semibold text-purple-300 mb-2">
+            <div className="flex items-start gap-4">
+              {cert.logo && (
+                <motion.img
+                  src={cert.logo}
+                  alt={cert.name}
+                  className="w-12 h-12 object-contain rounded"
+                  whileHover={{ scale: 1.1 }}
+                />
+              )}
+              <div className="flex-1">
+                <h4 className="font-semibold text-sm mb-1" style={{ color: "var(--color-primary)" }}>
                   {cert.name}
                 </h4>
-                <p className="text-gray-400 mb-1">{cert.issuer}</p>
-                <p className="text-gray-500 text-sm mb-2">{cert.date}</p>
-                {cert.credential && (
-                  <p className="text-gray-500 text-xs">
-                    Credential ID: {cert.credential}
+                <p className="text-xs" style={{ color: "var(--color-text-muted)" }}>
+                  {cert.issuer}
+                </p>
+                {cert.date && (
+                  <p className="text-xs mt-1" style={{ color: "var(--color-text-muted)" }}>
+                    {cert.date}
                   </p>
                 )}
               </div>
-              {cert.logo && (
-                <div className="mt-0 md:mt-0 md:ml-6 flex-shrink-0 flex items-center justify-center w-20 h-20">
-                  <img
-                    src={cert.logo}
-                    alt={`${cert.issuer} logo`}
-                    title={cert.name}
-                    loading="lazy"
-                    className={`object-contain w-20 h-20`}
-                  />
-                </div>
-              )}
             </div>
-            <div className="flex flex-wrap gap-2 mt-4">
-              {cert.skills.map((skill) => (
-                <span
-                  key={skill}
-                  className="bg-purple-600/20 text-purple-300 px-3 py-1 rounded-full text-xs"
-                >
-                  {skill}
-                </span>
-              ))}
-            </div>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </Section>
   );
 }

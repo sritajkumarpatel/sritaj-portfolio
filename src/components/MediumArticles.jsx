@@ -1,38 +1,79 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { BookOpen } from "lucide-react";
 import Section from "./Section";
-import { BookOpen, ExternalLink } from "lucide-react";
+import { SkeletonGrid } from "./Skeleton";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.08 },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.3 },
+  },
+};
 
 export default function MediumArticles({ articles }) {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 600);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <Section className="bg-slate-900/50">
+    <Section>
       <div className="flex items-center gap-3 mb-6">
-        <BookOpen className="text-purple-400" size={32} />
-        <h3 className="text-3xl font-bold">Medium Articles</h3>
+        <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
+          <BookOpen style={{ color: "var(--color-accent)" }} size={28} />
+        </motion.div>
+        <h3 className="text-2xl font-bold" style={{ color: "var(--color-accent)" }}>
+          Medium Articles
+        </h3>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {articles.map((article, index) => (
-          <div
-            key={index}
-            className="glass-card bg-slate-800/50 backdrop-blur rounded-xl p-6 border border-purple-500/20 hover:border-purple-500/40 transition-all hover:scale-105"
-          >
-            <p className="text-sm text-gray-400 mb-2">{article.date}</p>
-            <h4 className="text-lg font-semibold mb-3 text-purple-300 line-clamp-2">
-              {article.title}
-            </h4>
-            <p className="text-gray-400 mb-4 text-sm line-clamp-3">
-              {article.description}
-            </p>
-            <a
+
+      {loading ? (
+        <SkeletonGrid count={4} columns={2} />
+      ) : (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid md:grid-cols-2 gap-4"
+        >
+          {articles.map((article, index) => (
+            <motion.a
+              key={index}
               href={article.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors text-sm"
+              variants={itemVariants}
+              whileHover={{ y: -3, scale: 1.01 }}
+              className="glass-card rounded-xl p-5 block"
             >
-              Read More <ExternalLink size={14} />
-            </a>
-          </div>
-        ))}
-      </div>
+              <h4 className="font-semibold mb-2 line-clamp-2" style={{ color: "var(--color-accent)" }}>
+                {article.title}
+              </h4>
+              <p className="text-sm mb-3 line-clamp-3" style={{ color: "var(--color-text-secondary)" }}>
+                {article.description || article.subtitle || "Read more on Medium"}
+              </p>
+              <div className="flex items-center gap-3 text-xs" style={{ color: "var(--color-text-muted)" }}>
+                {article.pubDate && <span>{new Date(article.pubDate).toLocaleDateString()}</span>}
+                {article.readTime && <span>• {article.readTime} min read</span>}
+              </div>
+            </motion.a>
+          ))}
+        </motion.div>
+      )}
     </Section>
   );
 }

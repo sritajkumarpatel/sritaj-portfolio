@@ -1,72 +1,64 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Section from "./Section";
 import ProjectCard from "./ProjectCard";
 import ComingSoon from "./ComingSoon";
 import { Zap, Star } from "lucide-react";
 
-export default function Projects({ projects }) {
+export default function Projects({ projects, onOpenModal }) {
   const featuredProjects = projects?.filter((p) => p.featured) || [];
   const regularProjects = projects?.filter((p) => !p.featured) || [];
 
   return (
-    <Section className="bg-slate-900/50">
+    <Section>
       <div className="flex items-center gap-3 mb-6">
-        <Zap className="text-purple-400" size={32} />
-        <h3 className="text-3xl font-bold">Projects</h3>
+        <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
+          <Zap style={{ color: "var(--color-accent)" }} size={28} />
+        </motion.div>
+        <h3 className="text-2xl font-bold" style={{ color: "var(--color-accent)" }}>
+          Projects
+        </h3>
       </div>
 
-      {/* Featured Projects Section */}
       {featuredProjects.length > 0 && (
-        <div className="mb-12">
-          {featuredProjects.length === 1 ? (
-            <>
-              <h4 className="text-xl font-bold text-purple-300 mb-4 flex items-center gap-2">
-                <Star size={20} className="text-yellow-400" />
-                Featured Project
-              </h4>
-              <ProjectCard project={featuredProjects[0]} gridCols={1} />
-            </>
-          ) : (
-            <>
-              <h4 className="text-xl font-bold text-purple-300 mb-4 flex items-center gap-2">
-                <Star size={20} className="text-yellow-400" />
-                Featured Projects
-              </h4>
-              <div className="grid md:grid-cols-2 gap-6">
-                {featuredProjects.map((project) => (
-                  <ProjectCard
-                    key={project.title}
-                    project={project}
-                    gridCols={2}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      )}
-
-      {/* Regular Projects Section */}
-      {regularProjects.length > 0 && (
-        <div className="mb-12">
-          <h4 className="text-xl font-bold text-purple-300 mb-4">
-            More Projects
+        <div className="mb-8">
+          <h4 className="text-lg font-bold mb-3 flex items-center gap-2" style={{ color: "var(--color-accent)" }}>
+            <Star size={18} style={{ color: "var(--color-accent)" }} />
+            Featured {featuredProjects.length > 1 ? "Projects" : "Project"}
           </h4>
-          <div
-            className={`grid ${regularProjects.length > 1 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-6`}
-          >
-            {regularProjects.map((project) => (
+          <div className={featuredProjects.length > 1 ? "grid md:grid-cols-2 gap-4" : ""}>
+            {featuredProjects.map((project) => (
               <ProjectCard
                 key={project.title}
                 project={project}
-                gridCols={regularProjects.length > 1 ? 2 : 1}
+                gridCols={featuredProjects.length > 1 ? 2 : 1}
+                onOpenModal={onOpenModal}
               />
             ))}
           </div>
         </div>
       )}
 
-      {/* Coming Soon Section */}
+      {regularProjects.length > 0 && (
+        <div className="mb-8">
+          <h4 className="text-lg font-bold mb-3" style={{ color: "var(--color-accent)" }}>
+            More Projects
+          </h4>
+          <div
+            className={`grid ${regularProjects.length > 1 ? "md:grid-cols-2" : "md:grid-cols-1"} gap-4`}
+          >
+            {regularProjects.map((project) => (
+              <ProjectCard
+                key={project.title}
+                project={project}
+                gridCols={regularProjects.length > 1 ? 2 : 1}
+                onOpenModal={onOpenModal}
+              />
+            ))}
+          </div>
+        </div>
+      )}
+
       <ComingSoon />
     </Section>
   );

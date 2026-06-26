@@ -1,116 +1,108 @@
 import React from "react";
-import { Star, Github, ExternalLink } from "lucide-react";
+import { motion } from "framer-motion";
+import { Star, Github, ExternalLink, Eye } from "lucide-react";
 import CardSection from "./CardSection";
 
-export default function ProjectCard({ project, gridCols = 1 }) {
+export default function ProjectCard({ project, gridCols = 1, onOpenModal }) {
   const isFeatured = project.featured === true;
-  const isLink =
-    isFeatured || (project.link && project.link.startsWith("http"));
+  const isLink = isFeatured || (project.link && project.link.startsWith("http"));
 
-  // Adjust styling based on grid layout and featured status
-  let cardClasses = "glass-card backdrop-blur rounded-xl border transition-all";
-  let titleClasses = "font-bold text-purple-300 mb-2";
-  let descClasses = "text-gray-300 mb-4 leading-relaxed";
-
-  if (isFeatured && gridCols === 1) {
-    // Full-width featured
-    cardClasses +=
-      " bg-gradient-to-br from-purple-900/30 to-pink-900/30 p-8 border-2 border-purple-500/40 hover:border-purple-500/60";
-    titleClasses += " text-2xl";
-    descClasses += " text-base";
-  } else if (isFeatured && gridCols > 1) {
-    // Grid featured
-    cardClasses +=
-      " bg-gradient-to-br from-purple-900/30 to-pink-900/30 p-6 border-2 border-purple-500/40 hover:border-purple-500/60";
-    titleClasses += " text-xl";
-    descClasses += " text-sm";
-  } else {
-    // Regular projects
-    cardClasses +=
-      " bg-slate-800/50 p-6 border border-purple-500/20 hover:border-purple-500/40";
-    titleClasses += " text-xl";
-    descClasses += " text-sm";
-  }
-
-  // Get sections to display from project or use defaults
   const sections =
     project.sections ||
-    (isFeatured
-      ? ["keyFeatures", "technologies", "quickStart"]
-      : ["technologies"]);
+    (isFeatured ? ["keyFeatures", "technologies", "quickStart"] : ["technologies"]);
 
   return (
-    <div className={cardClasses}>
-      <div className="flex items-start justify-between mb-4">
-        <div>
-          <h4 className={titleClasses}>{project.title}</h4>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -5, scale: 1.01 }}
+      transition={{ duration: 0.3 }}
+      className="glass-card rounded-xl p-5 cursor-pointer"
+      style={
+        isFeatured
+          ? {
+              background: "linear-gradient(135deg, rgba(var(--color-accent-rgb), 0.08), rgba(var(--color-primary-rgb), 0.05))",
+              border: "1px solid rgba(var(--color-accent-rgb), 0.2)",
+            }
+          : {}
+      }
+      onClick={() => onOpenModal?.(project)}
+    >
+      <div className="flex items-start justify-between mb-3">
+        <div className="flex-1">
+          <h4
+            className={`font-bold mb-1 ${isFeatured ? "text-xl" : "text-lg"}`}
+            style={{ color: "var(--color-accent)" }}
+          >
+            {project.title}
+          </h4>
           {isFeatured && (
-            <p className="text-sm text-purple-400 flex items-center gap-2">
-              <Star size={14} className="text-yellow-400" />
-              Open Source Template
+            <p className="text-xs flex items-center gap-1" style={{ color: "var(--color-accent)" }}>
+              <Star size={12} style={{ color: "var(--color-accent)" }} />
+              Featured
             </p>
           )}
         </div>
+        <motion.div
+          whileHover={{ scale: 1.2 }}
+          className="p-1.5 rounded-lg"
+          style={{
+            backgroundColor: "rgba(var(--color-accent-rgb), 0.1)",
+            color: "var(--color-accent)",
+          }}
+        >
+          <Eye size={16} />
+        </motion.div>
       </div>
 
-      <p className={descClasses}>{project.description}</p>
+      <p className={`mb-3 leading-relaxed line-clamp-2 ${isFeatured ? "text-sm" : "text-xs"}`} style={{ color: "var(--color-text-secondary)" }}>
+        {project.description}
+      </p>
 
       {sections.includes("keyFeatures") && (
-        <CardSection
-          title="keyFeatures"
-          content={project.keyFeatures}
-          isFeatured={isFeatured}
-        />
+        <CardSection title="keyFeatures" content={project.keyFeatures} isFeatured={isFeatured} />
       )}
 
       {sections.includes("technologies") && (
-        <CardSection
-          title="technologies"
-          content={project.technologies}
-          isFeatured={isFeatured}
-        />
+        <CardSection title="technologies" content={project.technologies} isFeatured={isFeatured} />
       )}
 
-      {sections.includes("quickStart") && (
-        <CardSection
-          title="quickStart"
-          content={project.quickStart}
-          isFeatured={isFeatured}
-        />
-      )}
-
-      <div className="flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-2 mt-3">
         {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center gap-2 px-6 py-2 rounded-lg text-sm font-semibold transition-colors ${
-              isFeatured
-                ? "bg-purple-600 hover:bg-purple-700 text-white"
-                : "text-purple-400 hover:text-purple-300"
-            }`}
+          <span
+            className="flex items-center gap-1 px-3 py-1 rounded text-xs"
+            style={{
+              backgroundColor: "rgba(var(--color-accent-rgb), 0.1)",
+              color: "var(--color-accent)",
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open(project.github, "_blank");
+            }}
           >
-            <Github size={16} />
-            GitHub →
-          </a>
+            <Github size={12} />
+            GitHub
+          </span>
         )}
-        {isLink && (
-          <a
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex items-center gap-2 px-6 py-2 rounded-lg text-sm font-semibold transition-colors ${
-              isFeatured
-                ? "bg-pink-600/20 hover:bg-pink-600/30 text-pink-300 border border-pink-500/30"
-                : "text-purple-400 hover:text-purple-300"
-            }`}
+        {isLink && project.link && (
+          <span
+            className="flex items-center gap-1 px-3 py-1 rounded text-xs"
+            style={{
+              backgroundColor: "rgba(var(--color-primary-rgb), 0.1)",
+              color: "var(--color-text-secondary)",
+              border: "1px solid var(--color-border)",
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open(project.link, "_blank");
+            }}
           >
-            <ExternalLink size={16} />
-            {isFeatured ? "Live Demo" : "View Project"} →
-          </a>
+            <ExternalLink size={12} />
+            Live Demo
+          </span>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
