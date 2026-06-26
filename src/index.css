@@ -28,8 +28,8 @@ body {
   min-height: 100vh;
   background-color: var(--color-bg-primary);
   background-image:
-    radial-gradient(800px 600px at 20% 80%, rgba(var(--color-primary-rgb), 0.12), transparent),
-    radial-gradient(600px 400px at 80% 20%, rgba(var(--color-accent-rgb), 0.08), transparent);
+    radial-gradient(800px 600px at 20% 80%, rgba(var(--color-accent-rgb), 0.06), transparent),
+    radial-gradient(600px 400px at 80% 20%, rgba(var(--color-primary-rgb), 0.04), transparent);
   transition: background-color 0.3s ease, background-image 0.3s ease;
 }
 
@@ -61,10 +61,10 @@ body {
     background: var(--color-glass-bg);
     border: 1px solid var(--color-glass-border);
     box-shadow: var(--color-glass-shadow);
-    transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+    transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
   }
   .glass-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
     border-color: var(--color-glass-hover-border);
     box-shadow: var(--color-glass-hover-shadow);
   }
@@ -80,39 +80,36 @@ body {
   }
 }
 
-/* Headings - use text-primary for visibility */
 h1, h2, h3, h4, h5, h6 {
   color: var(--color-text-primary);
 }
 
-/* Section headings use primary color */
-h3.text-3xl,
-.text-3xl.font-bold {
-  color: var(--color-primary);
+h3.text-2xl,
+.text-2xl.font-bold {
+  color: var(--color-accent);
 }
 
 .experience-card {
   position: relative;
   overflow: visible;
-  padding-left: 3.5rem;
+  padding-left: 3rem;
 }
 .experience-card::before {
   content: "";
   position: absolute;
-  left: 16px;
-  top: 16px;
-  bottom: 16px;
+  left: 14px;
+  top: 14px;
+  bottom: 14px;
   width: 3px;
-  background: linear-gradient(180deg, var(--color-primary), var(--color-accent));
+  background: linear-gradient(180deg, var(--color-accent), var(--color-primary));
   border-radius: 3px;
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 @media (max-width: 768px) {
-  .hero-title { font-size: 2.25rem; }
   .max-w-6xl { padding-left: 1rem; padding-right: 1rem; }
-  .experience-card::before { left: 12px; top: 12px; bottom: 12px; }
-  .experience-card { padding-left: 2.5rem; }
+  .experience-card::before { left: 10px; top: 10px; bottom: 10px; }
+  .experience-card { padding-left: 2rem; }
 }
 
 nav {
@@ -126,34 +123,34 @@ nav h1 {
   font-size: 1.25rem;
   white-space: nowrap;
 }
-nav button { color: var(--color-text-secondary); }
-.nav-right button { padding: 0.4rem 0.75rem; font-size: 0.8rem; border-radius: 0.5rem; color: var(--color-text-secondary); }
-.nav-right button:hover { color: var(--color-primary); }
+nav button { color: var(--color-text-muted); }
+.nav-right button { padding: 0.4rem 0.75rem; font-size: 0.8rem; border-radius: 0.5rem; color: var(--color-text-muted); }
+.nav-right button:hover { color: var(--color-accent); }
 .nav-right { flex-wrap: nowrap; }
 .nav-right button { white-space: nowrap; }
 
 footer {
   border-top: 1px solid var(--color-footer-border);
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-footer p { font-size: 1rem; color: var(--color-text-secondary); }
-footer a:hover { color: var(--color-primary); }
+footer p { font-size: 0.875rem; color: var(--color-text-muted); }
+footer a:hover { color: var(--color-accent); }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--color-scrollbar-track);
 }
 ::-webkit-scrollbar-thumb {
   background: var(--color-scrollbar-thumb);
-  border-radius: 5px;
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-scrollbar-thumb-hover);
@@ -180,15 +177,19 @@ footer a:hover { color: var(--color-primary); }
 .emoji { display: inline-block; font-size: 1.8rem; }
 .visual-preview-failed .emoji { filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.12)); }
 
-/* Light mode specific */
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 html:not(.dark) body {
   background-color: var(--color-bg-primary);
 }
 
-html:not(.dark) nav button {
-  color: var(--color-text-secondary);
+html:not(.dark) .glass-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
-html:not(.dark) .glass-card {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+html:not(.dark) .glass-card:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }

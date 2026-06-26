@@ -4,18 +4,16 @@ import config from "../config.json";
 const ThemeContext = createContext(null);
 
 const themeColors = {
-  purple: { primary: "#8f3be7", light: "#a855f7", dark: "#7c3aed" },
-  pink: { primary: "#db2777", light: "#ec4899", dark: "#be185d" },
-  blue: { primary: "#2563eb", light: "#3b82f6", dark: "#1d4ed8" },
-  cyan: { primary: "#0891b2", light: "#06b6d4", dark: "#0e7490" },
-  emerald: { primary: "#059669", light: "#10b981", dark: "#047857" },
-  teal: { primary: "#0d9488", light: "#14b8a6", dark: "#0f766e" },
-  orange: { primary: "#ea580c", light: "#f97316", dark: "#c2410c" },
-  amber: { primary: "#d97706", light: "#f59e0b", dark: "#b45309" },
-  rose: { primary: "#e11d48", light: "#f43f5e", dark: "#be123c" },
-  violet: { primary: "#7c3aed", light: "#8b5cf6", dark: "#6d28d9" },
-  indigo: { primary: "#4f46e5", light: "#6366f1", dark: "#4338ca" },
-  frost: { primary: "#38bdf8", light: "#7dd3fc", dark: "#0ea5e9" },
+  slate: { primary: "#e2e8f0", light: "#f1f5f9", dark: "#cbd5e1" },
+  amber: { primary: "#fbbf24", light: "#fcd34d", dark: "#f59e0b" },
+  indigo: { primary: "#818cf8", light: "#a5b4fc", dark: "#6366f1" },
+  violet: { primary: "#c084fc", light: "#d8b4fe", dark: "#a855f7" },
+  emerald: { primary: "#34d399", light: "#6ee7b7", dark: "#10b981" },
+  teal: { primary: "#2dd4bf", light: "#5eead4", dark: "#14b8a6" },
+  rose: { primary: "#fb7185", light: "#fda4af", dark: "#f43f5e" },
+  fuchsia: { primary: "#e879f9", light: "#f0abfc", dark: "#d946ef" },
+  blue: { primary: "#60a5fa", light: "#93c5fd", dark: "#3b82f6" },
+  cyan: { primary: "#22d3ee", light: "#67e8f9", dark: "#06b6d4" },
 };
 
 function hexToRgb(hex) {
@@ -26,8 +24,8 @@ function hexToRgb(hex) {
 }
 
 function getCSSVariables(primary, accent, mode) {
-  const p = themeColors[primary] || themeColors.frost;
-  const a = themeColors[accent] || themeColors.cyan;
+  const p = themeColors[primary] || themeColors.slate;
+  const a = themeColors[accent] || themeColors.amber;
   const isDark = mode === "dark";
 
   return {
@@ -39,45 +37,48 @@ function getCSSVariables(primary, accent, mode) {
     "--color-accent-light": a.light,
     "--color-accent-dark": a.dark,
     "--color-accent-rgb": hexToRgb(a.primary),
-    "--color-bg-primary": isDark ? "#0a0f1a" : "#f8fafc",
-    "--color-bg-secondary": isDark ? "#0f172a" : "#ffffff",
-    "--color-bg-tertiary": isDark ? "#1e293b" : "#f1f5f9",
+    "--color-bg-primary": isDark ? "#0f1218" : "#fafaf9",
+    "--color-bg-secondary": isDark ? "#1c2028" : "#ffffff",
+    "--color-bg-tertiary": isDark ? "#282d38" : "#f5f5f4",
     "--color-text-primary": isDark ? "#f1f5f9" : "#0f172a",
-    "--color-text-secondary": isDark ? "#cbd5e1" : "#334155",
-    "--color-text-muted": isDark ? "#94a3b8" : "#64748b",
+    "--color-text-secondary": isDark ? "#cbd5e1" : "#475569",
+    "--color-text-muted": isDark ? "#94a3b8" : "#94a3b8",
     "--color-border": isDark
-      ? "rgba(56, 189, 248, 0.15)"
-      : "rgba(14, 165, 233, 0.15)",
+      ? "rgba(251, 191, 36, 0.12)"
+      : "rgba(217, 119, 6, 0.12)",
     "--color-border-strong": isDark
-      ? "rgba(56, 189, 248, 0.3)"
-      : "rgba(14, 165, 233, 0.3)",
+      ? "rgba(251, 191, 36, 0.25)"
+      : "rgba(217, 119, 6, 0.25)",
     "--color-glass-bg": isDark
-      ? "linear-gradient(180deg, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.5))"
-      : "linear-gradient(180deg, rgba(255, 255, 255, 0.85), rgba(241, 245, 249, 0.7))",
+      ? "linear-gradient(180deg, rgba(28, 32, 40, 0.8), rgba(15, 18, 24, 0.7))"
+      : "linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(250, 250, 249, 0.8))",
     "--color-glass-border": isDark
-      ? "rgba(56, 189, 248, 0.12)"
-      : "rgba(14, 165, 233, 0.12)",
+      ? "rgba(251, 191, 36, 0.1)"
+      : "rgba(217, 119, 6, 0.1)",
     "--color-glass-shadow": isDark
-      ? "0 8px 32px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255,255,255,0.03)"
-      : "0 8px 32px rgba(0, 0, 0, 0.08), inset 0 1px 0 rgba(255,255,255,0.8)",
+      ? "0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.03)"
+      : "0 8px 32px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255,255,255,0.9)",
     "--color-glass-hover-border": isDark
-      ? "rgba(56, 189, 248, 0.3)"
-      : "rgba(14, 165, 233, 0.3)",
+      ? "rgba(251, 191, 36, 0.25)"
+      : "rgba(217, 119, 6, 0.25)",
     "--color-glass-hover-shadow": isDark
-      ? "0 16px 48px rgba(0, 0, 0, 0.4), 0 0 20px rgba(56, 189, 248, 0.1)"
-      : "0 16px 48px rgba(0, 0, 0, 0.12), 0 0 20px rgba(14, 165, 233, 0.08)",
+      ? "0 16px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(251, 191, 36, 0.08)"
+      : "0 16px 48px rgba(0, 0, 0, 0.1), 0 0 30px rgba(217, 119, 6, 0.06)",
     "--color-nav-bg": isDark
-      ? "linear-gradient(180deg, rgba(10, 15, 26, 0.95), rgba(10, 15, 26, 0.85))"
-      : "linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9))",
+      ? "linear-gradient(180deg, rgba(15, 18, 24, 0.95), rgba(15, 18, 24, 0.85))"
+      : "linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(250, 250, 249, 0.9))",
     "--color-nav-shadow": isDark
-      ? "0 4px 20px rgba(0, 0, 0, 0.4)"
-      : "0 4px 20px rgba(0, 0, 0, 0.08)",
+      ? "0 4px 20px rgba(0, 0, 0, 0.5)"
+      : "0 4px 20px rgba(0, 0, 0, 0.06)",
     "--color-footer-border": isDark
-      ? "rgba(56, 189, 248, 0.1)"
-      : "rgba(14, 165, 233, 0.1)",
-    "--color-scrollbar-track": isDark ? "#0f172a" : "#f1f5f9",
-    "--color-scrollbar-thumb": isDark ? "#1e40af" : "#38bdf8",
-    "--color-scrollbar-thumb-hover": isDark ? "#2563eb" : "#0ea5e9",
+      ? "rgba(251, 191, 36, 0.08)"
+      : "rgba(217, 119, 6, 0.08)",
+    "--color-scrollbar-track": isDark ? "#0f1218" : "#f5f5f4",
+    "--color-scrollbar-thumb": isDark ? "#282d38" : "#d4d4d8",
+    "--color-scrollbar-thumb-hover": isDark ? "#3b414d" : "#a1a1aa",
+    "--color-skeleton": isDark ? "#1c2028" : "#e4e4e7",
+    "--color-skeleton-shine": isDark ? "#282d38" : "#f4f4f5",
+    "--color-overlay": isDark ? "rgba(0, 0, 0, 0.7)" : "rgba(0, 0, 0, 0.5)",
   };
 }
 

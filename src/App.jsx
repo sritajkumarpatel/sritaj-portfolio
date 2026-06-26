@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import config from "./config.json";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
@@ -18,12 +18,25 @@ import Awards from "./components/Awards";
 import VisualConcepts from "./components/VisualConcepts";
 import Footer from "./components/Footer";
 import AnimatedBackground from "./components/AnimatedBackground";
+import ProjectModal from "./components/ProjectModal";
 import aboutMe from "./data/aboutMe.json";
 import awards from "./data/awards.json";
 import projects from "./data/projects.json";
 
 const App = () => {
   const [activeSection, setActiveSection] = useState("home");
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleOpenModal = useCallback((project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  }, []);
+
+  const handleCloseModal = useCallback(() => {
+    setIsModalOpen(false);
+    setTimeout(() => setSelectedProject(null), 300);
+  }, []);
 
   const logoModules = import.meta.glob("./assets/certifications/*.{png,svg}", {
     query: "?url",
@@ -57,7 +70,6 @@ const App = () => {
       />
 
       <main className="flex-1 relative z-10">
-        {/* Home - Hero + About + Awards */}
         {activeSection === "home" && (
           <>
             <Hero config={config} />
@@ -70,7 +82,6 @@ const App = () => {
           </>
         )}
 
-        {/* Other sections */}
         {activeSection === "about" && (
           <div className="pt-24">
             <About
@@ -119,7 +130,7 @@ const App = () => {
 
         {activeSection === "projects" && (
           <div className="pt-24">
-            <Projects projects={projects} />
+            <Projects projects={projects} onOpenModal={handleOpenModal} />
           </div>
         )}
 
@@ -131,6 +142,12 @@ const App = () => {
       </main>
 
       <Footer config={config} />
+
+      <ProjectModal
+        project={selectedProject}
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+      />
     </div>
   );
 };
