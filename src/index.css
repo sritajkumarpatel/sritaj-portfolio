@@ -184,12 +184,19 @@ footer a:hover { color: var(--color-accent); }
 
 html:not(.dark) body {
   background-color: var(--color-bg-primary);
+  background-image:
+    radial-gradient(800px 600px at 20% 80%, rgba(var(--color-accent-rgb), 0.05), transparent),
+    radial-gradient(600px 400px at 80% 20%, rgba(139, 119, 80, 0.04), transparent);
 }
 
 html:not(.dark) .glass-card {
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(139, 119, 80, 0.06);
 }
 
 html:not(.dark) .glass-card:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(139, 119, 80, 0.1);
+}
+
+html:not(.dark) nav h1 {
+  color: var(--color-accent);
 }

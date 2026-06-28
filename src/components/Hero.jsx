@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Linkedin, Mail, Github, BookOpen, ArrowDown } from "lucide-react";
+import { motion } from "framer-motion";
+import { Linkedin, Mail, Github, BookOpen, ArrowDown, Award, Briefcase, GraduationCap, Zap } from "lucide-react";
 
 const titles = [
   "Senior Architect at DevOn",
-  "Automation Engineer",
-  "Quality Engineering",
-  "Scrum Master",
-  "AI Engineer in making",
-  "Bug Fixer & Developer",
+  "AI Automation Architect",
+  "Quality Engineer → Architect",
+  "Scrum Master (PSM I, CSM)",
+  "Building Intelligent Workflows",
+  "11 Years in QE",
   "Workflow Architect",
 ];
 
@@ -28,6 +28,34 @@ const floatingOrb2 = {
     transition: { duration: 8, repeat: Infinity, ease: "easeInOut" },
   },
 };
+
+function AnimatedCounter({ end, suffix = "", duration = 2 }) {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let startTime = null;
+    const animate = (timestamp) => {
+      if (!startTime) startTime = timestamp;
+      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
+      setCount(Math.floor(progress * end));
+      if (progress < 1) requestAnimationFrame(animate);
+    };
+    requestAnimationFrame(animate);
+  }, [end, duration]);
+
+  return (
+    <span className="text-3xl md:text-4xl font-bold" style={{ color: "var(--color-primary)" }}>
+      {count}{suffix}
+    </span>
+  );
+}
+
+const stats = [
+  { icon: Briefcase, label: "Years Experience", value: 11, suffix: "+" },
+  { icon: Zap, label: "Projects Delivered", value: 50, suffix: "+" },
+  { icon: GraduationCap, label: "Certifications", value: 12, suffix: "+" },
+  { icon: Award, label: "Awards Won", value: 6, suffix: "" },
+];
 
 export default function Hero({ config }) {
   const [titleIndex, setTitleIndex] = useState(0);
@@ -74,35 +102,35 @@ export default function Hero({ config }) {
     {
       href: `https://www.linkedin.com/in/${config.personal.linkedin}`,
       label: "LinkedIn",
-      icon: <Linkedin size={20} />,
+      icon: <Linkedin size={18} />,
       bg: "bg-[#0A66C2]",
       hover: "hover:bg-[#084B8A]",
     },
     {
       href: `mailto:${config.personal.email}`,
       label: "Email",
-      icon: <Mail size={20} />,
+      icon: <Mail size={18} />,
       bg: "bg-slate-600",
       hover: "hover:bg-slate-500",
     },
     {
       href: `https://github.com/${config.personal.github}`,
       label: "GitHub",
-      icon: <Github size={20} />,
+      icon: <Github size={18} />,
       bg: "bg-[#24292F]",
       hover: "hover:bg-[#111214]",
     },
     {
       href: `https://medium.com/@${config.personal.medium}`,
       label: "Medium",
-      icon: <BookOpen size={20} />,
+      icon: <BookOpen size={18} />,
       bg: "bg-[#00ab6c]",
       hover: "hover:bg-[#008c54]",
     },
   ];
 
   return (
-    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden px-6 py-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-20">
       {/* Floating gradient orbs */}
       <motion.div
         {...floatingOrb}
@@ -119,47 +147,81 @@ export default function Hero({ config }) {
       />
 
       <div className="max-w-6xl mx-auto text-center relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-        >
-          <motion.h2
-            className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent h-20 flex items-center justify-center"
+        <div className="flex flex-col items-center gap-8">
+          {/* Avatar */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="relative"
           >
-            <span className="inline-block">
-              {displayText}
-              <motion.span
-                animate={{ opacity: [1, 0, 1] }}
-                transition={{ duration: 0.8, repeat: Infinity }}
-                className="inline-block w-1 h-12 bg-primary ml-1 align-middle"
-              />
-            </span>
-          </motion.h2>
+            <div
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center text-5xl md:text-6xl font-bold"
+              style={{
+                background: "linear-gradient(135deg, var(--color-primary), var(--color-accent))",
+                color: "var(--color-bg-primary)",
+                boxShadow: "0 0 40px rgba(var(--color-primary-rgb), 0.3)",
+              }}
+            >
+              {config.personal.name.split(" ").map(n => n[0]).join("")}
+            </div>
+            <motion.div
+              className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center"
+              style={{
+                backgroundColor: "#10b981",
+                boxShadow: "0 0 20px rgba(16, 185, 129, 0.5)",
+              }}
+              animate={{ scale: [1, 1.2, 1] }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <div className="w-3 h-3 rounded-full bg-white" />
+            </motion.div>
+          </motion.div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
+          {/* Typewriter Title */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-xl text-text-secondary mb-4 font-medium"
+            transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            {config.bio.headline}
-          </motion.p>
+            <motion.h2
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent min-h-[60px] flex items-center justify-center"
+            >
+              <span className="inline-block">
+                {displayText}
+                <motion.span
+                  animate={{ opacity: [1, 0, 1] }}
+                  transition={{ duration: 0.8, repeat: Infinity }}
+                  className="inline-block w-1 h-10 md:h-12 bg-primary ml-1 align-middle"
+                />
+              </span>
+            </motion.h2>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
-          >
-            {config.bio.subtitle}
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="text-lg md:text-xl text-text-secondary mb-3 font-medium"
+            >
+              {config.bio.headline}
+            </motion.p>
 
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="text-text-muted max-w-2xl mx-auto mb-8 leading-relaxed text-sm md:text-base"
+            >
+              {config.bio.subtitle}
+            </motion.p>
+          </motion.div>
+
+          {/* Social Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="flex justify-center gap-4 flex-wrap"
+            className="flex justify-center gap-3 flex-wrap"
           >
             {socialLinks.map((link, index) => (
               <motion.a
@@ -173,17 +235,46 @@ export default function Hero({ config }) {
                 transition={{ delay: 0.8 + index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className={`flex items-center gap-2 px-6 py-3 rounded-xl ${link.bg} ${link.hover} text-white font-medium transition-all shadow-lg hover:shadow-xl`}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl ${link.bg} ${link.hover} text-white font-medium transition-all shadow-lg hover:shadow-xl text-sm`}
               >
                 {link.icon}
                 {link.label}
               </motion.a>
             ))}
           </motion.div>
-        </motion.div>
+
+          {/* Stats Row */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1, duration: 0.6 }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-4"
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.1 + index * 0.1 }}
+                whileHover={{ y: -5, scale: 1.05 }}
+                className="glass-card rounded-xl p-4 md:p-5 text-center cursor-default"
+              >
+                <stat.icon
+                  size={24}
+                  className="mx-auto mb-2"
+                  style={{ color: "var(--color-accent)" }}
+                />
+                <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                <p className="text-xs mt-1" style={{ color: "var(--color-text-muted)" }}>
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
 
-      {/* Scroll indicator - right side, prominent */}
+      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
