@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect, useRef } from "react";
 import config from "./config.json";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
@@ -23,10 +23,25 @@ import aboutMe from "./data/aboutMe.json";
 import awards from "./data/awards.json";
 import projects from "./data/projects.json";
 
+const SECTION_IDS = [
+  "hero",
+  "about",
+  "tech",
+  "experience",
+  "projects",
+  "awards",
+  "certifications",
+  "github",
+  "articles",
+  "visual",
+];
+
 const App = () => {
-  const [activeSection, setActiveSection] = useState("home");
   const [selectedProject, setSelectedProject] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("hero");
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const sectionRefs = useRef({});
 
   const handleOpenModal = useCallback((project) => {
     setSelectedProject(project);
@@ -37,6 +52,37 @@ const App = () => {
     setIsModalOpen(false);
     setTimeout(() => setSelectedProject(null), 300);
   }, []);
+
+  const scrollToSection = useCallback((sectionId) => {
+    const element = sectionRefs.current[sectionId];
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      setScrollProgress(progress);
+
+      const offsets = SECTION_IDS.map((id) => {
+        const el = sectionRefs.current[id];
+        if (!el) return { id, top: Infinity };
+        const rect = el.getBoundingClientRect();
+        return { id, top: Math.abs(rect.top - 80) };
+      });
+      const closest = offsets.reduce((a, b) => (a.top < b.top ? a : b));
+      if (closest.id !== activeSection) {
+        setActiveSection(closest.id);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeSection]);
 
   const logoModules = import.meta.glob("./assets/certifications/*.{png,svg}", {
     query: "?url",
@@ -65,80 +111,55 @@ const App = () => {
 
       <Nav
         activeSection={activeSection}
-        setActiveSection={setActiveSection}
+        scrollToSection={scrollToSection}
         config={config}
+        scrollProgress={scrollProgress}
       />
 
       <main className="flex-1 relative z-10">
-        {activeSection === "home" && (
-          <>
-            <Hero config={config} />
-            <About
-              experience={experience}
-              mediumArticles={mediumArticles}
-              aboutMe={aboutMe}
-            />
-            <Awards awards={awards} />
-          </>
-        )}
+        <div ref={(el) => (sectionRefs.current["hero"] = el)}>
+          <Hero config={config} />
+        </div>
 
-        {activeSection === "about" && (
-          <div className="pt-24">
-            <About
-              experience={experience}
-              mediumArticles={mediumArticles}
-              aboutMe={aboutMe}
-            />
-          </div>
-        )}
+        <div ref={(el) => (sectionRefs.current["about"] = el)}>
+          <About
+            experience={experience}
+            mediumArticles={mediumArticles}
+            aboutMe={aboutMe}
+          />
+        </div>
 
-        {activeSection === "experience" && (
-          <div className="pt-24">
-            <Experience experience={experience} />
-          </div>
-        )}
+        <div ref={(el) => (sectionRefs.current["tech"] = el)}>
+          <TechStack techStacks={techStacks} />
+        </div>
 
-        {activeSection === "certifications" && (
-          <div className="pt-24">
-            <Certifications certifications={certificationsWithLogos} />
-          </div>
-        )}
+        <div ref={(el) => (sectionRefs.current["experience"] = el)}>
+          <Experience experience={experience} />
+        </div>
 
-        {activeSection === "tech" && (
-          <div className="pt-24">
-            <TechStack techStacks={techStacks} />
-          </div>
-        )}
+        <div ref={(el) => (sectionRefs.current["projects"] = el)}>
+          <Projects projects={projects} onOpenModal={handleOpenModal} />
+        </div>
 
-        {activeSection === "github" && (
-          <div className="pt-24">
-            <GithubRepos repos={githubRepos} />
-          </div>
-        )}
+        <div ref={(el) => (sectionRefs.current["awards"] = el)}>
+          <Awards awards={awards} />
+        </div>
 
-        {activeSection === "articles" && (
-          <div className="pt-24">
-            <MediumArticles articles={mediumArticles} />
-          </div>
-        )}
+        <div ref={(el) => (sectionRefs.current["certifications"] = el)}>
+          <Certifications certifications={certificationsWithLogos} />
+        </div>
 
-        {activeSection === "visual" && (
-          <div className="pt-24">
-            <VisualConcepts />
-          </div>
-        )}
+        <div ref={(el) => (sectionRefs.current["github"] = el)}>
+          <GithubRepos repos={githubRepos} />
+        </div>
 
-        {activeSection === "projects" && (
-          <div className="pt-24">
-            <Projects projects={projects} onOpenModal={handleOpenModal} />
-          </div>
-        )}
+        <div ref={(el) => (sectionRefs.current["articles"] = el)}>
+          <MediumArticles articles={mediumArticles} />
+        </div>
 
-        {activeSection === "awards" && (
-          <div className="pt-24">
-            <Awards awards={awards} />
-          </div>
-        )}
+        <div ref={(el) => (sectionRefs.current["visual"] = el)}>
+          <VisualConcepts />
+        </div>
       </main>
 
       <Footer config={config} />

@@ -1,13 +1,28 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Code2 } from "lucide-react";
+import { Code2, Cpu, Cloud, Database, Globe, Wrench, Brain, Shield } from "lucide-react";
 import Section from "./Section";
+
+const CATEGORY_ICONS = {
+  "AI Engineering & Orchestration": Brain,
+  "Test Automation & Architecture": Shield,
+  "Full-Stack & Cloud Infrastructure": Cloud,
+  "Agile Leadership & Process": Globe,
+  "Frontend": Globe,
+  "Backend": Database,
+  "DevOps & Cloud": Cloud,
+  "AI & ML": Brain,
+  "Testing": Shield,
+  "Tools": Wrench,
+  "Programming Languages": Code2,
+  "Frameworks": Cpu,
+};
 
 const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.1 },
+    transition: { staggerChildren: 0.15 },
   },
 };
 
@@ -16,7 +31,7 @@ const itemVariants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.4 },
+    transition: { duration: 0.5 },
   },
 };
 
@@ -25,7 +40,7 @@ export default function TechStack({ techStacks }) {
 
   return (
     <Section>
-      <div className="flex items-center gap-3 mb-6">
+      <div className="flex items-center gap-3 mb-8">
         <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
           <Code2 style={{ color: "var(--color-primary)" }} size={32} />
         </motion.div>
@@ -39,43 +54,101 @@ export default function TechStack({ techStacks }) {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="space-y-6"
+        className="grid md:grid-cols-2 gap-6"
       >
-        {categories.map(([category, skills], index) => (
-          <motion.div
-            key={index}
-            variants={itemVariants}
-            whileHover={{ y: -5 }}
-            className="glass-card rounded-xl p-6"
-          >
-            <h4 className="text-xl font-semibold mb-4" style={{ color: "var(--color-primary)" }}>
-              {category}
-            </h4>
-            <div className="flex flex-wrap gap-2">
-              {skills.map((skill, skillIndex) => {
-                const skillName = typeof skill === "string" ? skill : skill.name;
-                return (
-                  <motion.span
-                    key={skillIndex}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: skillIndex * 0.05 }}
-                    whileHover={{ scale: 1.1, y: -2 }}
-                    className="px-3 py-1.5 rounded-full text-sm font-medium cursor-default transition-all"
-                    style={{
-                      backgroundColor: "rgba(var(--color-primary-rgb), 0.1)",
-                      color: "var(--color-primary)",
-                      border: "1px solid rgba(var(--color-primary-rgb), 0.2)",
-                    }}
-                  >
-                    {skillName}
-                  </motion.span>
-                );
-              })}
-            </div>
-          </motion.div>
-        ))}
+        {categories.map(([category, skills], index) => {
+          const IconComponent = CATEGORY_ICONS[category] || Code2;
+          return (
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              whileHover={{ y: -5 }}
+              className="glass-card rounded-xl p-6"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div
+                  className="p-2 rounded-lg"
+                  style={{
+                    backgroundColor: "rgba(var(--color-primary-rgb), 0.15)",
+                  }}
+                >
+                  <IconComponent size={20} style={{ color: "var(--color-primary)" }} />
+                </div>
+                <h4 className="text-lg font-semibold" style={{ color: "var(--color-primary)" }}>
+                  {category}
+                </h4>
+              </div>
+
+              <div className="space-y-3">
+                {skills.map((skill, skillIndex) => {
+                  const skillName = typeof skill === "string" ? skill : skill.name;
+                  const proficiency = typeof skill === "object" && skill.proficiency ? skill.proficiency : null;
+                  const baseDelay = skillIndex * 0.05;
+
+                  return (
+                    <motion.div
+                      key={skillIndex}
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: baseDelay }}
+                      className="group"
+                    >
+                      <div className="flex items-center justify-between mb-1.5">
+                        <motion.span
+                          whileHover={{ x: 5 }}
+                          className="text-sm font-medium cursor-default"
+                          style={{ color: "var(--color-text-primary)" }}
+                        >
+                          {skillName}
+                        </motion.span>
+                        {proficiency && (
+                          <span
+                            className="text-xs font-medium px-2 py-0.5 rounded-full"
+                            style={{
+                              backgroundColor: "rgba(var(--color-primary-rgb), 0.1)",
+                              color: "var(--color-primary)",
+                            }}
+                          >
+                            {proficiency}%
+                          </span>
+                        )}
+                      </div>
+                      {proficiency && (
+                        <div
+                          className="h-1.5 rounded-full overflow-hidden"
+                          style={{
+                            backgroundColor: "rgba(var(--color-primary-rgb), 0.1)",
+                          }}
+                        >
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${proficiency}%` }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, delay: baseDelay + 0.2, ease: "easeOut" }}
+                            className="h-full rounded-full"
+                            style={{
+                              background: "linear-gradient(to right, var(--color-primary), var(--color-accent))",
+                            }}
+                          />
+                        </div>
+                      )}
+                      {!proficiency && (
+                        <div
+                          className="h-1 rounded-full"
+                          style={{
+                            background: "linear-gradient(to right, var(--color-primary), var(--color-accent))",
+                            opacity: 0.3,
+                          }}
+                        />
+                      )}
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </motion.div>
+          );
+        })}
       </motion.div>
     </Section>
   );
