@@ -1,6 +1,6 @@
 {
-  "shortBio": "Started as a Quality Analyst testing SAP apps. Now I architect intelligent automation platforms with LangChain, Playwright, and vibe-coding. Still believe quality is a team sport — just with better tools.",
-  "fullBio": "I've spent the last decade evolving from manual testing to architecting AI-powered automation systems — and I'm just getting started. What began as testing SAP applications at a small consultancy has transformed into designing end-to-end automation platforms that reduce manual effort by 80+%. I've earned the Breakthrough Achiever of the Year award at DevOn, led QE teams as a Scrum Master, and built automation frameworks across IoT, enterprise SaaS, and AI-native systems. My philosophy: quality isn't a phase — it's a culture. I use Shift Left principles to catch issues early, and AI tools like LangChain and DeepEval to make testing smarter, not just faster. I'm on a mission to prove that AI doesn't replace human judgment; it supercharges it. Whether I'm unblocking a sprint as Scrum Master or prototyping MCP integrations for LLMs, I'm driven by one question: how can we make this workflow 10x better?",
+  "shortBio": "From QA Engineer to Automation Architect — building intelligent testing solutions and exploring the future of Agentic AI.",
+  "fullBio": "Over the past 10 years, I've grown from a QA Engineer writing test cases to an Automation Engineer building intelligent testing solutions and exploring the future of Agentic AI. My journey has taken me across enterprise applications, IoT platforms, and modern SaaS products, where I've built automation frameworks, led quality engineering teams, and served as a Scrum Master focused on enabling high-performing teams.\n\nToday, my curiosity extends beyond traditional automation. I'm actively working with LangChain, MCP (Model Context Protocol), local LLMs, DeepEval, and AI-assisted testing to explore how engineering teams can build software faster without compromising quality. I enjoy experimenting, sharing what I learn through technical blogs and LinkedIn, and turning new ideas into practical proof of concepts.\n\nI believe quality starts long before execution. Whether it's applying Shift Left principles, improving developer workflows, or using AI to eliminate repetitive tasks, my goal is always the same: help teams spend less time on manual effort and more time solving meaningful engineering problems.\n\nI'm particularly interested in the intersection of Quality Engineering, Automation, and Agentic AI, where intelligent systems don't replace engineers — they amplify what great engineers can accomplish.",
   "sections": [
     {
       "title": "Core Competencies",
@@ -41,14 +41,14 @@
       ]
     },
     {
-      "title": "Leadership & Quality Philosophy",
+      "title": "What Drives Me",
       "type": "text",
-      "content": "I believe quality is a culture, not just a phase. I am a strong advocate for Shift Left testing; catching issues when they are cheapest to fix. My approach to leadership is to lead from the trenches: I enjoy deep technical work while stepping up to guide teams as a Scrum Master when required. I focus on unblocking barriers, fostering psychological safety, and empowering engineers and QAs to own quality together."
+      "content": "I believe quality starts long before execution. Whether it's applying Shift Left principles, improving developer workflows, or using AI to eliminate repetitive tasks, my goal is always the same: help teams spend less time on manual effort and more time solving meaningful engineering problems."
     },
     {
       "title": "Automation & Agent Engineering",
       "type": "text-list",
-      "content": "I design and build automation platforms that transform manual and repetitive workflows into intelligent, scalable systems. My focus is on end-to-end automation architecture, AI-powered workflow orchestration, and laying the foundation for agentic systems.",
+      "content": "I design and build automation platforms that transform manual and repetitive workflows into intelligent, scalable systems.",
       "items": [
         {
           "label": "Workflow Automation Platforms",
@@ -56,14 +56,14 @@
         },
         {
           "label": "AI-Powered Automation",
-          "description": "Leveraging Vibe-coding, LLMs, and AI tools to intelligently design, optimize, and automate complex workflows and reduce manual effort by 80+%"
+          "description": "Leveraging LangChain, LLMs, and AI tools to intelligently design, optimize, and automate complex workflows and reduce manual effort by 80+%"
         },
         {
           "label": "Workflow Orchestration & Integration",
           "description": "Building robust automation ecosystems that integrate with CI/CD, testing tools, and enterprise systems for seamless workflow execution"
         },
         {
-          "label": "Agent Development (In Progress)",
+          "label": "Agent Development",
           "description": "Exploring agentic automation systems using Agent Framework and LLM orchestration to create self-directed, intelligent workflow agents"
         }
       ]
@@ -71,7 +71,7 @@
     {
       "title": "AI-Native Engineering",
       "type": "text-list",
-      "content": "I am actively transitioning from traditional automation toward AI-driven engineering. I build systems for testing AI and LLMs; not just using AI tools, but creating systems that evaluate and ensure their reliability and safety.",
+      "content": "I'm actively transitioning from traditional automation toward AI-driven engineering. I build systems for testing AI and LLMs — not just using AI tools, but creating systems that evaluate and ensure their reliability and safety.",
       "items": [
         {
           "label": "RAG Systems",
@@ -79,7 +79,7 @@
         },
         {
           "label": "LLM Reliability & Safety",
-          "description": "Implementing Deepeval and evaluation pipelines to measure model quality, robustness, and fairness"
+          "description": "Implementing DeepEval and evaluation pipelines to measure model quality, robustness, and fairness"
         },
         {
           "label": "MCP & Tooling Integrations",
@@ -90,6 +90,11 @@
           "description": "Leveraging Copilot and AI assistant patterns to accelerate delivery while maintaining architectural rigor"
         }
       ]
+    },
+    {
+      "title": "The Intersection",
+      "type": "text",
+      "content": "I'm particularly interested in the intersection of Quality Engineering, Automation, and Agentic AI, where intelligent systems don't replace engineers — they amplify what great engineers can accomplish."
     }
   ]
 }

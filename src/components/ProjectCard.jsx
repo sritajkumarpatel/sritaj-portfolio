@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Star, Github, ExternalLink, Eye, ArrowUpRight } from "lucide-react";
+import { Star, Github, ExternalLink, ArrowUpRight } from "lucide-react";
 
 export default function ProjectCard({ project, onOpenModal }) {
   const isFeatured = project.featured === true;

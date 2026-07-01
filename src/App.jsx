@@ -122,11 +122,7 @@ const App = () => {
         </div>
 
         <div ref={(el) => (sectionRefs.current["about"] = el)}>
-          <About
-            experience={experience}
-            mediumArticles={mediumArticles}
-            aboutMe={aboutMe}
-          />
+          <About aboutMe={aboutMe} />
         </div>
 
         <div ref={(el) => (sectionRefs.current["tech"] = el)}>
