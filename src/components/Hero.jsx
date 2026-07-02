@@ -140,7 +140,7 @@ export default function Hero({ config }) {
             className="relative"
           >
             <img
-              src="/images/profile.jpg"
+              src={`${import.meta.env.BASE_URL}images/profile.png`}
               alt={config.personal.name}
               className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover"
               style={{
