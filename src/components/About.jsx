@@ -39,7 +39,7 @@ export default function About({ aboutMe }) {
       >
         <div className="flex items-start gap-4">
           <img
-            src="/images/profile.jpg"
+            src={`${import.meta.env.BASE_URL}images/profile.png`}
             alt="Profile"
             className="hidden md:block w-16 h-16 rounded-full object-cover flex-shrink-0"
           />
