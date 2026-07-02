@@ -89,27 +89,8 @@ h3.text-2xl,
   color: var(--color-accent);
 }
 
-.experience-card {
-  position: relative;
-  overflow: visible;
-  padding-left: 3rem;
-}
-.experience-card::before {
-  content: "";
-  position: absolute;
-  left: 14px;
-  top: 14px;
-  bottom: 14px;
-  width: 3px;
-  background: linear-gradient(180deg, var(--color-accent), var(--color-primary));
-  border-radius: 3px;
-  opacity: 0.7;
-}
-
 @media (max-width: 768px) {
   .max-w-6xl { padding-left: 1rem; padding-right: 1rem; }
-  .experience-card::before { left: 10px; top: 10px; bottom: 10px; }
-  .experience-card { padding-left: 2rem; }
 }
 
 nav {

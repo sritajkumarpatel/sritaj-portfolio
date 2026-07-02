@@ -7,20 +7,8 @@
     "medium": "sritajp"
   },
   "bio": {
-    "headline": "From Breaking Software to Building Intelligence",
-    "subtitle": "Senior Architect at DevOn with 11 years in QE. I design AI-powered automation workflows that reduce manual effort by 80+%. Certified Scrum Master. Breakthrough Achiever of the Year 2024."
-  },
-  "titles": [
-    "Senior Architect at DevOn",
-    "AI Automation Architect",
-    "Quality Engineer → Architect",
-    "Scrum Master (PSM I, CSM)",
-    "Building Intelligent Workflows",
-    "11 Years in QE",
-    "Workflow Architect"
-  ],
-  "deployment": {
-    "githubRepoName": "sritaj-portfolio"
+    "headline": "Quality Engineering Leader",
+    "subtitle": "11 years of experience building scalable test automation, leading high-performing teams, and exploring Agentic AI to make software delivery faster, smarter, and more reliable."
   },
   "theme": {
     "primary": "slate",

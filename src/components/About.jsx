@@ -10,7 +10,7 @@ const SECTION_ICONS = {
   "AI-Native Engineering": Award,
 };
 
-export default function About({ experience, mediumArticles, aboutMe }) {
+export default function About({ aboutMe }) {
   if (!aboutMe) {
     return null;
   }
@@ -38,17 +38,16 @@ export default function About({ experience, mediumArticles, aboutMe }) {
         className="glass-card rounded-xl p-6 mb-8"
       >
         <div className="flex items-start gap-4">
-          <div
-            className="hidden md:flex w-16 h-16 rounded-full items-center justify-center text-2xl font-bold flex-shrink-0"
-            style={{
-              background: "linear-gradient(135deg, var(--color-primary), var(--color-accent))",
-              color: "var(--color-bg-primary)",
-            }}
-          >
-            SP
-          </div>
+          <img
+            src="/images/profile.jpg"
+            alt="Profile"
+            className="hidden md:block w-16 h-16 rounded-full object-cover flex-shrink-0"
+          />
           <div>
-            <p className="leading-relaxed text-sm md:text-base" style={{ color: "var(--color-text-secondary)" }}>
+            <p
+              className="leading-relaxed text-sm md:text-base whitespace-pre-line"
+              style={{ color: "var(--color-text-secondary)" }}
+            >
               {aboutMe.fullBio}
             </p>
           </div>
@@ -111,14 +110,14 @@ export default function About({ experience, mediumArticles, aboutMe }) {
               )}
 
               {section.type === "text" && (
-                <p className="leading-relaxed text-sm" style={{ color: "var(--color-text-secondary)" }}>
+                <p className="leading-relaxed text-sm whitespace-pre-line" style={{ color: "var(--color-text-secondary)" }}>
                   {section.content}
                 </p>
               )}
 
               {section.type === "text-list" && (
                 <>
-                  <p className="mb-4 leading-relaxed text-sm" style={{ color: "var(--color-text-secondary)" }}>
+                  <p className="mb-4 leading-relaxed text-sm whitespace-pre-line" style={{ color: "var(--color-text-secondary)" }}>
                     {section.content}
                   </p>
                   <div className="grid md:grid-cols-2 gap-3">

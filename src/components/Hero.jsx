@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Linkedin, Mail, Github, BookOpen, ArrowDown, Award, Briefcase, GraduationCap, Zap } from "lucide-react";
+import { Linkedin, Mail, Github, BookOpen, ArrowDown, Code2, Users, GraduationCap, Brain } from "lucide-react";
 
-const titles = [
+const DEFAULT_TITLES = [
   "Senior Architect at DevOn",
   "AI Automation Architect",
   "Quality Engineer → Architect",
@@ -30,34 +30,18 @@ const floatingOrb2 = {
 };
 
 function AnimatedCounter({ end, suffix = "", duration = 2 }) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    let startTime = null;
-    const animate = (timestamp) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / (duration * 1000), 1);
-      setCount(Math.floor(progress * end));
-      if (progress < 1) requestAnimationFrame(animate);
-    };
-    requestAnimationFrame(animate);
-  }, [end, duration]);
-
-  return (
-    <span className="text-3xl md:text-4xl font-bold" style={{ color: "var(--color-primary)" }}>
-      {count}{suffix}
-    </span>
-  );
+  return null;
 }
 
 const stats = [
-  { icon: Briefcase, label: "Years Experience", value: 11, suffix: "+" },
-  { icon: Zap, label: "Projects Delivered", value: 50, suffix: "+" },
-  { icon: GraduationCap, label: "Certifications", value: 12, suffix: "+" },
-  { icon: Award, label: "Awards Won", value: 6, suffix: "" },
+  { icon: Code2, label: "Building Frameworks" },
+  { icon: Users, label: "Leading Teams" },
+  { icon: GraduationCap, label: "Mentoring Engineers" },
+  { icon: Brain, label: "Exploring AI" },
 ];
 
 export default function Hero({ config }) {
+  const titles = config?.titles || DEFAULT_TITLES;
   const [titleIndex, setTitleIndex] = useState(0);
   const [displayText, setDisplayText] = useState(titles[0]);
   const [isDeleting, setIsDeleting] = useState(false);
@@ -155,16 +139,14 @@ export default function Hero({ config }) {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative"
           >
-            <div
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full flex items-center justify-center text-5xl md:text-6xl font-bold"
+            <img
+              src="/images/profile.jpg"
+              alt={config.personal.name}
+              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover"
               style={{
-                background: "linear-gradient(135deg, var(--color-primary), var(--color-accent))",
-                color: "var(--color-bg-primary)",
                 boxShadow: "0 0 40px rgba(var(--color-primary-rgb), 0.3)",
               }}
-            >
-              {config.personal.name.split(" ").map(n => n[0]).join("")}
-            </div>
+            />
             <motion.div
               className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center"
               style={{
@@ -264,8 +246,7 @@ export default function Hero({ config }) {
                   className="mx-auto mb-2"
                   style={{ color: "var(--color-accent)" }}
                 />
-                <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                <p className="text-xs mt-1" style={{ color: "var(--color-text-muted)" }}>
+                <p className="text-sm font-semibold" style={{ color: "var(--color-text-primary)" }}>
                   {stat.label}
                 </p>
               </motion.div>
