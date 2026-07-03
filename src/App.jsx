@@ -2,20 +2,18 @@ import React, { useState, useCallback, useEffect, useRef } from "react";
 import config from "./config.json";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
+import BentoGrid from "./components/BentoGrid";
 import Certifications from "./components/Certifications";
 import certifications from "./data/certifications.json";
 import Experience from "./components/Experience";
 import experience from "./data/experience.json";
 import TechStack from "./components/TechStack";
 import techStacks from "./data/techStacks.json";
-import GithubRepos from "./components/GithubRepos";
-import githubRepos from "./data/githubRepos.json";
 import MediumArticles from "./components/MediumArticles";
 import mediumArticles from "./data/mediumArticles.json";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Awards from "./components/Awards";
-import VisualConcepts from "./components/VisualConcepts";
 import Footer from "./components/Footer";
 import AnimatedBackground from "./components/AnimatedBackground";
 import ProjectModal from "./components/ProjectModal";
@@ -23,18 +21,17 @@ import aboutMe from "./data/aboutMe.json";
 import awards from "./data/awards.json";
 import projects from "./data/projects.json";
 
-const SECTION_IDS = [
-  "hero",
-  "about",
-  "tech",
-  "experience",
-  "projects",
-  "awards",
-  "certifications",
-  "github",
-  "articles",
-  "visual",
-];
+const SECTION_MAP = {
+  about: { component: About, props: { aboutMe } },
+  tech: { component: TechStack, props: { techStacks } },
+  experience: { component: Experience, props: { experience } },
+  articles: { component: MediumArticles, props: { articles: mediumArticles, mediumHandle: config.personal?.medium } },
+  projects: { component: Projects, props: { projects, onOpenModal: null } },
+  awards: { component: Awards, props: { awards } },
+  certifications: { component: Certifications, props: null },
+};
+
+const enabledSections = (config.sections || []).filter((s) => s.enabled !== false);
 
 const App = () => {
   const [selectedProject, setSelectedProject] = useState(null);
@@ -61,13 +58,15 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    const sectionIds = ["hero", ...enabledSections.map((s) => s.id)];
+
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
       const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       setScrollProgress(progress);
 
-      const offsets = SECTION_IDS.map((id) => {
+      const offsets = sectionIds.map((id) => {
         const el = sectionRefs.current[id];
         if (!el) return { id, top: Infinity };
         const rect = el.getBoundingClientRect();
@@ -105,6 +104,22 @@ const App = () => {
         : undefined,
   }));
 
+  const renderSection = (sectionId) => {
+    const sectionConfig = SECTION_MAP[sectionId];
+    if (!sectionConfig) return null;
+
+    const { component: Component, props } = sectionConfig;
+    const sectionMeta = enabledSections.find((s) => s.id === sectionId);
+
+    if (sectionId === "certifications") {
+      return <Component certifications={certificationsWithLogos} />;
+    }
+    if (sectionId === "projects") {
+      return <Component projects={projects} onOpenModal={handleOpenModal} />;
+    }
+    return <Component {...props} />;
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-bg-primary text-text-primary relative">
       <AnimatedBackground />
@@ -121,41 +136,13 @@ const App = () => {
           <Hero config={config} />
         </div>
 
-        <div ref={(el) => (sectionRefs.current["about"] = el)}>
-          <About aboutMe={aboutMe} />
-        </div>
+        <BentoGrid />
 
-        <div ref={(el) => (sectionRefs.current["tech"] = el)}>
-          <TechStack techStacks={techStacks} />
-        </div>
-
-        <div ref={(el) => (sectionRefs.current["experience"] = el)}>
-          <Experience experience={experience} />
-        </div>
-
-        <div ref={(el) => (sectionRefs.current["projects"] = el)}>
-          <Projects projects={projects} onOpenModal={handleOpenModal} />
-        </div>
-
-        <div ref={(el) => (sectionRefs.current["awards"] = el)}>
-          <Awards awards={awards} />
-        </div>
-
-        <div ref={(el) => (sectionRefs.current["certifications"] = el)}>
-          <Certifications certifications={certificationsWithLogos} />
-        </div>
-
-        <div ref={(el) => (sectionRefs.current["github"] = el)}>
-          <GithubRepos repos={githubRepos} />
-        </div>
-
-        <div ref={(el) => (sectionRefs.current["articles"] = el)}>
-          <MediumArticles articles={mediumArticles} />
-        </div>
-
-        <div ref={(el) => (sectionRefs.current["visual"] = el)}>
-          <VisualConcepts />
-        </div>
+        {enabledSections.map((section) => (
+          <div key={section.id} ref={(el) => (sectionRefs.current[section.id] = el)}>
+            {renderSection(section.id)}
+          </div>
+        ))}
       </main>
 
       <Footer config={config} />

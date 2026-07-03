@@ -1,98 +1,130 @@
 [
   {
-    "title": "I Stopped Using One AI Model for Everything. Here’s My AI Coding Workflow in 2026.",
+    "title": "I Stopped Using One AI Model for Everything. Here's My AI Coding Workflow in 2026.",
     "link": "https://generativeai.pub/i-stopped-using-one-ai-model-for-everything-heres-my-ai-coding-workflow-in-2026-145171becdcc",
     "date": "Thu, 25 Jun 2026 04:56:59 GMT",
-    "description": ""
+    "description": "How I mix Claude, Copilot, and local models for different coding tasks — and why one size doesn't fit all.",
+    "topic": "AI & LLM",
+    "readTime": "7 min"
   },
   {
-    "title": "The 100-Token Prompt That Cost Me 3,700 Tokens: Understanding the Hidden Costs of MCPs and AI…",
+    "title": "The 100-Token Prompt That Cost Me 3,700 Tokens: Understanding the Hidden Costs of MCPs and AI",
     "link": "https://generativeai.pub/the-100-token-prompt-that-cost-me-3-700-tokens-understanding-the-hidden-costs-of-mcps-and-ai-f5141dcb3971",
     "date": "Wed, 24 Jun 2026 02:18:10 GMT",
-    "description": ""
+    "description": "A deep dive into the token economics of Model Context Protocol and why your prompts cost more than you think.",
+    "topic": "AI & LLM",
+    "readTime": "9 min"
   },
   {
-    "title": "The Love Story of Copilot & A Lazy Developer: What I Learned Migrating a Legacy C# Application to…",
+    "title": "The Love Story of Copilot & A Lazy Developer: What I Learned Migrating a Legacy C# Application to .NET 8",
     "link": "https://medium.com/@sritajp/the-love-story-of-copilot-a-lazy-developer-what-i-learned-migrating-a-legacy-c-application-to-8cae4a382d46",
     "date": "Sat, 03 Jan 2026 07:27:03 GMT",
-    "description": ""
+    "description": "How GitHub Copilot helped me migrate a legacy C# codebase to .NET 8 — and what went wrong along the way.",
+    "topic": "AI & LLM",
+    "readTime": "8 min"
   },
   {
-    "title": "The USB Port for AI — A Simple Guide to MCP",
+    "title": "The USB Port for AI — A Simple Guide to MCP",
     "link": "https://blog.gopenai.com/the-usb-port-for-ai-a-simple-guide-to-mcp-f27335ebd56f",
     "date": "Sat, 13 Dec 2025 07:32:31 GMT",
-    "description": ""
+    "description": "Model Context Protocol explained in plain English — the universal connector that makes AI tools actually useful.",
+    "topic": "AI & LLM",
+    "readTime": "5 min"
   },
   {
     "title": "From Ad-Hoc to Essential: My Daily AI Tech Stack (2025 Edition)",
     "link": "https://medium.com/@sritajp/from-ad-hoc-to-essential-my-daily-ai-tech-stack-2025-edition-d17793d497ff",
     "date": "Tue, 02 Dec 2025 10:53:56 GMT",
-    "description": ""
+    "description": "The AI tools I use daily — from Copilot to LangChain — and how they fit into my engineering workflow.",
+    "topic": "AI & LLM",
+    "readTime": "6 min"
   },
   {
     "title": "RAG Facts: How LangChain Retrievers Streamline LLM Workflows",
     "link": "https://blog.gopenai.com/rag-facts-how-langchain-retrievers-streamline-llm-workflows-df7c94c5dc63",
     "date": "Mon, 20 Oct 2025 06:45:49 GMT",
-    "description": ""
+    "description": "Breaking down RAG retriever patterns — when to use what, and how to avoid common pitfalls in LangChain.",
+    "topic": "AI & LLM",
+    "readTime": "8 min"
   },
   {
-    "title": "RAG Facts: Retrieval ≠ Understanding: Why LLMs Need the Question Too",
+    "title": "RAG Facts: Retrieval != Understanding: Why LLMs Need the Question Too",
     "link": "https://blog.gopenai.com/rag-facts-retrieval-understanding-why-llms-need-the-question-too-b519de103aea",
     "date": "Fri, 17 Oct 2025 14:56:29 GMT",
-    "description": ""
+    "description": "Why simply retrieving documents isn't enough — and how query-aware RAG changes the game.",
+    "topic": "AI & LLM",
+    "readTime": "7 min"
   },
   {
     "title": "Breaking Away from Retro Boards: My Experiment with Open Discussions",
     "link": "https://medium.com/@sritajp/breaking-away-from-retro-boards-my-experiment-with-open-discussions-09951e517063",
     "date": "Fri, 28 Feb 2025 12:49:08 GMT",
-    "description": ""
+    "description": "Why I replaced structured retro boards with open conversations — and what happened to team engagement.",
+    "topic": "Leadership",
+    "readTime": "5 min"
   },
   {
     "title": "Finding Your True Purpose: Applying Ikigai to Life and Work in Tech",
     "link": "https://medium.com/@sritajp/finding-your-true-purpose-applying-ikigai-to-life-and-work-in-tech-82a253d1ea26",
     "date": "Wed, 27 Nov 2024 14:44:45 GMT",
-    "description": ""
+    "description": "Using the Japanese Ikigai framework to find meaning at the intersection of passion, mission, vocation, and profession.",
+    "topic": "Leadership",
+    "readTime": "6 min"
   },
   {
-    "title": "Balancing Connection and Objectivity: The Scrum Master’s Challenge",
+    "title": "Balancing Connection and Objectivity: The Scrum Master's Challenge",
     "link": "https://medium.com/@sritajp/balancing-connection-and-objectivity-the-scrum-masters-challenge-bc6b1202578f",
     "date": "Mon, 21 Oct 2024 03:43:40 GMT",
-    "description": ""
+    "description": "How to be a servant leader without losing the objectivity needed to drive real team improvement.",
+    "topic": "Leadership",
+    "readTime": "5 min"
   },
   {
     "title": "The USB Port for AI — A Simple Guide to MCP",
     "link": "https://medium.com/@sritajp/the-usb-port-for-ai-a-simple-guide-to-mcp-f27335ebd56f",
     "date": "Sat, 11 Dec 2025 01:10:00 GMT",
-    "description": ""
+    "description": "Model Context Protocol explained in plain English — the universal connector that makes AI tools actually useful.",
+    "topic": "AI & LLM",
+    "readTime": "5 min"
   },
   {
     "title": "Optimizing Web Applications for Test Automation: Best Practices for Developers",
     "link": "https://medium.com/@sritajp/optimizing-web-applications-for-test-automation-best-practices-for-developers-e6d5163bc097",
     "date": "Sat, 19 Oct 2024 05:28:49 GMT",
-    "description": ""
+    "description": "What developers can do to make their apps easier to test — data attributes, stable selectors, and test-friendly patterns.",
+    "topic": "Testing",
+    "readTime": "7 min"
   },
   {
     "title": "The Evolution of Java Interfaces: New Features for the Modern Developer & Test Engineers",
     "link": "https://medium.com/@sritajp/the-evolution-of-java-interfaces-new-features-for-the-modern-developer-test-engineers-7de183af274b",
     "date": "Thu, 10 Oct 2024 11:10:09 GMT",
-    "description": ""
+    "description": "From default methods to sealed interfaces — how Java interfaces evolved and why test engineers should care.",
+    "topic": "Development",
+    "readTime": "6 min"
   },
   {
     "title": "Why Does Emotional Intelligence Matter for Scrum Masters?",
     "link": "https://medium.com/@sritajp/why-does-emotional-intelligence-matter-for-scrum-masters-4e8b1bf17907",
-    "date": "Fri, 20 Sep 2024 17:44:42 GMT",
-    "description": ""
+    "date": "Fri, 20 Sep 2024 17:44:23 GMT",
+    "description": "EQ isn't soft — it's the skill that separates good Scrum Masters from great ones.",
+    "topic": "Leadership",
+    "readTime": "5 min"
   },
   {
-    "title": "Persisting Values and Managing DOM Interactions with React’s useRef Hook",
+    "title": "Persisting Values and Managing DOM Interactions with React's useRef Hook",
     "link": "https://medium.com/@sritajp/persisting-values-and-managing-dom-interactions-with-reacts-useref-hook-b053df9ac2ca",
     "date": "Thu, 30 May 2024 19:35:52 GMT",
-    "description": ""
+    "description": "A practical guide to useRef — when to use it, common patterns, and how it differs from useState.",
+    "topic": "Development",
+    "readTime": "6 min"
   },
   {
-    "title": "Mastering Side Effects in Functional Components with React’s useEffect Hook",
+    "title": "Mastering Side Effects in Functional Components with React's useEffect Hook",
     "link": "https://medium.com/@sritajp/mastering-side-effects-in-functional-components-with-reacts-useeffect-hook-1f5bcdc74577",
     "date": "Thu, 23 May 2024 08:44:52 GMT",
-    "description": ""
+    "description": "useEffect demystified — dependency arrays, cleanup functions, and the mental model that makes it click.",
+    "topic": "Development",
+    "readTime": "7 min"
   }
 ]

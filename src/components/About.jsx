@@ -1,151 +1,174 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { User, Target, Lightbulb, Rocket, Award } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
+import { User, Brain, Shield, Terminal, Users, ArrowRight } from "lucide-react";
 import Section from "./Section";
 
-const SECTION_ICONS = {
-  "Core Competencies": Target,
-  "Leadership & Quality Philosophy": Lightbulb,
-  "Automation & Agent Engineering": Rocket,
-  "AI-Native Engineering": Award,
+const ICON_MAP = { Brain, Shield, Terminal, Users };
+
+const stagger = {
+  hidden: {},
+  visible: {
+    transition: { staggerChildren: 0.12 },
+  },
+};
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+  },
+};
+
+const scaleIn = {
+  hidden: { opacity: 0, scale: 0.9 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 export default function About({ aboutMe }) {
-  if (!aboutMe) {
-    return null;
-  }
+  if (!aboutMe) return null;
+
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
     <Section>
-      <div className="flex items-center gap-3 mb-8">
-        <motion.div
-          whileHover={{ rotate: 360 }}
-          transition={{ duration: 0.5 }}
-        >
-          <User style={{ color: "var(--color-primary)" }} size={32} />
+      {/* Header */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="flex items-center gap-3 mb-8"
+      >
+        <motion.div whileHover={{ rotate: 360, scale: 1.1 }} transition={{ duration: 0.5 }}>
+          <User style={{ color: "var(--color-primary)" }} size={28} />
         </motion.div>
-        <h3 className="text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
+        <h3 className="text-2xl md:text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
+          <span style={{ color: "var(--color-accent)", fontSize: "0.75em", marginRight: "0.5rem" }}>01</span>
           About Me
         </h3>
-      </div>
+      </motion.div>
 
-      {/* Bio Card */}
+      {/* Bio — split into two flowing paragraphs */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        whileHover={{ y: -5 }}
-        className="glass-card rounded-xl p-6 mb-8"
+        transition={{ duration: 0.7, delay: 0.1 }}
+        className="glass-card rounded-2xl p-6 md:p-8 mb-8 relative overflow-hidden"
       >
+        {/* Subtle gradient accent */}
+        <div
+          className="absolute top-0 left-0 w-full h-1"
+          style={{
+            background: "linear-gradient(90deg, var(--color-primary), var(--color-accent), transparent)",
+          }}
+        />
         <div className="flex items-start gap-4">
-          <img
-            src={`${import.meta.env.BASE_URL}images/profile.png`}
-            alt="Profile"
-            className="hidden md:block w-16 h-16 rounded-full object-cover flex-shrink-0"
-          />
-          <div>
-            <p
-              className="leading-relaxed text-sm md:text-base whitespace-pre-line"
-              style={{ color: "var(--color-text-secondary)" }}
-            >
-              {aboutMe.fullBio}
-            </p>
-          </div>
+          <p
+            className="leading-relaxed text-sm md:text-base"
+            style={{ color: "var(--color-text-secondary)" }}
+          >
+            {aboutMe.fullBio}
+          </p>
         </div>
       </motion.div>
 
-      {/* Sections */}
-      <div className="space-y-6">
-        {aboutMe.sections.map((section, sIndex) => {
-          const IconComponent = SECTION_ICONS[section.title] || User;
+      {/* What I Do — 4 pillars */}
+      <motion.div
+        ref={ref}
+        variants={stagger}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        className="grid md:grid-cols-2 gap-4 mb-8"
+      >
+        {aboutMe.whatIdo.map((item, index) => {
+          const IconComponent = ICON_MAP[item.icon] || Brain;
           return (
             <motion.div
-              key={sIndex}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: sIndex * 0.1 }}
-              className="glass-card rounded-xl p-6"
+              key={item.title}
+              variants={fadeUp}
+              whileHover={{
+                y: -6,
+                boxShadow: `0 20px 40px ${item.color}15`,
+                transition: { duration: 0.3 },
+              }}
+              className="glass-card rounded-2xl p-5 relative overflow-hidden cursor-default group"
+              style={{ borderTop: `2px solid ${item.color}` }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div
-                  className="p-2 rounded-lg"
-                  style={{
-                    backgroundColor: "rgba(var(--color-primary-rgb), 0.15)",
-                  }}
-                >
-                  <IconComponent size={18} style={{ color: "var(--color-primary)" }} />
-                </div>
-                <h4 className="text-lg font-bold" style={{ color: "var(--color-primary)" }}>
-                  {section.title}
-                </h4>
-              </div>
+              {/* Hover glow */}
+              <div
+                className="absolute -top-20 -right-20 w-40 h-40 rounded-full blur-3xl opacity-0 group-hover:opacity-30 transition-opacity duration-500 pointer-events-none"
+                style={{ background: item.color }}
+              />
 
-              {section.type === "twocolumn" && (
-                <div className="grid md:grid-cols-2 gap-4">
-                  {section.subsections.map((subsection, subIndex) => (
-                    <motion.div
-                      key={subIndex}
-                      whileHover={{ y: -3 }}
-                      className="p-4 rounded-lg"
-                      style={{
-                        backgroundColor: "rgba(var(--color-primary-rgb), 0.05)",
-                        border: "1px solid rgba(var(--color-primary-rgb), 0.1)",
-                      }}
+              <div className="relative">
+                <div className="flex items-center gap-3 mb-4">
+                  <motion.div
+                    whileHover={{ rotate: 12, scale: 1.1 }}
+                    className="p-2.5 rounded-xl"
+                    style={{ backgroundColor: `${item.color}15` }}
+                  >
+                    <IconComponent size={20} style={{ color: item.color }} />
+                  </motion.div>
+                  <h4 className="text-base font-bold" style={{ color: "var(--color-text-primary)" }}>
+                    {item.title}
+                  </h4>
+                </div>
+
+                <ul className="space-y-2.5">
+                  {item.capabilities.map((cap, i) => (
+                    <motion.li
+                      key={i}
+                      initial={{ opacity: 0, x: -10 }}
+                      animate={isInView ? { opacity: 1, x: 0 } : {}}
+                      transition={{ delay: 0.3 + i * 0.08, duration: 0.4 }}
+                      className="flex items-start gap-2.5 text-xs md:text-sm"
+                      style={{ color: "var(--color-text-secondary)" }}
                     >
-                      <h5 className="font-semibold mb-2 text-sm" style={{ color: "var(--color-primary)" }}>
-                        {subsection.heading}
-                      </h5>
-                      <ul className="space-y-1.5 text-xs" style={{ color: "var(--color-text-secondary)" }}>
-                        {subsection.items.map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex items-start gap-2">
-                            <span className="mt-0.5" style={{ color: "var(--color-accent)" }}>→</span>
-                            <span>{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </motion.div>
+                      <ArrowRight
+                        size={14}
+                        className="mt-0.5 flex-shrink-0"
+                        style={{ color: item.color }}
+                      />
+                      <span>{cap}</span>
+                    </motion.li>
                   ))}
-                </div>
-              )}
-
-              {section.type === "text" && (
-                <p className="leading-relaxed text-sm whitespace-pre-line" style={{ color: "var(--color-text-secondary)" }}>
-                  {section.content}
-                </p>
-              )}
-
-              {section.type === "text-list" && (
-                <>
-                  <p className="mb-4 leading-relaxed text-sm whitespace-pre-line" style={{ color: "var(--color-text-secondary)" }}>
-                    {section.content}
-                  </p>
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {section.items.map((item, itemIndex) => (
-                      <motion.div
-                        key={itemIndex}
-                        whileHover={{ y: -3 }}
-                        className="p-3 rounded-lg"
-                        style={{
-                          backgroundColor: "rgba(var(--color-accent-rgb), 0.05)",
-                          border: "1px solid rgba(var(--color-accent-rgb), 0.1)",
-                        }}
-                      >
-                        <p className="font-semibold text-sm mb-1" style={{ color: "var(--color-accent)" }}>
-                          {item.label}
-                        </p>
-                        <p className="text-xs" style={{ color: "var(--color-text-secondary)" }}>
-                          {item.description}
-                        </p>
-                      </motion.div>
-                    ))}
-                  </div>
-                </>
-              )}
+                </ul>
+              </div>
             </motion.div>
           );
         })}
-      </div>
+      </motion.div>
+
+      {/* Philosophy — single line */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="glass-card rounded-2xl p-5 text-center relative overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 opacity-5"
+          style={{
+            background: "linear-gradient(135deg, var(--color-primary), var(--color-accent))",
+          }}
+        />
+        <p
+          className="relative text-sm md:text-base italic leading-relaxed max-w-3xl mx-auto"
+          style={{ color: "var(--color-text-secondary)" }}
+        >
+          "{aboutMe.philosophy}"
+        </p>
+      </motion.div>
     </Section>
   );
 }

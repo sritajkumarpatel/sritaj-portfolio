@@ -10,6 +10,15 @@
     "headline": "Quality Engineering Leader",
     "subtitle": "11 years of experience building scalable test automation, leading high-performing teams, and exploring Agentic AI to make software delivery faster, smarter, and more reliable."
   },
+  "sections": [
+    { "id": "about", "label": "01 — About", "navLabel": "About", "enabled": true },
+    { "id": "experience", "label": "02 — Experience", "navLabel": "Experience", "enabled": true },
+    { "id": "tech", "label": "03 — What I Work With", "navLabel": "Skills", "enabled": true },
+    { "id": "articles", "label": "04 — Thoughts & Ideas", "navLabel": "Thoughts", "enabled": true },
+    { "id": "projects", "label": "05 — Projects", "navLabel": "Projects", "enabled": true },
+    { "id": "awards", "label": "06 — Awards", "navLabel": "Awards", "enabled": true },
+    { "id": "certifications", "label": "07 — Certifications", "navLabel": "Certs", "enabled": true }
+  ],
   "theme": {
     "primary": "slate",
     "accent": "amber",
