@@ -61,12 +61,18 @@
       "Quality Assurance Lead, managing and mentoring QE team for sprint release activities",
       "Test Automation Specialist, designing and developing comprehensive automation frameworks",
       "POM Pages Architect, implementing Page Object Model with automation scripts",
+      "Code Quality Advocate, cleaning up code, developing Generic Methods, and optimizing existing methods",
+      "Migration Lead, moving Test Scripts from older Framework to new one",
+      "Metrics Analyst, monitoring automation run metrics for testability, test health, and coverage",
       "Root Cause Analysis Expert, investigating and resolving legacy system issues"
     ],
     "highlights": [
       "Implemented POM pages and developed automation scripts",
       "Managed and led QE team for sprint release activities",
       "Designed test strategies and developed automation frameworks",
+      "Developed Generic Methods, optimized and maintained existing codebase",
+      "Monitored automation run metrics (testability, test health, test coverage)",
+      "Migrated Test Scripts from older Framework to new one",
       "Conducted root cause analysis for legacy issues"
     ],
     "awards": [
@@ -85,14 +91,14 @@
     "servedAs": [
       "IoT Platform Quality Engineer, testing embedded systems and IoT applications",
       "Test Automation Developer, building frameworks with Selenium and Sikuli",
-      "Functional & Non-Functional Testing Specialist, ensuring quality across domains",
-      "iOS Application Specialist, collaborating on iOS debugging and quality assurance"
+      "Functional & Non-Functional Testing Specialist, ensuring quality across Mobile, Desktop, Linux, and Web",
+      "iOS Application Specialist, debugging applications using XCode"
     ],
     "highlights": [
       "Worked on IoT and Embedded Platforms domain",
       "Developed Automation frameworks using Selenium/Sikuli",
-      "Performed functional and non-functional testing",
-      "Collaborated with developers for iOS application debugging"
+      "Performed functional and non-functional testing across Mobile, Desktop, Linux, and Web",
+      "Collaborated with developers to debug iOS applications using XCode"
     ]
   },
   {

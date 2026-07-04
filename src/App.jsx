@@ -14,11 +14,13 @@ import mediumArticles from "./data/mediumArticles.json";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Awards from "./components/Awards";
+import Education from "./components/Education";
 import Footer from "./components/Footer";
 import AnimatedBackground from "./components/AnimatedBackground";
 import ProjectModal from "./components/ProjectModal";
 import aboutMe from "./data/aboutMe.json";
 import awards from "./data/awards.json";
+import education from "./data/education.json";
 import projects from "./data/projects.json";
 
 const SECTION_MAP = {
@@ -29,6 +31,7 @@ const SECTION_MAP = {
   projects: { component: Projects, props: { projects, onOpenModal: null } },
   awards: { component: Awards, props: { awards } },
   certifications: { component: Certifications, props: null },
+  education: { component: Education, props: { education } },
 };
 
 const enabledSections = (config.sections || []).filter((s) => s.enabled !== false);

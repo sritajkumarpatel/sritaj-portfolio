@@ -82,7 +82,8 @@ Control which sections appear and their order:
   { "id": "articles", "label": "Thoughts & Ideas", "navLabel": "Thoughts", "enabled": true },
   { "id": "projects", "label": "Projects", "navLabel": "Projects", "enabled": true },
   { "id": "awards", "label": "Awards", "navLabel": "Awards", "enabled": true },
-  { "id": "certifications", "label": "Certifications", "navLabel": "Certs", "enabled": true }
+  { "id": "certifications", "label": "Certifications", "navLabel": "Certs", "enabled": true },
+  { "id": "education", "label": "Education", "navLabel": "Education", "enabled": true }
 ]
 ```
 

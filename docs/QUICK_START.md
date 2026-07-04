@@ -29,6 +29,8 @@ Awards: [AWARD 1], [AWARD 2]
 
 Projects: [PROJECT 1 — brief description], [PROJECT 2 — brief description]
 
+Education: [DEGREE] from [INSTITUTION], [DEGREE] from [INSTITUTION]
+
 Articles: [ARTICLE TITLE 1 — topic], [ARTICLE TITLE 2 — topic]
 
 Theme: [slate-amber | indigo-violet | emerald-teal | rose-fuchsia | blue-cyan]

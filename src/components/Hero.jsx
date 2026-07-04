@@ -60,7 +60,7 @@ function AnimatedCounter({ end, suffix = "", duration = 2 }) {
 const stats = [
   { value: 11, suffix: "+", label: "Years Experience", sublabel: "QE to Architect" },
   { value: 90, suffix: "%", label: "Efficiency Gains", sublabel: "Via automation" },
-  { value: 3, suffix: "", label: "Certifications", sublabel: "PSM I, CSM, Azure AI" },
+  { value: 7, suffix: "", label: "Certifications", sublabel: "PSM I, CSM, Azure AI, DevOps & more" },
   { value: 16, suffix: "+", label: "Articles Published", sublabel: "On Medium" },
 ];
 
@@ -112,7 +112,7 @@ export default function Hero({ config }) {
     },
     {
       href: `mailto:${config.personal.email}`,
-      label: "Email",
+      label: "Contact Me",
       icon: <Mail size={18} />,
       bg: "bg-slate-600",
       hover: "hover:bg-slate-500",

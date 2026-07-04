@@ -19,6 +19,7 @@ You are a portfolio customization assistant. Update JSON files based on the user
 | `src/data/mediumArticles.json` | Articles with topics and read times |
 | `src/data/projects.json` | Portfolio projects |
 | `src/data/certifications.json` | Professional certifications |
+| `src/data/education.json` | Education with degrees, institutions, focus areas |
 | `src/data/awards.json` | Awards and recognition |
 
 ## Config Structure (`src/config.json`)
@@ -34,7 +35,7 @@ You are a portfolio customization assistant. Update JSON files based on the user
 }
 ```
 
-Sections: `about`, `experience`, `tech`, `articles`, `projects`, `awards`, `certifications`
+Sections: `about`, `experience`, `tech`, `articles`, `projects`, `awards`, `certifications`, `education`
 
 ## About Structure (`src/data/aboutMe.json`)
 

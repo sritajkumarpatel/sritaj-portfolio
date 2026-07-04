@@ -126,7 +126,8 @@ All content is driven by JSON files. Edit `src/config.json` first:
     { "id": "articles", "label": "Thoughts & Ideas", "navLabel": "Thoughts", "enabled": true },
     { "id": "projects", "label": "Projects", "navLabel": "Projects", "enabled": true },
     { "id": "awards", "label": "Awards", "navLabel": "Awards", "enabled": true },
-    { "id": "certifications", "label": "Certifications", "navLabel": "Certs", "enabled": true }
+    { "id": "certifications", "label": "Certifications", "navLabel": "Certs", "enabled": true },
+    { "id": "education", "label": "Education", "navLabel": "Education", "enabled": true }
   ],
   "theme": {
     "primary": "slate",
@@ -164,6 +165,7 @@ Toggle `"enabled": false` to hide any section. Reorder the array to change page 
 | `mediumArticles.json` | Articles with `topic` and `readTime` | Thoughts & Ideas |
 | `projects.json` | Projects with features, technologies, links | Portfolio projects |
 | `certifications.json` | Certs with issuer, year, logo | Credentials |
+| `education.json` | Degrees with institution, period, focus | Education |
 | `awards.json` | Awards with year, company, description | Recognition |
 
 ---

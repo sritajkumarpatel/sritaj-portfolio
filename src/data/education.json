@@ -1,0 +1,14 @@
+[
+  {
+    "degree": "Post Graduate Diploma in Software Development (Full Stack)",
+    "institution": "International Institute of Information Technology Bangalore (IIITB)",
+    "period": "May 2020 - June 2021",
+    "focus": ["Software Development", "Full Stack Engineering", "React", "Spring Boot", "Java", "JavaScript"]
+  },
+  {
+    "degree": "Bachelor of Technology (B.Tech), Applied Electronics & Instrumentation",
+    "institution": "The Techno School",
+    "period": "2009 - 2013",
+    "focus": ["Electronics", "Instrumentation", "Embedded Systems"]
+  }
+]

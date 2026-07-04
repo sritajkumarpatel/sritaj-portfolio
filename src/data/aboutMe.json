@@ -1,16 +1,16 @@
 {
   "shortBio": "Automation Architect building intelligent testing systems and exploring Agentic AI.",
-  "fullBio": "Over the past 11 years, I've grown from a QA Engineer writing test cases to an Automation Architect building intelligent systems. I've led quality engineering teams, designed automation platforms, and served as a Scrum Master — always focused on one thing: helping teams ship faster without breaking things.\n\nToday, I'm building at the intersection of Quality Engineering and Agentic AI. I use LangChain, MCP, local LLMs, and DeepEval to explore how engineering teams can build software faster with intelligent automation. I write about what I learn, experiment with new tools daily, and turn ideas into practical proof of concepts.",
+  "fullBio": "For over a decade, I've helped teams build better software by treating quality as an engineering discipline rather than a testing phase. My journey started with manual testing and evolved into designing scalable automation frameworks, leading engineering teams, and now exploring how AI is transforming software quality.\n\nToday, I work at the intersection of Quality Engineering, AI, and Developer Productivity — building intelligent testing workflows using LLMs, RAG, LangChain, Playwright, and modern automation frameworks. My focus isn't just automating tests; it's reducing engineering effort, improving confidence, and enabling teams to ship faster.\n\nI'm particularly interested in: AI-powered Test Automation, Agentic AI for Quality Engineering, LLM Evaluation & Guardrails, RAG & MCP, Shift Left Engineering, and Engineering Productivity through AI. Beyond technology, I mentor engineers, lead cross-functional initiatives, and foster a culture where quality is everyone's responsibility.",
   "whatIdo": [
     {
       "title": "AI & LLM Engineering",
       "icon": "Brain",
       "color": "#8b5cf6",
       "capabilities": [
-        "Orchestrate LLM workflows with LangChain and MCP",
-        "Build RAG systems with local and cloud models",
-        "Evaluate AI quality with DeepEval pipelines",
-        "Integrate Copilot and AI assistants into dev workflows"
+        "Agentic AI for Quality Engineering — autonomous testing workflows",
+        "LLM Evaluation & Guardrails with DeepEval pipelines",
+        "RAG systems and MCP (Model Context Protocol) integration",
+        "Orchestrate LLM workflows with LangChain and local/cloud models"
       ]
     },
     {
