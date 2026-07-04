@@ -1,27 +1,27 @@
 [
   {
-    "title": "Sritaj Portfolio - Plug-and-Play Template",
-    "description": "A fully plug-and-play portfolio template built with React, Vite, and Tailwind CSS. Customize your entire portfolio by editing JSON files — zero coding required. Deploy to GitHub Pages in minutes with AI/Copilot automation support.",
+    "title": "PortForge — AI-Powered Portfolio Builder",
+    "description": "Talk to an AI agent (opencode, Claude, Copilot), get a complete React portfolio. Features LinkedIn import, 3 visual styles (Minimal/Bold/Terminal), 7 color presets, and one-click deploy to Netlify/Vercel/GitHub Pages.",
     "featured": true,
     "keyFeatures": [
-      "Fully Customizable",
-      "JSON-Based Content",
-      "Copilot Integration",
-      "GitHub Pages Ready",
-      "Zero Hardcoded Content"
+      "Conversational Setup",
+      "LinkedIn Auto-Import",
+      "3 Visual Styles",
+      "8 Configurable Sections",
+      "One-Click Deploy"
     ],
-    "technologies": ["React 18", "Vite", "Tailwind CSS", "Lucide React", "GitHub Pages"],
-    "github": "https://github.com/sritajkumarpatel/sritaj-portfolio",
-    "link": "https://sritajkumarpatel.github.io/sritaj-portfolio/",
+    "technologies": ["React 18", "Vite", "Tailwind CSS", "Framer Motion", "Lucide React", "Node.js"],
+    "github": "https://github.com/sritajkumarpatel/portforge",
+    "link": "https://github.com/sritajkumarpatel/portforge",
     "sections": ["keyFeatures", "technologies", "quickStart"],
     "quickStart": {
-      "title": "Quick Start with Copilot:",
+      "title": "Try it:",
       "steps": [
-        {"text": "Open", "code": "docs/QUICK_START.md"},
-        {"text": "Copy prompt from", "code": "docs/COPILOT_PROMPT.md"},
-        {"text": "Paste in Copilot Chat and add your info"},
-        {"text": "Run", "code": "npm run deploy"},
-        {"text": "Portfolio live in 5 minutes!"}
+        {"text": "Clone", "code": "git clone https://github.com/sritajkumarpatel/portforge"},
+        {"text": "Open in opencode/Claude Code", "code": "cd portforge && opencode ."},
+        {"text": "Say", "code": "\"Set up my portfolio\""},
+        {"text": "Answer 10-15 questions, one at a time"},
+        {"text": "Run", "code": "cd my-portfolio && npm run dev"}
       ]
     }
   }
