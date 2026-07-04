@@ -34,6 +34,7 @@ Important Files & Why
 - `src/data/projects.json` — Portfolio projects with support for featured/regular projects, modular sections (keyFeatures, technologies, quickStart), and data-driven content. Each project controls which sections display via `sections` array. Used by `Projects.jsx` → `ProjectCard.jsx` → `CardSection.jsx`.
 - `src/data/githubRepos.json` — GitHub projects list (auto-fetched by `update-github.js` or manual). Used by `GithubRepos.jsx`.
 - `src/data/mediumArticles.json` — Medium articles feed (auto-fetched by `update-medium.js` or manual). Used by `MediumArticles.jsx`.
+- `src/data/education.json` — Education with degrees, institutions, periods, focus areas. Used by `Education.jsx`.
 
 **Components:**
 
@@ -51,6 +52,7 @@ Important Files & Why
 - `src/components/ComingSoon.jsx` — Reusable "Coming Soon" placeholder section used by Projects and other empty sections.
 - `src/components/GithubRepos.jsx` — GitHub repos rendering from `githubRepos.json`.
 - `src/components/MediumArticles.jsx` — Medium articles rendering from `mediumArticles.json`.
+- `src/components/Education.jsx` — Education section rendering from `education.json`.
 - `src/components/Footer.jsx` — Footer using `config.personal.name` and links.
 - `src/main.jsx` — React bootstrap.
 

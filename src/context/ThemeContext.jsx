@@ -4,16 +4,16 @@ import config from "../config.json";
 const ThemeContext = createContext(null);
 
 const themeColors = {
-  slate: { primary: "#e2e8f0", light: "#f1f5f9", dark: "#cbd5e1" },
-  amber: { primary: "#fbbf24", light: "#fcd34d", dark: "#f59e0b" },
-  indigo: { primary: "#818cf8", light: "#a5b4fc", dark: "#6366f1" },
-  violet: { primary: "#c084fc", light: "#d8b4fe", dark: "#a855f7" },
-  emerald: { primary: "#34d399", light: "#6ee7b7", dark: "#10b981" },
-  teal: { primary: "#2dd4bf", light: "#5eead4", dark: "#14b8a6" },
-  rose: { primary: "#fb7185", light: "#fda4af", dark: "#f43f5e" },
-  fuchsia: { primary: "#e879f9", light: "#f0abfc", dark: "#d946ef" },
-  blue: { primary: "#60a5fa", light: "#93c5fd", dark: "#3b82f6" },
-  cyan: { primary: "#22d3ee", light: "#67e8f9", dark: "#06b6d4" },
+  slate: { primary: "#94a3b8", light: "#cbd5e1", dark: "#64748b" },
+  amber: { primary: "#d97706", light: "#f59e0b", dark: "#b45309" },
+  indigo: { primary: "#6366f1", light: "#818cf8", dark: "#4f46e5" },
+  violet: { primary: "#a855f7", light: "#c084fc", dark: "#9333ea" },
+  emerald: { primary: "#10b981", light: "#34d399", dark: "#059669" },
+  teal: { primary: "#14b8a6", light: "#2dd4bf", dark: "#0d9488" },
+  rose: { primary: "#f43f5e", light: "#fb7185", dark: "#e11d48" },
+  fuchsia: { primary: "#d946ef", light: "#e879f9", dark: "#c026d3" },
+  blue: { primary: "#3b82f6", light: "#60a5fa", dark: "#2563eb" },
+  cyan: { primary: "#06b6d4", light: "#22d3ee", dark: "#0891b2" },
 };
 
 function hexToRgb(hex) {
@@ -38,47 +38,47 @@ function getCSSVariables(primary, accent, mode) {
     "--color-accent-dark": a.dark,
     "--color-accent-rgb": hexToRgb(a.primary),
     "--color-bg-primary": isDark ? "#0f1218" : "#f5f0e8",
-    "--color-bg-secondary": isDark ? "#1c2028" : "#faf7f2",
-    "--color-bg-tertiary": isDark ? "#282d38" : "#ebe5db",
-    "--color-text-primary": isDark ? "#f1f5f9" : "#2c2416",
-    "--color-text-secondary": isDark ? "#cbd5e1" : "#5c5347",
-    "--color-text-muted": isDark ? "#94a3b8" : "#8a7e72",
+    "--color-bg-secondary": isDark ? "#1c2028" : "#ebe5db",
+    "--color-bg-tertiary": isDark ? "#282d38" : "#ddd5c8",
+    "--color-text-primary": isDark ? "#f1f5f9" : "#1a1510",
+    "--color-text-secondary": isDark ? "#cbd5e1" : "#3d3529",
+    "--color-text-muted": isDark ? "#94a3b8" : "#5c5347",
     "--color-border": isDark
       ? "rgba(251, 191, 36, 0.12)"
-      : "rgba(139, 119, 80, 0.15)",
+      : "rgba(100, 80, 50, 0.18)",
     "--color-border-strong": isDark
       ? "rgba(251, 191, 36, 0.25)"
-      : "rgba(139, 119, 80, 0.3)",
+      : "rgba(100, 80, 50, 0.35)",
     "--color-glass-bg": isDark
       ? "linear-gradient(180deg, rgba(28, 32, 40, 0.8), rgba(15, 18, 24, 0.7))"
-      : "linear-gradient(180deg, rgba(250, 247, 242, 0.95), rgba(245, 240, 232, 0.85))",
+      : "linear-gradient(180deg, rgba(235, 229, 219, 0.95), rgba(221, 213, 200, 0.85))",
     "--color-glass-border": isDark
       ? "rgba(251, 191, 36, 0.1)"
-      : "rgba(139, 119, 80, 0.12)",
+      : "rgba(100, 80, 50, 0.15)",
     "--color-glass-shadow": isDark
       ? "0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.03)"
-      : "0 8px 32px rgba(139, 119, 80, 0.08), inset 0 1px 0 rgba(255,255,255,0.7)",
+      : "0 8px 32px rgba(100, 80, 50, 0.1), inset 0 1px 0 rgba(255,255,255,0.5)",
     "--color-glass-hover-border": isDark
       ? "rgba(251, 191, 36, 0.25)"
-      : "rgba(139, 119, 80, 0.25)",
+      : "rgba(100, 80, 50, 0.25)",
     "--color-glass-hover-shadow": isDark
       ? "0 16px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(251, 191, 36, 0.08)"
-      : "0 16px 48px rgba(139, 119, 80, 0.12), 0 0 30px rgba(139, 119, 80, 0.06)",
+      : "0 16px 48px rgba(100, 80, 50, 0.15), 0 0 30px rgba(100, 80, 50, 0.08)",
     "--color-nav-bg": isDark
       ? "linear-gradient(180deg, rgba(15, 18, 24, 0.95), rgba(15, 18, 24, 0.85))"
-      : "linear-gradient(180deg, rgba(245, 240, 232, 0.98), rgba(250, 247, 242, 0.92))",
+      : "linear-gradient(180deg, rgba(221, 213, 200, 0.98), rgba(235, 229, 219, 0.92))",
     "--color-nav-shadow": isDark
       ? "0 4px 20px rgba(0, 0, 0, 0.5)"
-      : "0 4px 20px rgba(139, 119, 80, 0.08)",
+      : "0 4px 20px rgba(100, 80, 50, 0.12)",
     "--color-footer-border": isDark
       ? "rgba(251, 191, 36, 0.08)"
-      : "rgba(139, 119, 80, 0.1)",
-    "--color-scrollbar-track": isDark ? "#0f1218" : "#ebe5db",
-    "--color-scrollbar-thumb": isDark ? "#282d38" : "#c4b8a8",
-    "--color-scrollbar-thumb-hover": isDark ? "#3b414d" : "#a89888",
-    "--color-skeleton": isDark ? "#1c2028" : "#e8e0d4",
-    "--color-skeleton-shine": isDark ? "#282d38" : "#f5f0e8",
-    "--color-overlay": isDark ? "rgba(0, 0, 0, 0.7)" : "rgba(44, 36, 22, 0.4)",
+      : "rgba(100, 80, 50, 0.12)",
+    "--color-scrollbar-track": isDark ? "#0f1218" : "#ddd5c8",
+    "--color-scrollbar-thumb": isDark ? "#282d38" : "#a89888",
+    "--color-scrollbar-thumb-hover": isDark ? "#3b414d" : "#8a7e72",
+    "--color-skeleton": isDark ? "#1c2028" : "#d5cdc0",
+    "--color-skeleton-shine": isDark ? "#282d38" : "#ebe5db",
+    "--color-overlay": isDark ? "rgba(0, 0, 0, 0.7)" : "rgba(26, 21, 16, 0.5)",
   };
 }
 

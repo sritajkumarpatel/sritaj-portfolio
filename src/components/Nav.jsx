@@ -3,20 +3,16 @@ import { Sun, Moon, Palette, Home, ChevronUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../context/ThemeContext";
 
-const NAV_ITEMS = [
-  { id: "hero", label: "Home", icon: Home },
-  { id: "about", label: "About" },
-  { id: "tech", label: "Tech" },
-  { id: "experience", label: "Experience" },
-  { id: "projects", label: "Projects" },
-  { id: "awards", label: "Awards" },
-  { id: "certifications", label: "Certs" },
-];
-
 export default function Nav({ activeSection, scrollToSection, config, scrollProgress }) {
   const { theme, toggleMode, setPreset, presets, mounted } = useTheme();
   const [showPresets, setShowPresets] = useState(false);
   const [showBackToTop, setShowBackToTop] = useState(false);
+
+  const enabledSections = (config.sections || []).filter((s) => s.enabled !== false);
+  const navItems = [
+    { id: "hero", label: "Home", icon: Home },
+    ...enabledSections.map((s) => ({ id: s.id, label: s.navLabel || s.label })),
+  ];
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -54,7 +50,7 @@ export default function Nav({ activeSection, scrollToSection, config, scrollProg
 
           <div className="flex items-center gap-2">
             <div className="hidden md:flex items-center gap-1">
-              {NAV_ITEMS.map((item, index) => (
+              {navItems.map((item, index) => (
                 <motion.button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}

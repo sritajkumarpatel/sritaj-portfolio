@@ -23,6 +23,7 @@ export default function Experience({ experience }) {
           <Briefcase style={{ color: "var(--color-primary)" }} size={32} />
         </motion.div>
         <h3 className="text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
+          <span style={{ color: "var(--color-accent)", fontSize: "0.75em", marginRight: "0.5rem" }}>02</span>
           Experience
         </h3>
       </div>

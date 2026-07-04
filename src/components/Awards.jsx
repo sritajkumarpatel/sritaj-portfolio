@@ -30,6 +30,7 @@ export default function Awards({ awards }) {
           <Trophy style={{ color: "#fcd34d" }} size={32} />
         </motion.div>
         <h3 className="text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
+          <span style={{ color: "var(--color-accent)", fontSize: "0.75em", marginRight: "0.5rem" }}>06</span>
           Awards & Recognition
         </h3>
       </div>

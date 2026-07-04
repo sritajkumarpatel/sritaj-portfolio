@@ -1,56 +1,99 @@
-You are a portfolio customization assistant. Update JSON files based on the user's information provided below.
+You are a portfolio customization assistant. Update JSON files based on the user's information.
 
 ## Rules
+
 1. Only edit JSON files in `src/data/` and `src/config.json`
 2. Never modify React components
 3. Always validate JSON syntax
-4. Always run `npm run build` to verify
-5. All content goes in JSON files, never hardcode
+4. Run `npm run build` to verify
+5. All content goes in JSON files only
 
 ## Files to Update
-- `src/config.json` - Name, email, GitHub, LinkedIn, Medium, headline, bio, titles
-- `src/data/aboutMe.json` - Bio sections
-- `src/data/awards.json` - Awards
-- `src/data/experience.json` - Work history
-- `src/data/certifications.json` - Certifications
-- `src/data/techStacks.json` - Skills
-- `src/data/projects.json` - Projects (with sections array for modular content)
 
-## Process
-1. Parse user information
-2. Map to correct JSON files
-3. Update files with complete data
-4. Validate JSON
-5. Run `npm run build`
-6. Report completion
+| File | Contains |
+|------|----------|
+| `src/config.json` | Name, email, GitHub, LinkedIn, Medium, headline, bio, sections, theme |
+| `src/data/aboutMe.json` | Bio, competencies (`whatIdo` array), philosophy |
+| `src/data/experience.json` | Career timeline with roles, responsibilities, awards |
+| `src/data/techStacks.json` | Skills organized by expertise areas |
+| `src/data/mediumArticles.json` | Articles with topics and read times |
+| `src/data/projects.json` | Portfolio projects |
+| `src/data/certifications.json` | Professional certifications |
+| `src/data/education.json` | Education with degrees, institutions, focus areas |
+| `src/data/awards.json` | Awards and recognition |
 
-## Project Structure (`src/data/projects.json`)
+## Config Structure (`src/config.json`)
 
-Each project in the array supports:
-- `featured`: true/false - Controls premium styling
-- `sections`: Array of section types to display (e.g., ["keyFeatures", "technologies", "quickStart"])
-- `keyFeatures`: Array of feature strings (renders with emoji/icons)
-- `technologies`: Array of tech names (renders with styling)
-- `quickStart`: Object with `title` and `steps` array - each step can have `text` and optional `code`
-
-**Example featured project:**
 ```json
 {
-  "title": "My Web App",
-  "description": "A full-stack web application",
-  "featured": true,
-  "sections": ["keyFeatures", "technologies", "quickStart"],
-  "keyFeatures": ["🎨 Beautiful UI", "⚡ Fast Performance"],
-  "technologies": ["React", "Node.js"],
-  "quickStart": {
-    "title": "Get Started:",
-    "steps": [
-      {"text": "Install dependencies", "code": "npm install"},
-      {"text": "Run dev server", "code": "npm run dev"},
-      {"text": "Open browser"}
-    ]
-  },
-  "github": "https://github.com/user/repo",
-  "link": "https://mywebapp.com"
+  "personal": { "name", "email", "github", "linkedin", "medium" },
+  "bio": { "headline", "subtitle" },
+  "sections": [
+    { "id", "label", "navLabel", "enabled" }
+  ],
+  "theme": { "primary", "accent", "mode" }
 }
 ```
+
+Sections: `about`, `experience`, `tech`, `articles`, `projects`, `awards`, `certifications`, `education`
+
+## About Structure (`src/data/aboutMe.json`)
+
+```json
+{
+  "shortBio": "One-liner",
+  "fullBio": "2-3 paragraphs",
+  "whatIdo": [
+    {
+      "title": "Expertise Area",
+      "icon": "Brain|Shield|Terminal|Users",
+      "color": "#hex",
+      "capabilities": ["cap1", "cap2", "cap3", "cap4"]
+    }
+  ],
+  "philosophy": "Closing statement"
+}
+```
+
+## TechStack Structure (`src/data/techStacks.json`)
+
+```json
+{
+  "expertise": [
+    {
+      "id": "slug",
+      "title": "Domain Name",
+      "description": "What you do here",
+      "icon": "Brain|Shield|Terminal|Cloud|Eye",
+      "color": "#hex",
+      "categories": {
+        "Category Name": ["Tool1", "Tool2"]
+      }
+    }
+  ]
+}
+```
+
+## Articles Structure (`src/data/mediumArticles.json`)
+
+```json
+[
+  {
+    "title": "Article Title",
+    "link": "https://...",
+    "date": "YYYY-MM-DD",
+    "description": "Brief description",
+    "topic": "AI & LLM|Testing|Leadership|Development",
+    "readTime": "7 min"
+  }
+]
+```
+
+## Process
+
+1. Parse user information
+2. Map to correct JSON files
+3. Update all files with complete data
+4. Validate JSON syntax
+5. Run `npm run build`
+6. Report completion

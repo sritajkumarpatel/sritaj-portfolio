@@ -1,18 +1,20 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const sectionVariants = {
   hidden: {
     opacity: 0,
-    y: 30,
+    y: 40,
+    filter: "blur(4px)",
   },
   visible: {
     opacity: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.5,
-      ease: "easeOut",
-      staggerChildren: 0.08,
+      duration: 0.7,
+      ease: [0.22, 1, 0.36, 1],
+      staggerChildren: 0.1,
     },
   },
 };
@@ -20,14 +22,16 @@ const sectionVariants = {
 const childVariants = {
   hidden: {
     opacity: 0,
-    y: 15,
+    y: 20,
+    filter: "blur(2px)",
   },
   visible: {
     opacity: 1,
     y: 0,
+    filter: "blur(0px)",
     transition: {
-      duration: 0.4,
-      ease: "easeOut",
+      duration: 0.5,
+      ease: [0.22, 1, 0.36, 1],
     },
   },
 };
@@ -35,7 +39,7 @@ const childVariants = {
 export default function Section({ className = "", children, noAnimation = false }) {
   if (noAnimation) {
     return (
-      <section className={`py-6 px-6 ${className}`}>
+      <section className={`py-8 px-6 ${className}`}>
         <div className="max-w-6xl mx-auto">{children}</div>
       </section>
     );
@@ -45,9 +49,9 @@ export default function Section({ className = "", children, noAnimation = false 
     <motion.section
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-30px" }}
+      viewport={{ once: true, margin: "-80px" }}
       variants={sectionVariants}
-      className={`py-6 px-6 ${className}`}
+      className={`py-8 px-6 ${className}`}
     >
       <div className="max-w-6xl mx-auto">
         {React.Children.map(children, (child) => (

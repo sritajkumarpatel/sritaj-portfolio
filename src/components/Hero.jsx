@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Linkedin, Mail, Github, BookOpen, ArrowDown, Code2, Users, GraduationCap, Brain } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, useInView } from "framer-motion";
+import { Linkedin, Mail, Github, BookOpen, ArrowDown } from "lucide-react";
 
 const DEFAULT_TITLES = [
   "Senior Architect at DevOn",
@@ -30,14 +30,38 @@ const floatingOrb2 = {
 };
 
 function AnimatedCounter({ end, suffix = "", duration = 2 }) {
-  return null;
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
+  useEffect(() => {
+    if (!isInView) return;
+    let start = 0;
+    const increment = end / (duration * 60);
+    const timer = setInterval(() => {
+      start += increment;
+      if (start >= end) {
+        setCount(end);
+        clearInterval(timer);
+      } else {
+        setCount(Math.floor(start));
+      }
+    }, 1000 / 60);
+    return () => clearInterval(timer);
+  }, [isInView, end, duration]);
+
+  return (
+    <span ref={ref}>
+      {count}{suffix}
+    </span>
+  );
 }
 
 const stats = [
-  { icon: Code2, label: "Building Frameworks" },
-  { icon: Users, label: "Leading Teams" },
-  { icon: GraduationCap, label: "Mentoring Engineers" },
-  { icon: Brain, label: "Exploring AI" },
+  { value: 11, suffix: "+", label: "Years Experience", sublabel: "QE to Architect" },
+  { value: 90, suffix: "%", label: "Efficiency Gains", sublabel: "Via automation" },
+  { value: 7, suffix: "", label: "Certifications", sublabel: "PSM I, CSM, Azure AI, DevOps & more" },
+  { value: 16, suffix: "+", label: "Articles Published", sublabel: "On Medium" },
 ];
 
 export default function Hero({ config }) {
@@ -48,15 +72,12 @@ export default function Hero({ config }) {
   const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsInitialLoad(false);
-    }, 2000);
+    const timer = setTimeout(() => setIsInitialLoad(false), 2000);
     return () => clearTimeout(timer);
   }, []);
 
   useEffect(() => {
     if (isInitialLoad) return;
-
     const currentText = titles[titleIndex];
     let timeout;
 
@@ -78,7 +99,6 @@ export default function Hero({ config }) {
         setTitleIndex((prev) => (prev + 1) % titles.length);
       }
     }
-
     return () => clearTimeout(timeout);
   }, [displayText, isDeleting, titleIndex, isInitialLoad]);
 
@@ -92,7 +112,7 @@ export default function Hero({ config }) {
     },
     {
       href: `mailto:${config.personal.email}`,
-      label: "Email",
+      label: "Contact Me",
       icon: <Mail size={18} />,
       bg: "bg-slate-600",
       hover: "hover:bg-slate-500",
@@ -139,13 +159,12 @@ export default function Hero({ config }) {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="relative"
           >
-            <img
+            <motion.img
               src={`${import.meta.env.BASE_URL}images/profile.png`}
               alt={config.personal.name}
               className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover"
-              style={{
-                boxShadow: "0 0 40px rgba(var(--color-primary-rgb), 0.3)",
-              }}
+              style={{ boxShadow: "0 0 40px rgba(var(--color-primary-rgb), 0.3)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 60px rgba(var(--color-primary-rgb), 0.5)" }}
             />
             <motion.div
               className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center"
@@ -166,8 +185,9 @@ export default function Hero({ config }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <motion.h2
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent min-h-[60px] flex items-center justify-center"
+            <motion.h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 min-h-[60px] flex items-center justify-center"
+              style={{ color: "var(--color-text-primary)" }}
             >
               <span className="inline-block">
                 {displayText}
@@ -177,22 +197,27 @@ export default function Hero({ config }) {
                   className="inline-block w-1 h-10 md:h-12 bg-primary ml-1 align-middle"
                 />
               </span>
-            </motion.h2>
+            </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-lg md:text-xl text-text-secondary mb-3 font-medium"
+              className="text-lg md:text-xl font-semibold mb-4 text-center"
+              style={{ color: "var(--color-text-primary)" }}
             >
-              {config.bio.headline}
+              <span className="italic" style={{ color: "var(--color-primary)" }}>
+                {config.bio.headline.split(" ").slice(0, 2).join(" ")}
+              </span>{" "}
+              {config.bio.headline.split(" ").slice(2).join(" ")}
             </motion.p>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="text-text-muted max-w-2xl mx-auto mb-8 leading-relaxed text-sm md:text-base"
+              className="max-w-2xl mx-auto mb-8 leading-relaxed text-sm md:text-base"
+              style={{ color: "var(--color-text-secondary)" }}
             >
               {config.bio.subtitle}
             </motion.p>
@@ -215,9 +240,9 @@ export default function Hero({ config }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.8 + index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.05, y: -3, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
                 whileTap={{ scale: 0.95 }}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl ${link.bg} ${link.hover} text-white font-medium transition-all shadow-lg hover:shadow-xl text-sm`}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl ${link.bg} ${link.hover} text-white font-medium transition-all shadow-lg text-sm`}
               >
                 {link.icon}
                 {link.label}
@@ -225,12 +250,12 @@ export default function Hero({ config }) {
             ))}
           </motion.div>
 
-          {/* Stats Row */}
+          {/* Stats with Animated Counters */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1, duration: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-4"
+            className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-4 w-full max-w-3xl"
           >
             {stats.map((stat, index) => (
               <motion.div
@@ -238,16 +263,17 @@ export default function Hero({ config }) {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.1 + index * 0.1 }}
-                whileHover={{ y: -5, scale: 1.05 }}
-                className="glass-card rounded-xl p-4 md:p-5 text-center cursor-default"
+                whileHover={{ y: -4, scale: 1.03 }}
+                className="glass-card rounded-xl p-4 text-center cursor-default"
               >
-                <stat.icon
-                  size={24}
-                  className="mx-auto mb-2"
-                  style={{ color: "var(--color-accent)" }}
-                />
-                <p className="text-sm font-semibold" style={{ color: "var(--color-text-primary)" }}>
+                <p className="text-2xl md:text-3xl font-extrabold" style={{ color: "var(--color-primary)" }}>
+                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                </p>
+                <p className="text-xs font-semibold mt-1" style={{ color: "var(--color-text-primary)" }}>
                   {stat.label}
+                </p>
+                <p className="text-[10px] mt-0.5" style={{ color: "var(--color-text-muted)" }}>
+                  {stat.sublabel}
                 </p>
               </motion.div>
             ))}
