@@ -32,7 +32,6 @@ Important Files & Why
 - `src/data/certifications.json` — Certifications with issuers, dates, credentials. Used by `Certifications.jsx`.
 - `src/data/techStacks.json` — Technical skills and proficiencies. Used by `TechStack.jsx`.
 - `src/data/projects.json` — Portfolio projects with support for featured/regular projects, modular sections (keyFeatures, technologies, quickStart), and data-driven content. Each project controls which sections display via `sections` array. Used by `Projects.jsx` → `ProjectCard.jsx` → `CardSection.jsx`.
-- `src/data/githubRepos.json` — GitHub projects list (auto-fetched by `update-github.js` or manual). Used by `GithubRepos.jsx`.
 - `src/data/mediumArticles.json` — Medium articles feed (auto-fetched by `update-medium.js` or manual). Used by `MediumArticles.jsx`.
 - `src/data/education.json` — Education with degrees, institutions, periods, focus areas. Used by `Education.jsx`.
 
@@ -49,8 +48,6 @@ Important Files & Why
 - `src/components/Projects.jsx` — Projects section orchestrator. Renders featured/regular projects from `projects.json` using `ProjectCard` component.
 - `src/components/ProjectCard.jsx` — Reusable project card component. Renders individual projects with dynamic sections based on `sections` array from JSON.
 - `src/components/CardSection.jsx` — Modular card section renderer for `keyFeatures`, `technologies`, and `quickStart`. All content data-driven from JSON.
-- `src/components/ComingSoon.jsx` — Reusable "Coming Soon" placeholder section used by Projects and other empty sections.
-- `src/components/GithubRepos.jsx` — GitHub repos rendering from `githubRepos.json`.
 - `src/components/MediumArticles.jsx` — Medium articles rendering from `mediumArticles.json`.
 - `src/components/Education.jsx` — Education section rendering from `education.json`.
 - `src/components/Footer.jsx` — Footer using `config.personal.name` and links.
@@ -62,7 +59,6 @@ Important Files & Why
 - `vite.config.js` — Vite config; `base` is set to `/sritaj-portfolio/`. Update if repo name changes.
 - `package.json` — Scripts and dependencies. Includes `gh-pages` for deployment.
 - `tailwind.config.cjs` / `postcss.config.cjs` — Tailwind + PostCSS integration.
-- `scripts/update-github.js` — Auto-fetch GitHub repos (optional).
 - `scripts/update-medium.js` — Auto-fetch Medium articles (optional).
 - `CHECKLIST.md` — Visual and styling adjustments; useful for pixel-perfect tweaks.
 
