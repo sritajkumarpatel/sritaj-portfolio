@@ -45,31 +45,43 @@ export default function Projects({ projects, onOpenModal }) {
               <div className="flex flex-col md:flex-row">
                 {/* Project Header */}
                 <div
-                  className="relative w-full md:w-80 h-48 md:h-auto flex-shrink-0 flex items-center justify-center"
+                  className="relative w-full md:w-80 h-48 md:h-auto flex-shrink-0 overflow-hidden"
                   style={{
-                    background: isFeatured
-                      ? "linear-gradient(135deg, var(--color-primary), var(--color-accent))"
-                      : "linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.15), rgba(var(--color-accent-rgb), 0.08))",
+                    background: !project.image
+                      ? isFeatured
+                        ? "linear-gradient(135deg, var(--color-primary), var(--color-accent))"
+                        : "linear-gradient(135deg, rgba(var(--color-primary-rgb), 0.15), rgba(var(--color-accent-rgb), 0.08))"
+                      : undefined,
                   }}
                 >
                   {/* Number */}
                   <span
-                    className="absolute top-4 left-4 text-sm font-bold opacity-60"
+                    className="absolute top-4 left-4 text-sm font-bold opacity-60 z-10"
                     style={{ color: isFeatured ? "white" : "var(--color-text-muted)" }}
                   >
                     {num}
                   </span>
 
-                  {/* Project Initial */}
-                  <div
-                    className="w-20 h-20 rounded-2xl flex items-center justify-center text-3xl font-bold"
-                    style={{
-                      backgroundColor: "rgba(255, 255, 255, 0.15)",
-                      color: "white",
-                    }}
-                  >
-                    {project.title.charAt(0)}
-                  </div>
+                  {/* Project Image */}
+                  {project.image ? (
+                    <img
+                      src={`${import.meta.env.BASE_URL}images/projects/${project.image}`}
+                      alt={project.title}
+                      className="absolute inset-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div
+                        className="w-20 h-20 rounded-2xl flex items-center justify-center text-3xl font-bold"
+                        style={{
+                          backgroundColor: "rgba(255, 255, 255, 0.15)",
+                          color: "white",
+                        }}
+                      >
+                        {project.title.charAt(0)}
+                      </div>
+                    </div>
+                  )}
 
                   {/* View Button */}
                   <motion.div
