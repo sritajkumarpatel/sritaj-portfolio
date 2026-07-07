@@ -51,17 +51,25 @@ export default function ProjectCard({ project, onOpenModal }) {
           </motion.div>
         )}
 
-        {/* Project Icon/Placeholder */}
+        {/* Project Image */}
         <div className="absolute top-3 left-3">
-          <div
-            className="w-12 h-12 rounded-lg flex items-center justify-center text-xl font-bold"
-            style={{
-              backgroundColor: "rgba(255, 255, 255, 0.15)",
-              color: "white",
-            }}
-          >
-            {project.title.charAt(0)}
-          </div>
+          {project.image ? (
+            <img
+              src={`${import.meta.env.BASE_URL}images/projects/${project.image}`}
+              alt={project.title}
+              className="w-12 h-12 rounded-lg object-cover"
+            />
+          ) : (
+            <div
+              className="w-12 h-12 rounded-lg flex items-center justify-center text-xl font-bold"
+              style={{
+                backgroundColor: "rgba(255, 255, 255, 0.15)",
+                color: "white",
+              }}
+            >
+              {project.title.charAt(0)}
+            </div>
+          )}
         </div>
 
         {/* View Button */}

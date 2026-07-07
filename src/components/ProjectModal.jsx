@@ -64,27 +64,36 @@ export default function ProjectModal({ project, isOpen, onClose }) {
           >
             {/* Header */}
             <div className="flex items-start justify-between mb-6">
-              <div>
-                <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--color-accent)" }}>
-                  {project.title}
-                </h2>
-                {project.featured && (
-                  <span
-                    className="text-xs px-3 py-1 rounded-full"
-                    style={{
-                      backgroundColor: "rgba(var(--color-accent-rgb), 0.15)",
-                      color: "var(--color-accent)",
-                    }}
-                  >
-                    Featured Project
-                  </span>
+              <div className="flex items-center gap-4">
+                {project.image && (
+                  <img
+                    src={`${import.meta.env.BASE_URL}images/projects/${project.image}`}
+                    alt={project.title}
+                    className="w-16 h-16 rounded-xl object-cover flex-shrink-0"
+                  />
                 )}
+                <div>
+                  <h2 className="text-2xl font-bold mb-2" style={{ color: "var(--color-accent)" }}>
+                    {project.title}
+                  </h2>
+                  {project.featured && (
+                    <span
+                      className="text-xs px-3 py-1 rounded-full"
+                      style={{
+                        backgroundColor: "rgba(var(--color-accent-rgb), 0.15)",
+                        color: "var(--color-accent)",
+                      }}
+                    >
+                      Featured Project
+                    </span>
+                  )}
+                </div>
               </div>
               <motion.button
                 whileHover={{ scale: 1.1, rotate: 90 }}
                 whileTap={{ scale: 0.9 }}
                 onClick={onClose}
-                className="p-2 rounded-lg"
+                className="p-2 rounded-lg flex-shrink-0"
                 style={{
                   backgroundColor: "rgba(var(--color-primary-rgb), 0.1)",
                   color: "var(--color-text-muted)",
