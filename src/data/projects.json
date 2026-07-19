@@ -52,5 +52,33 @@
         {"text": "Run", "code": "node server.js"}
       ]
     }
+  },
+  {
+    "title": "GitHub Readme Forge — AI README Generator",
+    "description": "Turn any codebase into a polished README in under a minute. A three-agent AI pipeline (Reader, Analyzer, Writer) scans your repo, extracts architecture and tech stack, then forges a narrative-driven README in one of five battle-tested styles across six languages.",
+    "image": "githubreadmeforge.png",
+    "featured": false,
+    "keyFeatures": [
+      "3 Autonomous AI Agents",
+      "5 README Styles",
+      "5 LLM Providers",
+      "6 Languages (i18n)",
+      "Web Dashboard + CLI",
+      "Auto-Detected Hero Assets"
+    ],
+    "technologies": ["Python 3.10+", "Flask", "Gemini", "OpenAI", "Claude", "Ollama", "JavaScript", "HTML/CSS", "Docker"],
+    "github": "https://github.com/sritajkumarpatel/githubReadmeForge",
+    "link": "https://github.com/sritajkumarpatel/githubReadmeForge",
+    "sections": ["keyFeatures", "technologies", "quickStart"],
+    "quickStart": {
+      "title": "Try it:",
+      "steps": [
+        {"text": "Clone", "code": "git clone https://github.com/sritajkumarpatel/githubReadmeForge.git"},
+        {"text": "Set up env", "code": "python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt"},
+        {"text": "Add your key", "code": "export GEMINI_API_KEY=\"your-key\""},
+        {"text": "Generate instantly", "code": "python main.py --path . --instant"},
+        {"text": "Or launch the dashboard", "code": "python server.py --port 8082"}
+      ]
+    }
   }
 ]
