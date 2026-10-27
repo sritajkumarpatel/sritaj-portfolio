@@ -1,31 +1,44 @@
 [
   {
+    "company": "emagine",
+    "roles": [
+      { "title": "Senior Architect I", "period": "October 2026 - Present" }
+    ],
+    "duration": "1 month",
+    "current": true,
+    "location": "Bengaluru, Karnataka, India · Hybrid",
+    "currentRolesAndResponsibilities": [
+      "Same role. New chapter. New possibilities."
+    ]
+  },
+  {
     "company": "DevOn",
     "roles": [
-      { "title": "Senior Architect I", "period": "March 2026 - Present" },
+      { "title": "Senior Architect I", "period": "March 2026 - September 2026" },
       { "title": "Technical Architect III", "period": "March 2025 - February 2026" },
       { "title": "Technical Architect II", "period": "March 2024 - February 2025" },
       { "title": "Associate Architect II", "period": "March 2023 - February 2024" },
       { "title": "Senior Principal Development Specialist", "period": "February 2022 - February 2023" }
     ],
-    "duration": "4 years 1 month",
-    "current": true,
-    "location": "Bengaluru, Karnataka, India",
+    "duration": "4 years 8 months",
+    "current": false,
+    "location": "Bengaluru, Karnataka, India · Hybrid",
     "currentRolesAndResponsibilities": [
-      "Designing automation workflows to streamline repetitive and manual processes",
-      "Reducing repetitive tasks by building tools and automation flows—reducing manual effort and test execution time by 80–90%",
+      "Designed automation workflows to streamline repetitive and manual processes",
+      "Reduced repetitive tasks by building tools and automation flows, cutting manual effort and test execution time by 80–90%",
       {
-        "text": "Developing and maintaining an end‑to‑end automation platform that:",
+        "text": "Developed and maintained an end-to-end automation platform that:",
         "subItems": [
-          "Automates workflows",
-          "Generates synthetic data",
-          "Produces Postman request bodies",
-          "Enables one‑click test execution",
-          "Provides a unified space to validate and launch workflows"
+          "Automated workflows",
+          "Generated synthetic test data",
+          "Created Postman request bodies",
+          "Enabled one-click test execution",
+          "Provided a unified platform to validate and launch workflows"
         ]
       },
-      "Performing testing activities, including test case design, execution, and preparing test plans for acceptance day",
-      "Leveraging AI tools and Vibe coding to automate flows and enhance workflow efficiency"
+      "Performed testing activities, including test case design, test execution, and preparation of test plans for Acceptance Day",
+      "Expanded API test coverage within the C#-based automation framework by developing and integrating test cases for additional endpoints, while enhancing automated test reporting and Microsoft Teams integration to share test execution results and improve visibility into test outcomes",
+      "Leveraged AI tools and vibe coding to automate flows and enhance workflow efficiency"
     ],
     "servedAs": [
       "Scrum Master, facilitating Agile ceremonies and sprint execution",

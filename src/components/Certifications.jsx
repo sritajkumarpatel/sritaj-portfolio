@@ -28,7 +28,6 @@ export default function Certifications({ certifications }) {
           <Award style={{ color: "var(--color-primary)" }} size={32} />
         </motion.div>
         <h3 className="text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
-          <span style={{ color: "var(--color-accent)", fontSize: "0.75em", marginRight: "0.5rem" }}>07</span>
           Certifications
         </h3>
       </div>

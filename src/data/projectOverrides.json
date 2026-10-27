@@ -1,0 +1,100 @@
+{
+  "portforge": {
+    "title": "PortForge — AI-Powered Portfolio Builder",
+    "description": "Talk to an AI agent (opencode, Claude, Copilot), get a complete React portfolio. Features LinkedIn import, 3 visual styles (Minimal/Bold/Terminal), 7 color presets, and one-click deploy to Netlify/Vercel/GitHub Pages.",
+    "image": "portforge.png",
+    "featured": true,
+    "keyFeatures": [
+      "Conversational Setup",
+      "LinkedIn Auto-Import",
+      "3 Visual Styles",
+      "8 Configurable Sections",
+      "One-Click Deploy"
+    ],
+    "technologies": ["React 18", "Vite", "Tailwind CSS", "Framer Motion", "Lucide React", "Node.js"],
+    "sections": ["keyFeatures", "technologies", "quickStart"],
+    "quickStart": {
+      "title": "Try it:",
+      "steps": [
+        { "text": "Clone", "code": "git clone https://github.com/sritajkumarpatel/portforge" },
+        { "text": "Open in opencode/Claude Code", "code": "cd portforge && opencode ." },
+        { "text": "Say", "code": "\"Set up my portfolio\"" },
+        { "text": "Answer 10-15 questions, one at a time" },
+        { "text": "Run", "code": "cd my-portfolio && npm run dev" }
+      ]
+    }
+  },
+  "testforge": {
+    "title": "TestForge — AI-Powered Test Case Generator",
+    "description": "Feed requirements documents, ADO work items, or plain text — three autonomous AI agents analyze, design, and produce ready-to-create Azure DevOps test cases in under 3 minutes.",
+    "image": "testforge.png",
+    "featured": true,
+    "keyFeatures": [
+      "3 Autonomous AI Agents",
+      "One-Click ADO Creation",
+      "5 LLM Providers",
+      "PDF/Word/Text Input",
+      "BDD Gherkin Support"
+    ],
+    "technologies": ["Node.js", "Express", "React 18", "Vite", "Playwright", "OpenAI", "Claude", "Gemini", "Ollama"],
+    "sections": ["keyFeatures", "technologies", "quickStart"],
+    "quickStart": {
+      "title": "Try it:",
+      "steps": [
+        { "text": "Clone", "code": "git clone https://github.com/sritajkumarpatel/testforge.git" },
+        { "text": "Open in opencode/Claude Code", "code": "cd testforge && opencode ." },
+        { "text": "Say", "code": "\"Set up and run TestForge\"" },
+        { "text": "Or manual setup", "code": "npm install && cd client && npm install && cd .." },
+        { "text": "Run", "code": "node server.js" }
+      ]
+    }
+  },
+  "githubreadmeforge": {
+    "title": "GitHub Readme Forge — AI README Generator",
+    "description": "Turn any codebase into a polished README in under a minute. A three-agent AI pipeline (Reader, Analyzer, Writer) scans your repo, extracts architecture and tech stack, then forges a narrative-driven README in one of five battle-tested styles across six languages.",
+    "image": "githubreadmeforge.png",
+    "featured": false,
+    "keyFeatures": [
+      "3 Autonomous AI Agents",
+      "5 README Styles",
+      "5 LLM Providers",
+      "6 Languages (i18n)",
+      "Web Dashboard + CLI",
+      "Auto-Detected Hero Assets"
+    ],
+    "technologies": ["Python 3.10+", "Flask", "Gemini", "OpenAI", "Claude", "Ollama", "JavaScript", "HTML/CSS", "Docker"],
+    "sections": ["keyFeatures", "technologies", "quickStart"],
+    "quickStart": {
+      "title": "Try it:",
+      "steps": [
+        { "text": "Clone", "code": "git clone https://github.com/sritajkumarpatel/githubReadmeForge.git" },
+        { "text": "Set up env", "code": "python3 -m venv venv && source venv/bin/activate && pip install -r requirements.txt" },
+        { "text": "Add your key", "code": "export GEMINI_API_KEY=\"your-key\"" },
+        { "text": "Generate instantly", "code": "python main.py --path . --instant" },
+        { "text": "Or launch the dashboard", "code": "python server.py --port 8082" }
+      ]
+    }
+  },
+  "instapostsforge": {
+    "title": "InstaPosts Forge — AI Instagram Publisher",
+    "description": "One photo a day to Instagram, straight from a Google Drive folder, picked and captioned by autonomous AI agents (Claude, OpenAI or Gemini), posted automatically by GitHub Actions with zero server overhead.",
+    "featured": false,
+    "keyFeatures": [
+      "AI-Curated Photo Selection",
+      "Multi-LLM Captioning (Claude, OpenAI, Gemini)",
+      "Daily Automated Publishing via GitHub Actions",
+      "Google Drive Cloud Integration",
+      "Tone & Hashtag Optimization"
+    ],
+    "technologies": ["Python", "Claude", "OpenAI", "Gemini", "Instagram Graph API", "GitHub Actions"],
+    "sections": ["keyFeatures", "technologies", "quickStart"],
+    "quickStart": {
+      "title": "Try it:",
+      "steps": [
+        { "text": "Clone", "code": "git clone https://github.com/sritajkumarpatel/instaPostsForge.git" },
+        { "text": "Configure secrets", "code": "Add Google Drive credentials & Instagram tokens in GitHub Secrets" },
+        { "text": "Run or schedule", "code": "Trigger via GitHub Actions workflow_dispatch or daily cron" }
+      ]
+    }
+  }
+}

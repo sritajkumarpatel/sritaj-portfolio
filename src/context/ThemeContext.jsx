@@ -3,7 +3,7 @@ import config from "../config.json";
 
 const ThemeContext = createContext(null);
 
-const themeColors = {
+export const themeColors = {
   slate: { primary: "#94a3b8", light: "#cbd5e1", dark: "#64748b" },
   amber: { primary: "#d97706", light: "#f59e0b", dark: "#b45309" },
   indigo: { primary: "#6366f1", light: "#818cf8", dark: "#4f46e5" },
@@ -27,16 +27,18 @@ function getCSSVariables(primary, accent, mode) {
   const p = themeColors[primary] || themeColors.slate;
   const a = themeColors[accent] || themeColors.amber;
   const isDark = mode === "dark";
+  const accentRgb = hexToRgb(a.primary);
+  const primaryRgb = hexToRgb(p.primary);
 
   return {
     "--color-primary": p.primary,
     "--color-primary-light": p.light,
     "--color-primary-dark": p.dark,
-    "--color-primary-rgb": hexToRgb(p.primary),
+    "--color-primary-rgb": primaryRgb,
     "--color-accent": a.primary,
     "--color-accent-light": a.light,
     "--color-accent-dark": a.dark,
-    "--color-accent-rgb": hexToRgb(a.primary),
+    "--color-accent-rgb": accentRgb,
     "--color-bg-primary": isDark ? "#0f1218" : "#f5f0e8",
     "--color-bg-secondary": isDark ? "#1c2028" : "#ebe5db",
     "--color-bg-tertiary": isDark ? "#282d38" : "#ddd5c8",
@@ -44,26 +46,26 @@ function getCSSVariables(primary, accent, mode) {
     "--color-text-secondary": isDark ? "#cbd5e1" : "#3d3529",
     "--color-text-muted": isDark ? "#94a3b8" : "#5c5347",
     "--color-border": isDark
-      ? "rgba(251, 191, 36, 0.12)"
+      ? `rgba(${accentRgb}, 0.12)`
       : "rgba(100, 80, 50, 0.18)",
     "--color-border-strong": isDark
-      ? "rgba(251, 191, 36, 0.25)"
+      ? `rgba(${accentRgb}, 0.25)`
       : "rgba(100, 80, 50, 0.35)",
     "--color-glass-bg": isDark
       ? "linear-gradient(180deg, rgba(28, 32, 40, 0.8), rgba(15, 18, 24, 0.7))"
       : "linear-gradient(180deg, rgba(235, 229, 219, 0.95), rgba(221, 213, 200, 0.85))",
     "--color-glass-border": isDark
-      ? "rgba(251, 191, 36, 0.1)"
+      ? `rgba(${accentRgb}, 0.1)`
       : "rgba(100, 80, 50, 0.15)",
     "--color-glass-shadow": isDark
       ? "0 8px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.03)"
       : "0 8px 32px rgba(100, 80, 50, 0.1), inset 0 1px 0 rgba(255,255,255,0.5)",
     "--color-glass-hover-border": isDark
-      ? "rgba(251, 191, 36, 0.25)"
+      ? `rgba(${accentRgb}, 0.22)`
       : "rgba(100, 80, 50, 0.25)",
     "--color-glass-hover-shadow": isDark
-      ? "0 16px 48px rgba(0, 0, 0, 0.5), 0 0 30px rgba(251, 191, 36, 0.08)"
-      : "0 16px 48px rgba(100, 80, 50, 0.15), 0 0 30px rgba(100, 80, 50, 0.08)",
+      ? `0 12px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(${accentRgb}, 0.06)`
+      : "0 12px 32px rgba(100, 80, 50, 0.12)",
     "--color-nav-bg": isDark
       ? "linear-gradient(180deg, rgba(15, 18, 24, 0.95), rgba(15, 18, 24, 0.85))"
       : "linear-gradient(180deg, rgba(221, 213, 200, 0.98), rgba(235, 229, 219, 0.92))",
@@ -71,7 +73,7 @@ function getCSSVariables(primary, accent, mode) {
       ? "0 4px 20px rgba(0, 0, 0, 0.5)"
       : "0 4px 20px rgba(100, 80, 50, 0.12)",
     "--color-footer-border": isDark
-      ? "rgba(251, 191, 36, 0.08)"
+      ? `rgba(${accentRgb}, 0.08)`
       : "rgba(100, 80, 50, 0.12)",
     "--color-scrollbar-track": isDark ? "#0f1218" : "#ddd5c8",
     "--color-scrollbar-thumb": isDark ? "#282d38" : "#a89888",
@@ -134,6 +136,7 @@ export function ThemeProvider({ children }) {
       setPreset,
       setPrimary,
       setAccent,
+      themeColors,
       presets: config.theme.presets,
       mounted,
     }),

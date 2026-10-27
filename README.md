@@ -1,61 +1,89 @@
-# Portfolio Template
+# Sritaj Patel — Portfolio & Engineering Showcase
 
-A modern, config-driven portfolio built with React, Vite, and Tailwind CSS. Fully customizable via JSON — zero coding required to make it yours.
+A modern, high-performance personal portfolio and engineering showcase for **Sritaj Patel**, Automation Architect & AI Engineer with 11+ years building intelligent automation systems, QA architectures, and Agentic AI workflows.
 
-**[Live Demo](https://sritajkumarpatel.github.io/sritaj-portfolio/)**
-
----
-
-## Quick Start
-
-```bash
-git clone https://github.com/sritajkumarpatel/sritaj-portfolio.git your-portfolio
-cd your-portfolio
-npm install
-npm run dev
-```
-
-Open [http://localhost:5173](http://localhost:5173).
+**[🌐 Live Demo — sritajkumarpatel.vercel.app](https://sritajkumarpatel.vercel.app/)**
 
 ---
 
-## Features
+## Overview
 
-- **Config-driven** — reorder, enable, or disable sections from `config.json`
-- **Brand icons** — real tech logos via `react-icons` (Si namespace)
-- **Animated counters** — numbers count up on scroll
-- **Topic-categorized articles** — filter by AI, Testing, Leadership, Development
-- **Expertise accordion** — expandable skill areas with context
-- **7 color themes** with dark/light mode toggle
-- **Smooth animations** — blur-fade reveals, staggered entrances, parallax orbs
-- **Scroll-spy navigation** — auto-highlights active section
-- **Responsive** — works on mobile, tablet, desktop
-- **Deploy to GitHub Pages** in one command
+This portfolio is built with React 18, Vite 6, Tailwind CSS, and Framer Motion. It features a clean editorial aesthetic, dynamic theme customization, and automated data pipelines that continuously sync latest Medium publications and GitHub projects.
+
+### Key Highlights
+
+- **Dynamic Theme Engine**: 7 curated color palettes with dark/light mode toggle. All glassmorphism borders, shadows, and hover states dynamically derive from CSS custom variables (`--color-primary-rgb`, `--color-accent-rgb`).
+- **Automated Data Sync**: 
+  - Syncs published Medium articles with post-ID deduplication, topic categorization, and reading time calculation.
+  - Syncs public repositories ending in `*Forge` from GitHub with rich case-study overlays (`projectOverrides.json`).
+- **Interactive Case Studies**: Curated project cards with modal deep-dives, architecture highlights, technologies, and copy-ready quick-start commands.
+- **Editorial Typography & Motion**: Clean typography pairing (Space Grotesk for headings and Inter for body), rotating title cycler, and Framer Motion transitions that fully respect `prefers-reduced-motion`.
+- **Standalone Root Hosting**: Built for root domain deployment on Vercel with SPA rewrites and clean URL handling.
+
+---
+
+## Sections
+
+1. **Hero**: Profile photo, rotating title cycler, bio headline, social links, key career stats, and core tools.
+2. **About**: Engineering background, architecture philosophy, core competencies, and career milestones.
+3. **Experience**: Timeline from 2015 to Present with roles, achievements, nested responsibilities, and awards.
+4. **What I Work With**: Expandable domain accordions covering Agentic AI, Automation, Architecture, Languages, and CI/CD pipelines.
+5. **Thoughts & Ideas**: Medium articles categorized by topic (AI & LLM, Automation, Architecture, Leadership, Development).
+6. **Curated Work (Projects)**: Portfolio tools and AI frameworks (PortForge, TestForge, GitHub Readme Forge, InstaPosts Forge) with modal deep-dives.
+7. **Awards & Recognition**: Honors and spot awards across career milestones.
+8. **Certifications**: Industry credentials with verified issuer logos (Scrum Alliance, Scrum.org, Microsoft Azure AI, DevOps Institute).
+9. **Education**: Academic degrees and institutions.
+10. **Footer**: Quick navigation and social links.
 
 ---
 
 ## Tech Stack
 
-| Technology | Purpose |
-|------------|---------|
-| React 18 | UI Framework |
-| Vite 5 | Build Tool |
-| Tailwind CSS | Styling |
-| Framer Motion | Animations |
-| Lucide React | UI Icons |
-| React Icons | Brand Icons (Si/Fa) |
-| GitHub Pages | Hosting |
+| Layer | Technologies |
+|---|---|
+| **Core** | React 18, JavaScript (ES Modules) |
+| **Build & Tooling** | Vite 6, PostCSS, Autoprefixer |
+| **Styling** | Tailwind CSS 3, Custom CSS Tokens, Glassmorphism |
+| **Motion** | Framer Motion 12 |
+| **Icons** | Lucide React, React Icons (Simple Icons) |
+| **Deployment** | Vercel (Root `/`), GitHub Actions |
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js v18+ 
+- npm v9+
+
+### Local Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/sritajkumarpatel/sritaj-portfolio.git
+cd sritaj-portfolio
+
+# Install dependencies
+npm install
+
+# Start local dev server
+npm run dev
+```
+
+Open [http://localhost:5173](http://localhost:5173) in your browser.
 
 ---
 
 ## NPM Scripts
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start dev server |
-| `npm run build` | Production build |
-| `npm run preview` | Preview production build |
-| `npm run deploy` | Deploy to GitHub Pages |
+| Script | Command | Purpose |
+|---|---|---|
+| `npm run dev` | `vite` | Start local development server with HMR |
+| `npm run build` | `vite build` | Build optimized production bundle to `dist/` (auto-runs `prebuild` sync) |
+| `npm run preview` | `vite preview` | Locally preview the production build |
+| `npm run update:medium` | `node scripts/update-medium.js` | Fetch latest Medium stories into `src/data/mediumArticles.json` |
+| `npm run update:github` | `node scripts/update-github.js` | Fetch and merge GitHub `*Forge` repos into `src/data/projects.json` |
 
 ---
 
@@ -63,141 +91,58 @@ Open [http://localhost:5173](http://localhost:5173).
 
 ```
 src/
-├── config.json              # Personal info, sections, theme (EDIT FIRST)
+├── config.json                 # Personal info, data sources, sections, theme presets
 ├── context/
-│   └── ThemeContext.jsx      # Theme provider
+│   └── ThemeContext.jsx         # Theme provider & CSS custom variable engine
 ├── data/
-│   ├── aboutMe.json          # Bio, competencies, philosophy
-│   ├── awards.json           # Awards and recognition
-│   ├── certifications.json   # Professional certifications
-│   ├── experience.json       # Career timeline
-│   ├── mediumArticles.json   # Articles with topics
-│   ├── projects.json         # Portfolio projects
-│   └── techStacks.json       # Skills organized by expertise
+│   ├── aboutMe.json             # Bio, competencies, and engineering philosophy
+│   ├── awards.json              # Industry and organizational awards
+│   ├── certifications.json      # Professional credentials and issuer logo paths
+│   ├── education.json           # Academic background
+│   ├── experience.json          # Work history, roles, and achievements
+│   ├── mediumArticles.json      # Synced Medium publications with topic tags
+│   ├── projectOverrides.json    # Case-study overlays (images, features, quickStart)
+│   ├── projects.json            # Curated projects list
+│   └── techStacks.json          # Technical skills organized by domain
 ├── components/
-│   ├── AnimatedBackground.jsx
 │   ├── About.jsx
 │   ├── Awards.jsx
-│   ├── BentoGrid.jsx         # Quick snapshot (stats + daily tools)
 │   ├── Certifications.jsx
-│   ├── Experience.jsx
+│   ├── Education.jsx
+│   ├── Experience.jsx           # Timeline with current position pulse indicator
 │   ├── Footer.jsx
-│   ├── Hero.jsx              # Typewriter + animated counters
-│   ├── MediumArticles.jsx    # Thoughts & Ideas section
-│   ├── Nav.jsx               # Scroll-spy navigation
-│   ├── ProjectModal.jsx
-│   ├── Projects.jsx
-│   ├── Section.jsx           # Reusable animated wrapper
-│   ├── Skeleton.jsx
-│   └── TechStack.jsx         # Expertise accordion
+│   ├── Hero.jsx                 # Title cycler, stats counter, social links
+│   ├── MediumArticles.jsx       # Articles grid with topic filters
+│   ├── Nav.jsx                  # Header with theme preset picker and mobile drawer
+│   ├── ProjectModal.jsx         # Case-study modal with quick-start steps
+│   ├── Projects.jsx             # Curated case-studies grid
+│   ├── Section.jsx              # Reusable section container
+│   └── TechStack.jsx            # Interactive expertise accordions
 ├── assets/
-│   └── certifications/       # Certification logo images
-├── App.jsx                   # Config-driven section renderer
-├── main.jsx
-└── index.css
+│   └── certifications/          # Issuer logos (Azure, Scrum Alliance, IIIT-B, etc.)
+├── App.jsx                      # Main layout and section orchestrator
+├── main.jsx                     # Application bootstrap
+└── index.css                    # Design tokens, fonts, and glassmorphic utilities
 
 public/
-└── images/                   # Profile photo, screenshots
+├── images/                      # Profile photography and project screenshots
+├── robots.txt                   # Search crawler directives
+└── sitemap.xml                  # XML sitemap
 ```
 
 ---
 
-## Configuration
+## Automation & CI/CD
 
-All content is driven by JSON files. Edit `src/config.json` first:
-
-```json
-{
-  "personal": {
-    "name": "Your Name",
-    "email": "you@email.com",
-    "github": "your-github",
-    "linkedin": "your-linkedin-slug",
-    "medium": "your-medium-handle"
-  },
-  "bio": {
-    "headline": "Your Professional Headline",
-    "subtitle": "2-3 sentences about what you do."
-  },
-  "sections": [
-    { "id": "about", "label": "About", "navLabel": "About", "enabled": true },
-    { "id": "experience", "label": "Experience", "navLabel": "Experience", "enabled": true },
-    { "id": "tech", "label": "What I Work With", "navLabel": "Skills", "enabled": true },
-    { "id": "articles", "label": "Thoughts & Ideas", "navLabel": "Thoughts", "enabled": true },
-    { "id": "projects", "label": "Projects", "navLabel": "Projects", "enabled": true },
-    { "id": "awards", "label": "Awards", "navLabel": "Awards", "enabled": true },
-    { "id": "certifications", "label": "Certifications", "navLabel": "Certs", "enabled": true },
-    { "id": "education", "label": "Education", "navLabel": "Education", "enabled": true }
-  ],
-  "theme": {
-    "primary": "slate",
-    "accent": "amber",
-    "mode": "dark"
-  }
-}
-```
-
-### Sections
-
-Toggle `"enabled": false` to hide any section. Reorder the array to change page order.
-
-### Themes
-
-| Preset | Primary | Accent |
-|--------|---------|--------|
-| `slate-amber` | Slate | Amber |
-| `indigo-violet` | Indigo | Violet |
-| `emerald-teal` | Emerald | Teal |
-| `rose-fuchsia` | Rose | Fuchsia |
-| `blue-cyan` | Blue | Cyan |
-| `slate-cyan` | Slate | Cyan |
-| `indigo-amber` | Indigo | Amber |
-
----
-
-## Data Files
-
-| File | Format | Purpose |
-|------|--------|---------|
-| `aboutMe.json` | `shortBio`, `fullBio`, `whatIdo[]`, `philosophy` | About section |
-| `experience.json` | Array of companies with roles, responsibilities, awards | Career timeline |
-| `techStacks.json` | `expertise[]` with categories and tools | Skills section |
-| `mediumArticles.json` | Articles with `topic` and `readTime` | Thoughts & Ideas |
-| `projects.json` | Projects with features, technologies, links | Portfolio projects |
-| `certifications.json` | Certs with issuer, year, logo | Credentials |
-| `education.json` | Degrees with institution, period, focus | Education |
-| `awards.json` | Awards with year, company, description | Recognition |
-
----
-
-## Deploy
-
-### GitHub Pages (Recommended)
-
-1. Go to repo → **Settings** → **Pages**
-2. Source: **GitHub Actions**
-3. Push to `main` — auto-deploys
-
-### Manual
-
-```bash
-npm run build
-npm run deploy
-```
-
-### Netlify / Vercel
-
-- Build command: `npm run build`
-- Publish directory: `dist`
-
----
-
-## Browser Support
-
-Chrome, Firefox, Safari, Edge — latest 2 versions.
+- **Vercel Automatic Deployments**: Connected directly to the GitHub repository. Any push to `main` triggers a build where `prebuild` syncs live data before assembling static assets.
+- **Automated Data Refresh Workflow** (`.github/workflows/sync-sources.yml`):
+  - Triggers on push to `main`.
+  - Runs on a monthly schedule (`0 0 1 * *`) to check for newly published articles and projects.
+  - Can be dispatched manually via the GitHub Actions UI.
+  - Commits updated JSON files back to `main`, triggering Vercel to redeploy the fresh content automatically.
 
 ---
 
 ## License
 
-MIT
+This project is open-source and available under the [MIT License](LICENSE).

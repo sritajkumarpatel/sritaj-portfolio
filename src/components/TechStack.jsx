@@ -123,7 +123,6 @@ export default function TechStack({ techStacks }) {
             <Code2 style={{ color: "var(--color-primary)" }} size={28} />
           </motion.div>
           <h3 className="text-2xl md:text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
-            <span style={{ color: "var(--color-accent)", fontSize: "0.75em", marginRight: "0.5rem" }}>03</span>
             What I Work With
           </h3>
         </div>

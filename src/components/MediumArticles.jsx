@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { BookOpen, ArrowUpRight, Clock, Lightbulb, ExternalLink } from "lucide-react";
 import Section from "./Section";
-import { SkeletonGrid } from "./Skeleton";
 
 const TOPIC_COLORS = {
   "AI & LLM": { bg: "rgba(139, 92, 246, 0.12)", text: "#8b5cf6" },
@@ -14,13 +13,7 @@ const TOPIC_COLORS = {
 const SHOW_COUNT = 4;
 
 export default function MediumArticles({ articles, mediumHandle }) {
-  const [loading, setLoading] = useState(true);
   const [activeTopic, setActiveTopic] = useState("all");
-
-  useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 600);
-    return () => clearTimeout(timer);
-  }, []);
 
   const topics = useMemo(() => {
     if (!articles) return [];
@@ -50,11 +43,8 @@ export default function MediumArticles({ articles, mediumHandle }) {
     <Section>
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
-          <motion.div whileHover={{ rotate: 360 }} transition={{ duration: 0.5 }}>
-            <Lightbulb style={{ color: "var(--color-primary)" }} size={28} />
-          </motion.div>
+          <Lightbulb style={{ color: "var(--color-primary)" }} size={28} />
           <h3 className="text-2xl md:text-3xl font-bold" style={{ color: "var(--color-text-primary)" }}>
-            <span style={{ color: "var(--color-accent)", fontSize: "0.75em", marginRight: "0.5rem" }}>04</span>
             Thoughts & <span className="italic" style={{ color: "var(--color-primary)" }}>Ideas</span>
           </h3>
         </div>
@@ -63,10 +53,7 @@ export default function MediumArticles({ articles, mediumHandle }) {
         </p>
       </div>
 
-      {loading ? (
-        <SkeletonGrid count={4} columns={2} />
-      ) : (
-        <div className="space-y-6">
+      <div className="space-y-6">
           {/* Topic Filter */}
           <div className="flex flex-wrap gap-1.5">
             <button
@@ -280,7 +267,6 @@ export default function MediumArticles({ articles, mediumHandle }) {
             </motion.div>
           </AnimatePresence>
         </div>
-      )}
     </Section>
   );
 }

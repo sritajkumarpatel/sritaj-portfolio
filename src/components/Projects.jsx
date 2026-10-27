@@ -13,7 +13,6 @@ export default function Projects({ projects, onOpenModal }) {
           Case Studies
         </p>
         <h3 className="text-3xl md:text-4xl font-bold" style={{ color: "var(--color-text-primary)" }}>
-          <span style={{ color: "var(--color-accent)", fontSize: "0.75em", marginRight: "0.5rem" }}>05</span>
           Curated <span className="italic" style={{ color: "var(--color-primary)" }}>Work</span>
         </h3>
       </div>

@@ -7,27 +7,51 @@
     "medium": "sritajp",
     "languages": ["English (Full Professional)", "Hindi (Native)", "Odia (Native)"]
   },
+  "site": {
+    "url": "https://sritajkumarpatel.vercel.app"
+  },
   "bio": {
     "headline": "Automation Architect & AI Engineer",
     "subtitle": "11 years building intelligent automation systems. QA to Architect. Exploring Agentic AI, LangChain, and Playwright to make software delivery faster, smarter, and more reliable."
   },
   "titles": [
-    "Senior Architect at DevOn",
+    "Senior Architect at emagine",
     "AI Automation Architect",
     "Quality Engineer → Architect",
     "Agentic Workflow Architect",
     "Scrum Master (PSM I, CSM)",
     "Building Intelligent Workflows"
   ],
+  "highlights": {
+    "stats": [
+      { "value": 11, "suffix": "+", "label": "Years Experience", "sublabel": "QE to Architect" },
+      { "value": 90, "suffix": "%", "label": "Efficiency Gains", "sublabel": "Via automation" },
+      { "value": 7, "suffix": "", "label": "Certifications", "sublabel": "PSM I, CSM, Azure AI, DevOps & more" },
+      { "value": 16, "suffix": "+", "label": "Articles Published", "sublabel": "On Medium" }
+    ],
+    "tools": ["Playwright", "JavaScript", "MCPs", "Claude", "GitHub", "GitHub Actions"]
+  },
+  "sources": {
+    "medium": {
+      "enabled": true,
+      "maxItems": 20
+    },
+    "github": {
+      "enabled": true,
+      "projectNameSuffix": "Forge",
+      "exclude": ["sritaj-portfolio", "playwrightLocatorsForge"],
+      "maxItems": 12
+    }
+  },
   "sections": [
-    { "id": "about", "label": "01 — About", "navLabel": "About", "enabled": true },
-    { "id": "experience", "label": "02 — Experience", "navLabel": "Experience", "enabled": true },
-    { "id": "tech", "label": "03 — What I Work With", "navLabel": "Skills", "enabled": true },
-    { "id": "articles", "label": "04 — Thoughts & Ideas", "navLabel": "Thoughts", "enabled": true },
-    { "id": "projects", "label": "05 — Projects", "navLabel": "Projects", "enabled": true },
-    { "id": "awards", "label": "06 — Awards", "navLabel": "Awards", "enabled": true },
-    { "id": "certifications", "label": "07 — Certifications", "navLabel": "Certs", "enabled": true },
-    { "id": "education", "label": "08 — Education", "navLabel": "Education", "enabled": true }
+    { "id": "about", "label": "About", "navLabel": "About", "navPrimary": true, "enabled": true },
+    { "id": "experience", "label": "Experience", "navLabel": "Experience", "navPrimary": true, "enabled": true },
+    { "id": "tech", "label": "What I Work With", "navLabel": "Skills", "navPrimary": false, "enabled": true },
+    { "id": "articles", "label": "Thoughts & Ideas", "navLabel": "Thoughts", "navPrimary": true, "enabled": true },
+    { "id": "projects", "label": "Projects", "navLabel": "Projects", "navPrimary": true, "enabled": true },
+    { "id": "awards", "label": "Awards", "navLabel": "Awards", "navPrimary": false, "enabled": true },
+    { "id": "certifications", "label": "Certifications", "navLabel": "Certs", "navPrimary": false, "enabled": true },
+    { "id": "education", "label": "Education", "navLabel": "Education", "navPrimary": false, "enabled": true }
   ],
   "theme": {
     "primary": "slate",

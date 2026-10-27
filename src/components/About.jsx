@@ -51,7 +51,6 @@ export default function About({ aboutMe }) {
           <User style={{ color: "var(--color-primary)" }} size={28} />
         </motion.div>
         <h3 className="text-2xl md:text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
-          <span style={{ color: "var(--color-accent)", fontSize: "0.75em", marginRight: "0.5rem" }}>01</span>
           About Me
         </h3>
       </motion.div>
