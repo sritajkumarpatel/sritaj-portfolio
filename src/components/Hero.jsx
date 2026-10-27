@@ -1,33 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { motion, useInView } from "framer-motion";
-import { Linkedin, Mail, Github, BookOpen, ArrowDown } from "lucide-react";
-
-const DEFAULT_TITLES = [
-  "Senior Architect at DevOn",
-  "AI Automation Architect",
-  "Quality Engineer → Architect",
-  "Scrum Master (PSM I, CSM)",
-  "Building Intelligent Workflows",
-  "11 Years in QE",
-  "Workflow Architect",
-];
-
-const floatingOrb = {
-  animate: {
-    y: [0, -20, 0],
-    opacity: [0.5, 1, 0.5],
-    transition: { duration: 6, repeat: Infinity, ease: "easeInOut" },
-  },
-};
-
-const floatingOrb2 = {
-  animate: {
-    y: [0, 15, 0],
-    x: [0, -10, 0],
-    opacity: [0.3, 0.7, 0.3],
-    transition: { duration: 8, repeat: Infinity, ease: "easeInOut" },
-  },
-};
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import { Linkedin, Mail, Github, BookOpen } from "lucide-react";
 
 function AnimatedCounter({ end, suffix = "", duration = 2 }) {
   const [count, setCount] = useState(0);
@@ -36,6 +9,11 @@ function AnimatedCounter({ end, suffix = "", duration = 2 }) {
 
   useEffect(() => {
     if (!isInView) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      setCount(end);
+      return;
+    }
     let start = 0;
     const increment = end / (duration * 60);
     const timer = setInterval(() => {
@@ -57,50 +35,27 @@ function AnimatedCounter({ end, suffix = "", duration = 2 }) {
   );
 }
 
-const stats = [
-  { value: 11, suffix: "+", label: "Years Experience", sublabel: "QE to Architect" },
-  { value: 90, suffix: "%", label: "Efficiency Gains", sublabel: "Via automation" },
-  { value: 7, suffix: "", label: "Certifications", sublabel: "PSM I, CSM, Azure AI, DevOps & more" },
-  { value: 16, suffix: "+", label: "Articles Published", sublabel: "On Medium" },
-];
-
 export default function Hero({ config }) {
-  const titles = config?.titles || DEFAULT_TITLES;
+  const titles = config?.titles?.length ? config.titles : [config?.personal?.name || ""];
   const [titleIndex, setTitleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState(titles[0]);
-  const [isDeleting, setIsDeleting] = useState(false);
-  const [isInitialLoad, setIsInitialLoad] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsInitialLoad(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (titles.length <= 1) return;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) return;
 
-  useEffect(() => {
-    if (isInitialLoad) return;
-    const currentText = titles[titleIndex];
-    let timeout;
+    const interval = setInterval(() => {
+      setTitleIndex((prev) => (prev + 1) % titles.length);
+    }, 3200);
+    return () => clearInterval(interval);
+  }, [titles.length]);
 
-    if (!isDeleting) {
-      if (displayText.length < currentText.length) {
-        timeout = setTimeout(() => {
-          setDisplayText(currentText.substring(0, displayText.length + 1));
-        }, 60);
-      } else {
-        timeout = setTimeout(() => setIsDeleting(true), 2000);
-      }
-    } else {
-      if (displayText.length > 0) {
-        timeout = setTimeout(() => {
-          setDisplayText(displayText.substring(0, displayText.length - 1));
-        }, 30);
-      } else {
-        setIsDeleting(false);
-        setTitleIndex((prev) => (prev + 1) % titles.length);
-      }
-    }
-    return () => clearTimeout(timeout);
-  }, [displayText, isDeleting, titleIndex, isInitialLoad]);
+  const stats = config?.highlights?.stats || [];
+  const tools = config?.highlights?.tools || [];
+  const headline = config.bio.headline || "";
+  const headlineParts = headline.split(" ");
+  const headlineLead = headlineParts.slice(0, 2).join(" ");
+  const headlineRest = headlineParts.slice(2).join(" ");
 
   const socialLinks = [
     {
@@ -134,176 +89,113 @@ export default function Hero({ config }) {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-6 py-20">
-      {/* Floating gradient orbs */}
-      <motion.div
-        {...floatingOrb}
-        className="absolute top-20 left-10 w-72 h-72 bg-primary/20 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div
-        {...floatingOrb2}
-        className="absolute bottom-32 right-10 w-96 h-96 bg-accent/15 rounded-full blur-3xl pointer-events-none"
-      />
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-1/3 right-1/4 w-48 h-48 bg-primary/10 rounded-full blur-2xl pointer-events-none"
-      />
-
-      <div className="max-w-6xl mx-auto text-center relative z-10">
-        <div className="flex flex-col items-center gap-8">
-          {/* Avatar */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="relative"
-          >
-            <motion.img
-              src={`${import.meta.env.BASE_URL}images/profile.png`}
-              alt={config.personal.name}
-              className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover"
-              style={{ boxShadow: "0 0 40px rgba(var(--color-primary-rgb), 0.3)" }}
-              whileHover={{ scale: 1.05, boxShadow: "0 0 60px rgba(var(--color-primary-rgb), 0.5)" }}
-            />
-            <motion.div
-              className="absolute -bottom-2 -right-2 w-10 h-10 rounded-full flex items-center justify-center"
-              style={{
-                backgroundColor: "#10b981",
-                boxShadow: "0 0 20px rgba(16, 185, 129, 0.5)",
-              }}
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <div className="w-3 h-3 rounded-full bg-white" />
-            </motion.div>
-          </motion.div>
-
-          {/* Typewriter Title */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
+    <section className="relative min-h-[90vh] flex items-center justify-center px-6 py-24">
+      <div className="max-w-5xl mx-auto text-center relative z-10">
+        <div className="flex flex-col items-center gap-7">
+          <motion.img
+            src={`${import.meta.env.BASE_URL}images/profile.png`}
+            alt={config.personal.name}
+            className="w-28 h-28 md:w-36 md:h-36 rounded-full object-cover"
+            style={{ boxShadow: "0 0 32px rgba(var(--color-primary-rgb), 0.22)" }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
+            transition={{ duration: 0.5 }}
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.05 }}
           >
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 min-h-[60px] flex items-center justify-center"
+            <div className="h-7 flex items-center justify-center mb-3 overflow-hidden">
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={titleIndex}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -10 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  className="text-xs md:text-sm font-semibold tracking-wider uppercase"
+                  style={{ color: "var(--color-accent)" }}
+                >
+                  {titles[titleIndex]}
+                </motion.p>
+              </AnimatePresence>
+            </div>
+            <h1
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4"
               style={{ color: "var(--color-text-primary)" }}
             >
-              <span className="inline-block">
-                {displayText}
-                <motion.span
-                  animate={{ opacity: [1, 0, 1] }}
-                  transition={{ duration: 0.8, repeat: Infinity }}
-                  className="inline-block w-1 h-10 md:h-12 bg-primary ml-1 align-middle"
-                />
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-lg md:text-xl font-semibold mb-4 text-center"
+              {config.personal.name}
+            </h1>
+            <p
+              className="text-lg md:text-xl font-semibold mb-4"
               style={{ color: "var(--color-text-primary)" }}
             >
               <span className="italic" style={{ color: "var(--color-primary)" }}>
-                {config.bio.headline.split(" ").slice(0, 2).join(" ")}
+                {headlineLead}
               </span>{" "}
-              {config.bio.headline.split(" ").slice(2).join(" ")}
-            </motion.p>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.6 }}
-              className="max-w-2xl mx-auto mb-8 leading-relaxed text-sm md:text-base"
+              {headlineRest}
+            </p>
+            <p
+              className="max-w-2xl mx-auto mb-2 leading-relaxed text-sm md:text-base"
               style={{ color: "var(--color-text-secondary)" }}
             >
               {config.bio.subtitle}
-            </motion.p>
+            </p>
           </motion.div>
 
-          {/* Social Links */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.6 }}
+            transition={{ delay: 0.15, duration: 0.45 }}
             className="flex justify-center gap-3 flex-wrap"
           >
-            {socialLinks.map((link, index) => (
-              <motion.a
+            {socialLinks.map((link) => (
+              <a
                 key={link.label}
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={link.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8 + index * 0.1 }}
-                whileHover={{ scale: 1.05, y: -3, boxShadow: "0 10px 30px rgba(0,0,0,0.2)" }}
-                whileTap={{ scale: 0.95 }}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl ${link.bg} ${link.hover} text-white font-medium transition-all shadow-lg text-sm`}
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl ${link.bg} ${link.hover} text-white font-medium transition-colors shadow-lg text-sm`}
               >
                 {link.icon}
                 {link.label}
-              </motion.a>
+              </a>
             ))}
           </motion.div>
 
-          {/* Stats with Animated Counters */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1, duration: 0.6 }}
-            className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-4 w-full max-w-3xl"
-          >
-            {stats.map((stat, index) => (
-              <motion.div
-                key={stat.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1.1 + index * 0.1 }}
-                whileHover={{ y: -4, scale: 1.03 }}
-                className="glass-card rounded-xl p-4 text-center cursor-default"
-              >
-                <p className="text-2xl md:text-3xl font-extrabold" style={{ color: "var(--color-primary)" }}>
-                  <AnimatedCounter end={stat.value} suffix={stat.suffix} />
-                </p>
-                <p className="text-xs font-semibold mt-1" style={{ color: "var(--color-text-primary)" }}>
-                  {stat.label}
-                </p>
-                <p className="text-[10px] mt-0.5" style={{ color: "var(--color-text-muted)" }}>
-                  {stat.sublabel}
-                </p>
-              </motion.div>
-            ))}
-          </motion.div>
+          {stats.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25, duration: 0.45 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mt-2 w-full max-w-3xl"
+            >
+              {stats.map((stat) => (
+                <div key={stat.label} className="glass-card rounded-xl p-4 text-center">
+                  <p className="text-2xl md:text-3xl font-extrabold" style={{ color: "var(--color-primary)" }}>
+                    <AnimatedCounter end={stat.value} suffix={stat.suffix} />
+                  </p>
+                  <p className="text-xs font-semibold mt-1" style={{ color: "var(--color-text-primary)" }}>
+                    {stat.label}
+                  </p>
+                  <p className="text-[10px] mt-0.5" style={{ color: "var(--color-text-muted)" }}>
+                    {stat.sublabel}
+                  </p>
+                </div>
+              ))}
+            </motion.div>
+          )}
+
+          {tools.length > 0 && (
+            <p className="text-xs" style={{ color: "var(--color-text-muted)" }}>
+              {tools.join(" · ")}
+            </p>
+          )}
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 right-8 flex flex-col items-center gap-2"
-      >
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          className="text-text-muted text-xs font-medium tracking-wider uppercase"
-        >
-          Scroll
-        </motion.span>
-        <motion.div
-          animate={{ y: [0, 12, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-          className="p-3 rounded-full bg-primary/20 border border-primary/30"
-        >
-          <ArrowDown size={24} className="text-primary" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 }

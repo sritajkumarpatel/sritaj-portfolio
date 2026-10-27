@@ -2,7 +2,6 @@ import React, { useState, useCallback, useEffect, useRef } from "react";
 import config from "./config.json";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import BentoGrid from "./components/BentoGrid";
 import Certifications from "./components/Certifications";
 import certifications from "./data/certifications.json";
 import Experience from "./components/Experience";
@@ -16,7 +15,6 @@ import About from "./components/About";
 import Awards from "./components/Awards";
 import Education from "./components/Education";
 import Footer from "./components/Footer";
-import AnimatedBackground from "./components/AnimatedBackground";
 import ProjectModal from "./components/ProjectModal";
 import aboutMe from "./data/aboutMe.json";
 import awards from "./data/awards.json";
@@ -76,15 +74,13 @@ const App = () => {
         return { id, top: Math.abs(rect.top - 80) };
       });
       const closest = offsets.reduce((a, b) => (a.top < b.top ? a : b));
-      if (closest.id !== activeSection) {
-        setActiveSection(closest.id);
-      }
+      setActiveSection((prev) => (prev !== closest.id ? closest.id : prev));
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeSection]);
+  }, []);
 
   const logoModules = import.meta.glob("./assets/certifications/*.{png,svg}", {
     query: "?url",
@@ -112,7 +108,6 @@ const App = () => {
     if (!sectionConfig) return null;
 
     const { component: Component, props } = sectionConfig;
-    const sectionMeta = enabledSections.find((s) => s.id === sectionId);
 
     if (sectionId === "certifications") {
       return <Component certifications={certificationsWithLogos} />;
@@ -125,8 +120,6 @@ const App = () => {
 
   return (
     <div className="min-h-screen flex flex-col bg-bg-primary text-text-primary relative">
-      <AnimatedBackground />
-
       <Nav
         activeSection={activeSection}
         scrollToSection={scrollToSection}
@@ -138,8 +131,6 @@ const App = () => {
         <div ref={(el) => (sectionRefs.current["hero"] = el)}>
           <Hero config={config} />
         </div>
-
-        <BentoGrid />
 
         {enabledSections.map((section) => (
           <div key={section.id} ref={(el) => (sectionRefs.current[section.id] = el)}>

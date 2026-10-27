@@ -1,0 +1,53 @@
+name: Sync Medium and GitHub Sources
+
+on:
+  push:
+    branches: ["main"]
+  schedule:
+    # Runs on the 1st of every month at 00:00 UTC
+    - cron: "0 0 1 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: "sync-sources"
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run data fetch scripts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm run update:medium
+          npm run update:github
+
+      - name: Commit and push changes to main
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          
+          if [ -n "$(git status --porcelain src/data/)" ]; then
+            echo "Changes detected in src/data/. Committing..."
+            git add src/data/mediumArticles.json src/data/projects.json
+            git commit -m "chore(data): auto-sync latest Medium and GitHub sources"
+            git push origin main
+          else
+            echo "No data changes detected. Everything is up to date."
+          fi
