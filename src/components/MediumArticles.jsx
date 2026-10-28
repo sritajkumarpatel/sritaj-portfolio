@@ -48,8 +48,8 @@ export default function MediumArticles({ articles, mediumHandle }) {
             Thoughts & <span className="italic" style={{ color: "var(--color-primary)" }}>Ideas</span>
           </h3>
         </div>
-        <p className="text-sm ml-10" style={{ color: "var(--color-text-muted)" }}>
-          Writing on AI engineering, test automation, and building better teams
+        <p className="text-sm ml-10 max-w-2xl leading-relaxed" style={{ color: "var(--color-text-muted)" }}>
+          Lessons learned in the trenches—from debugging flaky locators to orchestrating multi-agent LLMs and leading empathetic Agile teams. If you're building in this space, let's exchange notes.
         </p>
       </div>
 

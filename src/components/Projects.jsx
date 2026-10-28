@@ -10,11 +10,17 @@ export default function Projects({ projects, onOpenModal }) {
     <Section>
       <div className="mb-8">
         <p className="text-xs font-medium tracking-widest uppercase mb-2" style={{ color: "var(--color-text-muted)" }}>
-          Case Studies
+          The 'Forge' Ecosystem
         </p>
-        <h3 className="text-3xl md:text-4xl font-bold" style={{ color: "var(--color-text-primary)" }}>
+        <h3 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: "var(--color-text-primary)" }}>
           Curated <span className="italic" style={{ color: "var(--color-primary)" }}>Work</span>
         </h3>
+        <p className="text-sm max-w-2xl leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+          <span className="font-semibold" style={{ color: "var(--color-text-primary)" }}>
+            "If you do a repetitive task more than three times, forge a tool for it."
+          </span>{" "}
+          A suite of autonomous, open-source AI agents designed to eliminate the mechanical toil of engineering—from test suite synthesis to instant architecture documentation.
+        </p>
       </div>
 
       <div className="space-y-8">

@@ -155,40 +155,36 @@ export default function Experience({ experience }) {
                   ))}
                 </div>
 
-                {exp.currentRolesAndResponsibilities?.length > 0 && (
+                {exp.servedAs?.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {exp.servedAs.map((roleBadge, idx) => (
+                      <span
+                        key={idx}
+                        className="px-2.5 py-1 rounded-md text-xs font-medium"
+                        style={{
+                          backgroundColor: "rgba(var(--color-primary-rgb), 0.08)",
+                          color: "var(--color-primary)",
+                          border: "1px solid rgba(var(--color-primary-rgb), 0.15)",
+                        }}
+                      >
+                        {roleBadge}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {exp.highlights?.length > 0 && (
                   <div className="mb-4">
                     <h5 className="text-sm font-semibold mb-2" style={{ color: "var(--color-primary)" }}>
-                      Roles & Responsibilities
+                      Key Impact & Initiatives
                     </h5>
-                    <ul className="space-y-1.5">
-                      {exp.currentRolesAndResponsibilities.map((item, iIndex) => (
+                    <ul className="space-y-2">
+                      {exp.highlights.map((item, iIndex) => (
                         <ResponsibilityItem key={iIndex} item={item} />
                       ))}
                     </ul>
                   </div>
                 )}
-
-                {(!exp.currentRolesAndResponsibilities ||
-                  exp.currentRolesAndResponsibilities.length === 0) &&
-                  exp.highlights?.length > 0 && (
-                    <div className="mb-4">
-                      <h5 className="text-sm font-semibold mb-2" style={{ color: "var(--color-primary)" }}>
-                        Highlights
-                      </h5>
-                      <ul className="space-y-1">
-                        {exp.highlights.map((highlight) => (
-                          <li
-                            key={highlight}
-                            className="text-sm flex items-start gap-2"
-                            style={{ color: "var(--color-text-secondary)" }}
-                          >
-                            <span style={{ color: "var(--color-accent)" }}>•</span>
-                            <span>{highlight}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
 
                 {exp.awards?.length > 0 && (
                   <div className="pt-4" style={{ borderTop: "1px solid var(--color-border)" }}>
