@@ -12,21 +12,21 @@
   },
   "bio": {
     "headline": "Automation Architect & AI Engineer",
-    "subtitle": "11 years building intelligent automation systems. QA to Architect. Exploring Agentic AI, LangChain, and Playwright to make software delivery faster, smarter, and more reliable."
+    "subtitle": "11 years of engineering journey from manual QA to Senior Architect. Passionate about eliminating repetitive toil through Agentic AI, LangChain, and modern test automation—helping teams build software with speed and confidence."
   },
   "titles": [
     "Senior Architect at emagine",
-    "AI Automation Architect",
-    "Quality Engineer → Architect",
-    "Agentic Workflow Architect",
-    "Scrum Master (PSM I, CSM)",
-    "Building Intelligent Workflows"
+    "Agentic AI & Test Automation Architect",
+    "Quality Engineer → Senior Architect",
+    "Certified Scrum Master (PSM I, CSM)",
+    "Open-Source AI Tool Builder",
+    "Eliminating Engineering Toil"
   ],
   "highlights": {
     "stats": [
-      { "value": 11, "suffix": "+", "label": "Years Experience", "sublabel": "QE to Architect" },
-      { "value": 90, "suffix": "%", "label": "Efficiency Gains", "sublabel": "Via automation" },
-      { "value": 7, "suffix": "", "label": "Certifications", "sublabel": "PSM I, CSM, Azure AI, DevOps & more" },
+      { "value": 11, "suffix": "+", "label": "Years Experience", "sublabel": "From QA to Architect" },
+      { "value": 90, "suffix": "%", "label": "Toil Reduction", "sublabel": "Via intelligent automation" },
+      { "value": 7, "suffix": "", "label": "Certifications", "sublabel": "PSM I, CSM, Azure AI & DevOps" },
       { "value": 16, "suffix": "+", "label": "Articles Published", "sublabel": "On Medium" }
     ],
     "tools": ["Playwright", "JavaScript", "MCPs", "Claude", "GitHub", "GitHub Actions"]

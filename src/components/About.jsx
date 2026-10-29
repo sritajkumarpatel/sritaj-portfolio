@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
-import { User, Brain, Shield, Terminal, Users, ArrowRight } from "lucide-react";
+import { User, Brain, Shield, Terminal, Users, ArrowRight, Compass, Globe, Sparkles } from "lucide-react";
 import Section from "./Section";
 
 const ICON_MAP = { Brain, Shield, Terminal, Users };
@@ -22,20 +21,13 @@ const fadeUp = {
   },
 };
 
-const scaleIn = {
-  hidden: { opacity: 0, scale: 0.9 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] },
-  },
-};
-
 export default function About({ aboutMe }) {
   if (!aboutMe) return null;
 
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  const bioParagraphs = (aboutMe.fullBio || "").split("\n\n").filter(Boolean);
 
   return (
     <Section>
@@ -50,12 +42,17 @@ export default function About({ aboutMe }) {
         <motion.div whileHover={{ rotate: 360, scale: 1.1 }} transition={{ duration: 0.5 }}>
           <User style={{ color: "var(--color-primary)" }} size={28} />
         </motion.div>
-        <h3 className="text-2xl md:text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
-          About Me
-        </h3>
+        <div>
+          <h3 className="text-2xl md:text-3xl font-bold" style={{ color: "var(--color-primary)" }}>
+            About Me
+          </h3>
+          <p className="text-xs md:text-sm" style={{ color: "var(--color-text-muted)" }}>
+            The journey, architectural philosophy, and what drives my work
+          </p>
+        </div>
       </motion.div>
 
-      {/* Bio — split into two flowing paragraphs */}
+      {/* Bio — flowing multi-paragraph narrative */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -63,24 +60,52 @@ export default function About({ aboutMe }) {
         transition={{ duration: 0.7, delay: 0.1 }}
         className="glass-card rounded-2xl p-6 md:p-8 mb-8 relative overflow-hidden"
       >
-        {/* Subtle gradient accent */}
         <div
           className="absolute top-0 left-0 w-full h-1"
           style={{
             background: "linear-gradient(90deg, var(--color-primary), var(--color-accent), transparent)",
           }}
         />
-        <div className="flex items-start gap-4">
-          <p
-            className="leading-relaxed text-sm md:text-base"
-            style={{ color: "var(--color-text-secondary)" }}
-          >
-            {aboutMe.fullBio}
-          </p>
+        <div className="space-y-4 text-sm md:text-base leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+          {bioParagraphs.map((paragraph, index) => (
+            <p key={index}>{paragraph}</p>
+          ))}
         </div>
+
+        {/* Global Languages / Collaboration Pill */}
+        {aboutMe.languages && aboutMe.languages.length > 0 && (
+          <div className="mt-6 pt-5 flex flex-wrap items-center gap-3" style={{ borderTop: "1px solid var(--color-border)" }}>
+            <span className="flex items-center gap-1.5 text-xs font-semibold" style={{ color: "var(--color-text-muted)" }}>
+              <Globe size={14} style={{ color: "var(--color-primary)" }} />
+              Languages:
+            </span>
+            <div className="flex flex-wrap gap-2">
+              {aboutMe.languages.map((lang, idx) => (
+                <span
+                  key={idx}
+                  className="px-2.5 py-1 rounded-full text-xs font-medium"
+                  style={{
+                    backgroundColor: "rgba(var(--color-primary-rgb), 0.08)",
+                    color: "var(--color-primary)",
+                    border: "1px solid rgba(var(--color-primary-rgb), 0.15)",
+                  }}
+                >
+                  {lang.name} <span style={{ opacity: 0.7 }}>({lang.proficiency})</span>
+                </span>
+              ))}
+            </div>
+          </div>
+        )}
       </motion.div>
 
       {/* What I Do — 4 pillars */}
+      <div className="mb-4">
+        <h4 className="text-lg font-bold mb-4 flex items-center gap-2" style={{ color: "var(--color-text-primary)" }}>
+          <Sparkles size={18} style={{ color: "var(--color-accent)" }} />
+          Core Pillars of Practice
+        </h4>
+      </div>
+
       <motion.div
         ref={ref}
         variants={stagger}
@@ -88,7 +113,7 @@ export default function About({ aboutMe }) {
         animate={isInView ? "visible" : "hidden"}
         className="grid md:grid-cols-2 gap-4 mb-8"
       >
-        {aboutMe.whatIdo.map((item, index) => {
+        {aboutMe.whatIdo.map((item) => {
           const IconComponent = ICON_MAP[item.icon] || Brain;
           return (
             <motion.div
@@ -147,13 +172,57 @@ export default function About({ aboutMe }) {
         })}
       </motion.div>
 
-      {/* Philosophy — single line */}
+      {/* How I Think & Build — Engineering Principles */}
+      {aboutMe.principles && aboutMe.principles.length > 0 && (
+        <div className="mb-8">
+          <div className="mb-4">
+            <h4 className="text-lg font-bold flex items-center gap-2" style={{ color: "var(--color-text-primary)" }}>
+              <Compass size={18} style={{ color: "var(--color-primary)" }} />
+              How I Think & Build
+            </h4>
+            <p className="text-xs md:text-sm" style={{ color: "var(--color-text-muted)" }}>
+              Guiding architectural beliefs refined over 11 years in engineering
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-4">
+            {aboutMe.principles.map((principle, index) => (
+              <motion.div
+                key={principle.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                whileHover={{ y: -4 }}
+                className="glass-card rounded-xl p-5 relative overflow-hidden"
+                style={{
+                  borderLeft: "3px solid var(--color-primary)",
+                }}
+              >
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="text-xs font-mono font-bold px-2 py-0.5 rounded" style={{ backgroundColor: "rgba(var(--color-primary-rgb), 0.1)", color: "var(--color-primary)" }}>
+                    0{index + 1}
+                  </span>
+                  <h5 className="text-sm md:text-base font-semibold" style={{ color: "var(--color-text-primary)" }}>
+                    {principle.title}
+                  </h5>
+                </div>
+                <p className="text-xs md:text-sm leading-relaxed" style={{ color: "var(--color-text-secondary)" }}>
+                  {principle.description}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {/* Philosophy — single line quote */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="glass-card rounded-2xl p-5 text-center relative overflow-hidden"
+        className="glass-card rounded-2xl p-6 text-center relative overflow-hidden"
       >
         <div
           className="absolute inset-0 opacity-5"

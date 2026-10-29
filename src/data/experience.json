@@ -7,8 +7,15 @@
     "duration": "1 month",
     "current": true,
     "location": "Bengaluru, Karnataka, India · Hybrid",
-    "currentRolesAndResponsibilities": [
-      "Same role. New chapter. New possibilities."
+    "servedAs": [
+      "AI & Quality Engineering Architect",
+      "Agentic Workflow Specialist",
+      "Shift Left Quality Advocate"
+    ],
+    "highlights": [
+      "Spearheading intelligent quality engineering architectures and test automation strategies across enterprise platforms.",
+      "Designing autonomous AI testing agents, MCP (Model Context Protocol) workflows, and LLM-assisted verification pipelines to accelerate release velocity.",
+      "Championing Shift Left quality principles and developer enablement, turning testing from a gatekeeper into an active delivery accelerator."
     ]
   },
   {
@@ -23,39 +30,31 @@
     "duration": "4 years 8 months",
     "current": false,
     "location": "Bengaluru, Karnataka, India · Hybrid",
-    "currentRolesAndResponsibilities": [
-      "Designed automation workflows to streamline repetitive and manual processes",
-      "Reduced repetitive tasks by building tools and automation flows, cutting manual effort and test execution time by 80–90%",
-      {
-        "text": "Developed and maintained an end-to-end automation platform that:",
-        "subItems": [
-          "Automated workflows",
-          "Generated synthetic test data",
-          "Created Postman request bodies",
-          "Enabled one-click test execution",
-          "Provided a unified platform to validate and launch workflows"
-        ]
-      },
-      "Performed testing activities, including test case design, test execution, and preparation of test plans for Acceptance Day",
-      "Expanded API test coverage within the C#-based automation framework by developing and integrating test cases for additional endpoints, while enhancing automated test reporting and Microsoft Teams integration to share test execution results and improve visibility into test outcomes",
-      "Leveraged AI tools and vibe coding to automate flows and enhance workflow efficiency"
-    ],
     "servedAs": [
-      "Scrum Master, facilitating Agile ceremonies and sprint execution",
-      "Test Automation specialist, creating and maintaining frameworks with latest tools",
-      "CI/CD pipeline architect, setting up and monitoring Jenkins pipelines",
-      "Innovation champion, driving continuous improvement and innovation within teams"
+      "Scrum Master (PSM I, CSM)",
+      "Test Automation Architect",
+      "CI/CD Pipeline Lead",
+      "Innovation Champion"
     ],
     "highlights": [
-      "Served as Scrum Master, facilitating Agile ceremonies and sprint execution",
-      "Created and maintained Test Automation frameworks with latest tools",
-      "Set up and monitored Jenkins pipelines for CI/CD",
-      "Drove continuous improvement and innovation within teams"
+      {
+        "text": "Architected and delivered an end-to-end automation platform that eliminated 80–90% of manual effort and test execution time:",
+        "subItems": [
+          "Automated complex multi-tier business workflows",
+          "Generated realistic synthetic test data dynamically",
+          "Automated Postman API request payload generation",
+          "Enabled one-click test execution with automated MS Teams telemetry"
+        ]
+      },
+      "Expanded API test coverage across C#-based automation frameworks, integrating real-time reporting to give cross-functional teams immediate visibility into release health.",
+      "Pioneered agentic AI workflows and intelligent automation flows, combining modern LLM tooling with robust architectural patterns to accelerate test suite creation.",
+      "Served as Certified Scrum Master, facilitating Agile ceremonies, resolving impediments with empathy, and driving a culture of continuous improvement.",
+      "Mentored quality engineers across client teams, helping them evolve from manual testing into automation developers and pipeline architects."
     ],
     "awards": [
       {
         "name": "Breakthrough Achiever of the Year - 2024",
-        "description": "Recognition for exceptional innovation and contribution"
+        "description": "Recognized across the organization for exceptional innovation, automation leadership, and business impact."
       }
     ]
   },
@@ -71,26 +70,19 @@
     "current": false,
     "location": "Bengaluru, Karnataka, India",
     "servedAs": [
-      "Quality Assurance Lead, managing and mentoring QE team for sprint release activities",
-      "Test Automation Specialist, designing and developing comprehensive automation frameworks",
-      "POM Pages Architect, implementing Page Object Model with automation scripts",
-      "Code Quality Advocate, cleaning up code, developing Generic Methods, and optimizing existing methods",
-      "Migration Lead, moving Test Scripts from older Framework to new one",
-      "Metrics Analyst, monitoring automation run metrics for testability, test health, and coverage",
-      "Root Cause Analysis Expert, investigating and resolving legacy system issues"
+      "Quality Assurance Lead",
+      "POM Framework Architect",
+      "Migration & Metrics Lead"
     ],
     "highlights": [
-      "Implemented POM pages and developed automation scripts",
-      "Managed and led QE team for sprint release activities",
-      "Designed test strategies and developed automation frameworks",
-      "Developed Generic Methods, optimized and maintained existing codebase",
-      "Monitored automation run metrics (testability, test health, test coverage)",
-      "Migrated Test Scripts from older Framework to new one",
-      "Conducted root cause analysis for legacy issues"
+      "Led and mentored the Quality Engineering team through release cycles, establishing test strategies and automation gates for production readiness.",
+      "Architected a scalable Page Object Model (POM) test automation framework, writing generic reusable libraries and standardizing scripting practices.",
+      "Spearheaded migration of legacy test suites to modern automation frameworks, improving execution speed, test health, and flakiness metrics.",
+      "Conducted in-depth root cause analysis (RCA) on complex legacy issues, collaborating with development teams to resolve persistent defects at the architectural level."
     ],
     "awards": [
-      { "name": "Aurigo Spot Award - Q1 2021", "description": "Recognition for exceptional contribution" },
-      { "name": "Aurigo Bravo Award - Q3 2019", "description": "Outstanding performance and dedication" }
+      { "name": "Aurigo Spot Award - Q1 2021", "description": "Recognition for exceptional contribution to sprint deliverables" },
+      { "name": "Aurigo Bravo Award - Q3 2019", "description": "Outstanding performance and commitment to quality" }
     ]
   },
   {
@@ -102,16 +94,14 @@
     "current": false,
     "location": "Bengaluru, Karnataka, India",
     "servedAs": [
-      "IoT Platform Quality Engineer, testing embedded systems and IoT applications",
-      "Test Automation Developer, building frameworks with Selenium and Sikuli",
-      "Functional & Non-Functional Testing Specialist, ensuring quality across Mobile, Desktop, Linux, and Web",
-      "iOS Application Specialist, debugging applications using XCode"
+      "IoT Platform Quality Engineer",
+      "Automation Developer (Selenium/Sikuli)",
+      "Cross-Platform Validation Specialist"
     ],
     "highlights": [
-      "Worked on IoT and Embedded Platforms domain",
-      "Developed Automation frameworks using Selenium/Sikuli",
-      "Performed functional and non-functional testing across Mobile, Desktop, Linux, and Web",
-      "Collaborated with developers to debug iOS applications using XCode"
+      "Developed robust automation frameworks using Selenium and Sikuli for embedded systems and connected IoT platforms.",
+      "Executed comprehensive functional, integration, and performance testing across Linux, Windows, macOS, Mobile, and Web environments.",
+      "Collaborated directly with firmware and mobile developers in Xcode and Linux environments to debug device telemetry and application issues."
     ]
   },
   {
@@ -123,14 +113,13 @@
     "current": false,
     "location": "India",
     "servedAs": [
-      "SAP ERP Testing Specialist, conducting comprehensive black box testing",
-      "Test Case Designer, creating and executing detailed test scenarios",
-      "PMO Contributor, supporting project planning and coordination activities"
+      "ERP Quality Specialist",
+      "Test Matrix Designer"
     ],
     "highlights": [
-      "Tested SAP ERP Application (Black Box Testing)",
-      "Designed and executed Test Cases",
-      "Contributed to PMO activities and project planning"
+      "Conducted comprehensive black-box functional and regression testing across enterprise SAP ERP business modules.",
+      "Designed detailed test matrices, scenarios, and defect verification workflows, ensuring data consistency across business operations.",
+      "Gained foundational insight into the human cost of manual regression testing, establishing the conviction to automate repetitive engineering effort."
     ]
   }
 ]
