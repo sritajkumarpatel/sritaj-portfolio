@@ -97,7 +97,7 @@ async function run() {
       })
       .slice(0, maxItems);
 
-    const preferredOrder = ["portforge", "testforge", "githubreadmeforge", "instapostsforge"];
+    const preferredOrder = ["testforge", "githubreadmeforge", "portforge", "instapostsforge"];
 
     const projects = matched
       .map((repo) => {

@@ -1,29 +1,4 @@
 {
-  "portforge": {
-    "title": "PortForge — AI-Powered Portfolio Builder",
-    "description": "Built out of frustration with bloated, cookie-cutter website builders. Talk conversationally to an AI agent (Claude, Copilot, opencode) and get a production-ready React portfolio in minutes—featuring LinkedIn auto-import, 3 aesthetic styles (Minimal/Bold/Terminal), and one-click Vercel deployment.",
-    "image": "portforge.png",
-    "featured": true,
-    "keyFeatures": [
-      "Conversational AI Setup",
-      "LinkedIn Profile Import",
-      "3 Distinct Visual Styles",
-      "Tailwind & Glassmorphic Themes",
-      "One-Click Vercel / Netlify Deploy"
-    ],
-    "technologies": ["React 18", "Vite", "Tailwind CSS", "Framer Motion", "Lucide React", "Node.js"],
-    "sections": ["keyFeatures", "technologies", "quickStart"],
-    "quickStart": {
-      "title": "Try it:",
-      "steps": [
-        { "text": "Clone repository", "code": "git clone https://github.com/sritajkumarpatel/portforge" },
-        { "text": "Open in AI assistant", "code": "cd portforge && opencode ." },
-        { "text": "Say to agent", "code": "\"Set up my portfolio\"" },
-        { "text": "Answer 10-15 conversational questions" },
-        { "text": "Preview live", "code": "cd my-portfolio && npm run dev" }
-      ]
-    }
-  },
   "testforge": {
     "title": "TestForge — AI-Powered Test Case Generator",
     "description": "Writing test cases manually from 50-page requirement docs burns days of QA bandwidth. TestForge coordinates three autonomous AI agents (Reader, Architect, Formatter) to parse documents and generate production-ready Azure DevOps test suites with BDD Gherkin steps in under 3 minutes.",
@@ -53,7 +28,7 @@
     "title": "GitHub Readme Forge — AI Architecture & Doc Generator",
     "description": "Brilliant open-source codebases often languish behind empty or stale READMEs. A three-agent AI pipeline scans your repository, extracts architecture diagrams and tech stacks, and forges a polished, narrative-driven README in 5 battle-tested styles across 6 languages.",
     "image": "githubreadmeforge.png",
-    "featured": false,
+    "featured": true,
     "keyFeatures": [
       "3 Autonomous AI Agent Pipeline",
       "5 Battle-Tested README Archetypes",
@@ -75,9 +50,35 @@
       ]
     }
   },
+  "portforge": {
+    "title": "PortForge — AI-Powered Portfolio Builder",
+    "description": "Built out of frustration with bloated, cookie-cutter website builders. Talk conversationally to an AI agent (Claude, Copilot, opencode) and get a production-ready React portfolio in minutes—featuring LinkedIn auto-import, 3 aesthetic styles (Minimal/Bold/Terminal), and one-click Vercel deployment.",
+    "image": "portforge.png",
+    "featured": false,
+    "keyFeatures": [
+      "Conversational AI Setup",
+      "LinkedIn Profile Import",
+      "3 Distinct Visual Styles",
+      "Tailwind & Glassmorphic Themes",
+      "One-Click Vercel / Netlify Deploy"
+    ],
+    "technologies": ["React 18", "Vite", "Tailwind CSS", "Framer Motion", "Lucide React", "Node.js"],
+    "sections": ["keyFeatures", "technologies", "quickStart"],
+    "quickStart": {
+      "title": "Try it:",
+      "steps": [
+        { "text": "Clone repository", "code": "git clone https://github.com/sritajkumarpatel/portforge" },
+        { "text": "Open in AI assistant", "code": "cd portforge && opencode ." },
+        { "text": "Say to agent", "code": "\"Set up my portfolio\"" },
+        { "text": "Answer 10-15 conversational questions" },
+        { "text": "Preview live", "code": "cd my-portfolio && npm run dev" }
+      ]
+    }
+  },
   "instapostsforge": {
     "title": "InstaPosts Forge — Autonomous AI Content Publisher",
     "description": "Zero-server, set-and-forget social publishing. Autonomous AI agents evaluate photos directly from a Google Drive folder, write engaging, tone-aligned captions and hashtags via multi-LLM providers, and publish directly through Instagram Graph API on automated GitHub Actions cron schedules.",
+    "image": "instapostsforge.png",
     "featured": false,
     "keyFeatures": [
       "AI-Curated Image Selection",
